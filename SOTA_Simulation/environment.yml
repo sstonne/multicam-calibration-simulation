@@ -1,0 +1,11 @@
+name: sota-calibration-sim
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy>=2.0
+  - scipy>=1.13
+  - matplotlib>=3.8
+  - pyqt>=5.15
+  - opencv>=4.9,<5
+  - pytest>=8

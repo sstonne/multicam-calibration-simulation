@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+SOTA_Simulation/outputs/
+SOTA_Simulation/outputs_*/

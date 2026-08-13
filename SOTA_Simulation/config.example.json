@@ -1,0 +1,54 @@
+{
+  "board": {
+    "type": "charuco",
+    "squares_x": 11,
+    "squares_y": 7,
+    "square_length_m": 0.025,
+    "marker_length_m": 0.018,
+    "dictionary": "DICT_4X4_250",
+    "marker_id_start": 5
+  },
+  "cameras": [
+    {
+      "name": "cam0",
+      "intrinsics_npz": "../intrinsics/cam0.npz",
+      "position_base_m": [-0.48, -0.58, 0.34],
+      "look_at_base_m": [0.0, 0.0, 0.25]
+    },
+    {
+      "name": "cam1",
+      "intrinsics_npz": "../intrinsics/cam1.npz",
+      "position_base_m": [0.0, -0.68, 0.38],
+      "look_at_base_m": [0.04, 0.0, 0.25]
+    },
+    {
+      "name": "cam3",
+      "intrinsics_npz": "../intrinsics/cam3.npz",
+      "position_base_m": [0.48, -0.58, 0.34],
+      "look_at_base_m": [0.0, 0.0, 0.25]
+    }
+  ],
+  "T_gripper_board": {
+    "translation_m": [0.0, 0.0, 0.10],
+    "rpy_deg": [0.0, 0.0, 0.0]
+  },
+  "simulation": {
+    "seed": 7,
+    "number_of_events": 14,
+    "workspace_center_base_m": [0.0, 0.0, 0.27],
+    "workspace_span_m": [0.30, 0.18, 0.18],
+    "pixel_noise_sigma": 0.0,
+    "corner_dropout_probability": 0.0,
+    "camera_event_dropout_probability": 0.0,
+    "minimum_visible_corners": 8
+  },
+  "initialization": {
+    "translation_sigma_mm": 15.0,
+    "rotation_sigma_deg": 3.0
+  },
+  "noiseless_tolerance": {
+    "translation_mm": 0.001,
+    "rotation_deg": 0.0001,
+    "reprojection_px": 0.0001
+  }
+}
