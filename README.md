@@ -171,6 +171,50 @@ python SOTA_Simulation/tsai_noise_sweep.py \
 방법별 script를 복사하지 않는다. 하나의 runner를 사용해야 모든 방법이 동일한 trajectory,
 noise sample과 random seed를 공유한다.
 
+### 6.1 다음에 적용할 robot-world/hand-eye baseline
+
+다음 두 방법만 우선 적용한다. **두 방법을 동시에 진행하지 않고, Shah를 끝낸 뒤
+Tabb & Ahmad Yousef로 넘어간다.** 아직 adapter가 구현되지 않았으므로 현재 README의 예시
+결과에는 두 방법이 포함되어 있지 않다.
+
+#### 1단계 — Shah (2013)
+
+- 방법: Kronecker product를 이용한 closed-form robot-world/hand-eye calibration
+- 논문: [M. Shah, *Solving the Robot-World/Hand-Eye Calibration Problem Using the Kronecker Product*](https://www.nist.gov/publications/solving-robot-worldhand-eye-calibration-problem-using-kronecker-product)
+- DOI: [10.1115/1.4024473](https://doi.org/10.1115/1.4024473)
+- 구현: OpenCV [`calibrateRobotWorldHandEye`](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html)와
+  [`CALIB_ROBOT_WORLD_HAND_EYE_SHAH`](https://github.com/opencv/opencv/blob/4.x/modules/calib3d/src/calibration_handeye.cpp)
+- 작업 순서
+  1. 현재 simulation transform을 OpenCV 입력 방향으로 변환하는 adapter 작성
+  2. 무잡음 데이터에서 ground truth 복원 및 transform 방향 확인
+  3. 기존 calibration/held-out split과 동일한 `0, 1, 3, 5 mm` noise sweep 실행
+  4. camera별 결과와 8장의 네 가지 통합 지표 출력
+- 완료 조건: 무잡음 검증을 통과하고, 기존 방법과 동일한 trajectory·noise·평가 코드로
+  결과가 저장되어야 한다.
+
+#### 2단계 — Tabb & Ahmad Yousef (2017)
+
+- 시작 조건: **Shah adapter와 무잡음 검증이 완료된 뒤 시작**
+- 방법: iterative robot-world/hand-eye(s) calibration; multi-eye 설정과 여러 cost/rotation
+  parameterization을 제공
+- 논문: [A. Tabb and K. M. Ahmad Yousef, *Solving the Robot-World Hand-Eye(s) Calibration Problem with Iterative Methods*](https://doi.org/10.1007/s00138-017-0841-7)
+- 공개 논문: [arXiv](https://arxiv.org/abs/1907.12425)
+- 저자 구현: [`amy-tabb/RWHEC-Tabb-AhmadYousef`](https://github.com/amy-tabb/RWHEC-Tabb-AhmadYousef)
+- 작업 순서
+  1. 저자 저장소의 제공 예제를 먼저 빌드하고 재현
+  2. 사용할 cost function과 rotation parameterization을 논문 근거와 함께 하나로 고정
+  3. `SOTA_Simulation/adapter_template.py` 형식으로 입력 생성과 결과 변환 구현
+  4. 무잡음 검증 후 Shah와 동일한 noise sweep 및 통합 평가 실행
+- 기록할 사항: 저자 코드 commit, Ceres/OpenCV/Eigen 버전, 선택한 variant, 원 코드 수정 여부,
+  실패 trial을 모두 남긴다.
+
+#### 두 단계의 공통 원칙
+
+- 기존 robot trajectory, held-out event, random seed와 noise sample을 변경하지 않는다.
+- 외부 방법의 transform convention은 adapter 안에서만 변환한다.
+- 무잡음에서 복원되지 않으면 noise 결과를 만들기 전에 좌표계와 입력 형식을 먼저 수정한다.
+- 논문에 없는 refinement를 추가할 경우 원 방법과 구분되는 별도 variant로 기록한다.
+
 ## 7. 논문 결과용 held-out evaluation
 
 ```bash
