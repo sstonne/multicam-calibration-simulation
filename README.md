@@ -20,9 +20,9 @@
 No-FK/Fixed-FK formulation을 설명한다. 필수 실행 문서는 아니지만, wrist와 fixed camera를
 공통 robot base frame에 등록하는 이유를 이해할 때 참고할 수 있다.
 
-[![Cube-in-Hand Calibration presentation](docs/images/presentation_cover.png)](docs/presentation/Cube-in-Hand_Calibration.pdf)
+[![Cube-in-Hand Calibration presentation](docs/images/presentation_cover.png)](docs/presentation/Cube-in-Hand_Calibration.pdf?raw=1)
 
-- [발표자료 PDF — 42 pages](docs/presentation/Cube-in-Hand_Calibration.pdf)
+- [발표자료 PDF 열기/다운로드 — 42 pages](docs/presentation/Cube-in-Hand_Calibration.pdf?raw=1)
 - 발표자료의 Cube/FK joint method와 이 저장소의 OpenCV independent baseline을 구분해서 읽음
 
 ## 1. 이 코드로 확인하는 것
