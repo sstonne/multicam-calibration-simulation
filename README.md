@@ -364,8 +364,8 @@ SOTA_Simulation/outputs/opencv_multicam_metrics/
 
 따라서 이 저장소의 용도는 다음과 같다.
 
-- 적합: 좌표계 검증, adapter 검증, classical baseline, 평가 프로토콜 예제
-- 부적합: 실제 RGB 성능의 절대적 예측, 최종 논문 수치의 단독 근거
+- 적용한 알고리즘 검증, 좌표계 검증, adapter 검증, classical baseline, 평가 프로토콜 예제
+- 실제 RGB 성능의 절대적 예측 X , 최종 논문 수치의 단독 근거 X (실제 데이터로 진행 필요)
 
 ## 13. 실제 데이터 적용 전 체크리스트
 
@@ -379,15 +379,3 @@ SOTA_Simulation/outputs/opencv_multicam_metrics/
 - [ ] Reprojection을 held-out frame에서 계산했는가
 - [ ] Failure trial과 NaN을 숨기지 않았는가
 - [ ] 실제 noise 분포를 별도로 측정했는가
-
-## 14. 공개 전 확인
-
-- 저장소 이름과 citation 정보 결정
-- 저자와 연락처 추가
-- 사용할 open-source license 결정 후 `LICENSE` 추가
-- 실제 논문에서 사용할 method repository commit 고정
-- 예시 결과가 변경되면 README 표와 `examples/` report를 함께 갱신
-- 발표 LaTeX를 수정하면 공개 PDF도 다시 빌드해 함께 갱신
-
-라이선스가 없으면 다른 사용자가 코드를 재사용·수정·배포할 권한이 자동으로 부여되지 않는다.
-MIT, BSD-3-Clause 등 어떤 조건으로 공개할지는 repository owner가 결정해야 한다.
