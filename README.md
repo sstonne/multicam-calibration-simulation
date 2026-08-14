@@ -2,6 +2,7 @@
 
 실제 로봇 데이터에 calibration 알고리즘을 적용하기 전에 구현과 평가 절차를 검증하기 위한 reference benchmark 임.
 
+## 배경
 - Eye-in-hand wrist camera 1대
 - Eye-to-hand fixed camera 3대
 - Board 기반 OpenCV hand–eye calibration
@@ -16,9 +17,8 @@
 ## 연구 배경 발표자료
 
 아래 자료는 benchmark 실행법이 아니라, 연구 본체인 Cube-in-Hand calibration의 문제 설정과
-No-FK/Fixed-FK formulation을 설명한다. 필수 실행 문서는 아니지만, wrist와 fixed camera를
-공통 robot base frame에 등록하는 이유를 이해할 때 참고할 수 있다.
-
+No-FK/Fixed-FK formulation을 설명함.
+연구 주제를 사전에 파악한 뒤 실험을 돌려보는 것을 추천!!
 [![Cube-in-Hand Calibration presentation](docs/images/presentation_cover.png)](docs/presentation/Cube-in-Hand_Calibration.pdf?raw=1)
 
 - [발표자료 PDF 열기/다운로드 — 42 pages](docs/presentation/Cube-in-Hand_Calibration.pdf?raw=1)
