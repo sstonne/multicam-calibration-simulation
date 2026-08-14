@@ -1,6 +1,6 @@
 # Multi-camera–robot calibration simulation benchmark
 
-실제 로봇 데이터에 calibration 알고리즘을 적용하기 전에 구현과 평가 절차를 검증하기 위한 reference benchmar 임
+실제 로봇 데이터에 calibration 알고리즘을 적용하기 전에 구현과 평가 절차를 검증하기 위한 reference benchmark 임.
 
 - Eye-in-hand wrist camera 1대
 - Eye-to-hand fixed camera 3대
