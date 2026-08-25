@@ -41,6 +41,14 @@ from SOTA_Simulation.tsai_noise_sweep import (
     prepare_fixed_inputs,
 )
 
+from SOTA_Simulation.shah_solver import (
+    solve_shah_eye_in_hand,
+    solve_shah_eye_to_hand,
+)
+
+# Shah는 AX=YB를 풀므로 HAND_EYE_METHODS에 섞지 않고 별도 set으로 관리
+ROBOT_WORLD_METHODS = {"shah": "SHAH", "li": "LI"}
+ALL_KNOWN_METHODS = set(HAND_EYE_METHODS) | set(ROBOT_WORLD_METHODS)
 
 DEFAULT_NOISE_MM = (0.0, 1.0, 3.0, 5.0)
 DEFAULT_HELDOUT = (2, 5, 9, 12)
@@ -117,19 +125,40 @@ def run_evaluation(case, wrist, wrist_camera, noise_levels, trials, seed,
                 for name, item in fixed.items()
             }
             for method in methods:
-                wrist_estimate = solve_hand_eye(
-                    [wrist["T_base_gripper"][event] for event in train],
-                    [wrist_poses[event] for event in train],
-                    eye_to_hand=False, method=method,
-                )
-                fixed_estimates = {
-                    name: solve_hand_eye(
-                        [item["robot"][event] for event in train],
-                        [fixed_observations[name][0][event] for event in train],
-                        eye_to_hand=True, method=method,
+                if method in ROBOT_WORLD_METHODS:
+                    # Shah: AX=YB — cv2.calibrateRobotWorldHandEye 경유
+                    # 다른 5개 방법과 달리 eye-to-hand에서 robot pose를 반전하지 않는다.
+                    shah_method = ROBOT_WORLD_METHODS[method]
+                    wrist_result = solve_shah_eye_in_hand(
+                        [wrist["T_base_gripper"][event] for event in train],
+                        [wrist_poses[event] for event in train],
+                        method=shah_method,
                     )
-                    for name, item in fixed.items()
-                }
+                    wrist_estimate = wrist_result.T_gripper_wrist
+                    fixed_estimates = {}
+                    for name, item in fixed.items():
+                        fixed_result = solve_shah_eye_to_hand(
+                            [item["robot"][event] for event in train],
+                            [fixed_observations[name][0][event] for event in train],
+                            method=shah_method,
+                        )
+                        fixed_estimates[name] = fixed_result.T_base_fixed_i
+
+                else:
+                    # Tsai/Park/Horaud/Andreff/Daniilidis: AX=XB
+                    wrist_estimate = solve_hand_eye(
+                        [wrist["T_base_gripper"][event] for event in train],
+                        [wrist_poses[event] for event in train],
+                        eye_to_hand=False, method=method,
+                    )
+                    fixed_estimates = {
+                        name: solve_hand_eye(
+                            [item["robot"][event] for event in train],
+                            [fixed_observations[name][0][event] for event in train],
+                            eye_to_hand=True, method=method,
+                        )
+                        for name, item in fixed.items()
+                    }
 
                 reference = heldout[0]
                 estimated_cameras = {
@@ -306,9 +335,11 @@ def main():
     parser.add_argument("--show", action="store_true")
     args = parser.parse_args()
     methods = list(HAND_EYE_METHODS) if args.methods == ["all"] else [name.lower() for name in args.methods]
-    unknown = sorted(set(methods) - set(HAND_EYE_METHODS))
-    if unknown:
-        parser.error(f"unknown methods: {unknown}")
+    if args.methods == ["all"]:
+        methods = list(HAND_EYE_METHODS)
+    else:
+        methods = [name.lower() for name in args.methods]
+    unknown = sorted(set(methods) - ALL_KNOWN_METHODS)
 
     config, config_path = load_config(args.config)
     config["simulation"]["pixel_noise_sigma"] = 0.0
