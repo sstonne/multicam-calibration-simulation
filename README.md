@@ -368,9 +368,14 @@ SOTA_Simulation/outputs/opencv_multicam_metrics/
 Tsai–Lenz 단독 30-trial 재현 결과와 실제 데이터 적용 요건은
 [`docs/tsai_calibration_evaluation.md`](docs/tsai_calibration_evaluation.md)에 정리했다. 원시 CSV,
 JSON과 그래프는 [`examples/tsai_multicam_metrics/`](examples/tsai_multicam_metrics/)에 있다.
+
 Park–Martin 단독 30-trial 재현 결과와 실제 데이터 적용 요건은
 [`docs/park_calibration_evaluation.md`](docs/park_calibration_evaluation.md)에 정리했다. 원시 CSV,
 JSON과 그래프는 [`examples/park_multicam_metrics/`](examples/park_multicam_metrics/)에 있다.
+
+Horaud–Dornaika 단독 30-trial 재현 결과와 실제 데이터 적용 요건은
+[`docs/horaud_calibration_evaluation.md`](docs/horaud_calibration_evaluation.md)에 정리했다. 원시 CSV,
+JSON과 그래프는 [`examples/horaud_multicam_metrics/`](examples/horaud_multicam_metrics/)에 있다.
 
 ## 11. 새로운 SOTA 방법을 붙일 때
 
