@@ -1,0 +1,104 @@
+{
+  "methods": [
+    "shah"
+  ],
+  "noise_levels_mm": [
+    0.0,
+    1.0,
+    3.0,
+    5.0
+  ],
+  "calibration_events": [
+    0,
+    1,
+    3,
+    4,
+    6,
+    7,
+    8,
+    10,
+    11,
+    13
+  ],
+  "heldout_events": [
+    2,
+    5,
+    9,
+    12
+  ],
+  "wrist_intrinsics": "intrinsics/cam2.npz",
+  "metric_scope": {
+    "heldout": "mean board-pose chain error over four cameras and held-out poses",
+    "camera_pose": "equal-camera mean extrinsic GT error; wrist evaluated in base at the reference pose",
+    "registration": "mean GT error of all six pairwise relative camera transforms",
+    "reprojection": "pixel RMSE over all held-out corners and all four cameras"
+  },
+  "summary": {
+    "shah": {
+      "0.0": {
+        "heldout_translation_error_mm_mean": 7.068492705457838e-07,
+        "heldout_translation_error_mm_std": 1.076891489807835e-22,
+        "heldout_rotation_error_deg_mean": 5.312439976453266e-08,
+        "heldout_rotation_error_deg_std": 6.730571811298969e-24,
+        "camera_pose_translation_error_mm_mean": 7.526493668135651e-07,
+        "camera_pose_translation_error_mm_std": 1.076891489807835e-22,
+        "camera_pose_rotation_error_deg_mean": 2.749708069909606e-08,
+        "camera_pose_rotation_error_deg_std": 6.730571811298969e-24,
+        "pairwise_registration_translation_error_mm_mean": 4.2303839455527007e-07,
+        "pairwise_registration_translation_error_mm_std": 0.0,
+        "pairwise_registration_rotation_error_deg_mean": 1.833158266722832e-08,
+        "pairwise_registration_rotation_error_deg_std": 0.0,
+        "heldout_reprojection_rmse_px_mean": 6.662416024029126e-07,
+        "heldout_reprojection_rmse_px_std": 1.076891489807835e-22
+      },
+      "1.0": {
+        "heldout_translation_error_mm_mean": 0.7636562793357338,
+        "heldout_translation_error_mm_std": 0.22604838995079854,
+        "heldout_rotation_error_deg_mean": 0.2859587476275739,
+        "heldout_rotation_error_deg_std": 0.047019394498660265,
+        "camera_pose_translation_error_mm_mean": 1.734460675425143,
+        "camera_pose_translation_error_mm_std": 0.37895769622620645,
+        "camera_pose_rotation_error_deg_mean": 0.1910615545408078,
+        "camera_pose_rotation_error_deg_std": 0.060299764752831254,
+        "pairwise_registration_translation_error_mm_mean": 2.234101626877924,
+        "pairwise_registration_translation_error_mm_std": 0.4835967438149438,
+        "pairwise_registration_rotation_error_deg_mean": 0.2729004947801359,
+        "pairwise_registration_rotation_error_deg_std": 0.07910795186699984,
+        "heldout_reprojection_rmse_px_mean": 2.424056452785889,
+        "heldout_reprojection_rmse_px_std": 0.06681152913540324
+      },
+      "3.0": {
+        "heldout_translation_error_mm_mean": 2.2974244328600446,
+        "heldout_translation_error_mm_std": 0.6465548073384699,
+        "heldout_rotation_error_deg_mean": 0.857802666259339,
+        "heldout_rotation_error_deg_std": 0.14109683015284813,
+        "camera_pose_translation_error_mm_mean": 5.183412003081402,
+        "camera_pose_translation_error_mm_std": 1.1625352674865876,
+        "camera_pose_rotation_error_deg_mean": 0.573416166186697,
+        "camera_pose_rotation_error_deg_std": 0.18108150107151294,
+        "pairwise_registration_translation_error_mm_mean": 6.66459002245204,
+        "pairwise_registration_translation_error_mm_std": 1.4739012385811088,
+        "pairwise_registration_rotation_error_deg_mean": 0.8189900083981884,
+        "pairwise_registration_rotation_error_deg_std": 0.23775231844154215,
+        "heldout_reprojection_rmse_px_mean": 7.271753667371239,
+        "heldout_reprojection_rmse_px_std": 0.20632421254463493
+      },
+      "5.0": {
+        "heldout_translation_error_mm_mean": 3.8751940672135015,
+        "heldout_translation_error_mm_std": 1.0637612762412827,
+        "heldout_rotation_error_deg_mean": 1.4295775433620086,
+        "heldout_rotation_error_deg_std": 0.23520699300912357,
+        "camera_pose_translation_error_mm_mean": 8.640697200837193,
+        "camera_pose_translation_error_mm_std": 2.0124697782433647,
+        "camera_pose_rotation_error_deg_mean": 0.9561033518995895,
+        "camera_pose_rotation_error_deg_std": 0.30209049994710685,
+        "pairwise_registration_translation_error_mm_mean": 11.099540212888051,
+        "pairwise_registration_translation_error_mm_std": 2.5774698979373043,
+        "pairwise_registration_rotation_error_deg_mean": 1.3654811616427642,
+        "pairwise_registration_rotation_error_deg_std": 0.39694157864136564,
+        "heldout_reprojection_rmse_px_mean": 12.116804235827088,
+        "heldout_reprojection_rmse_px_std": 0.35334111516371614
+      }
+    }
+  }
+}
