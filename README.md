@@ -170,7 +170,7 @@ python SOTA_Simulation/tsai_noise_sweep.py \
 방법별 script를 복사하지 않는다. 하나의 runner를 사용해야 모든 방법이 동일한 trajectory,
 noise sample과 random seed를 공유한다.
 
-### 6.1 다음에 적용할 robot-world/hand-eye baseline
+### 6.1 다음에 적용할 robot-world/hand-eye baseline - 5가지 방법
 
 다음 두 방법만 우선 적용한다. **두 방법을 동시에 진행하지 않고, Shah를 끝낸 뒤
 Tabb & Ahmad Yousef로 넘어가는 것을 추천함!!** 아직 adapter가 구현되지 않았으므로 현재 README의 예시
@@ -204,16 +204,162 @@ Tabb & Ahmad Yousef로 넘어가는 것을 추천함!!** 아직 adapter가 구�
   3. `SOTA_Simulation/adapter_template.py` 형식으로 입력 생성과 결과 변환 구현
   4. 무잡음(노이즈 0) 검증 후 Shah와 동일한 noise sweep 및 통합 평가 실행
 
+#### 3단계 — Allegro et al. (2024)
 
-#### 두 단계의 공통 원칙
+- 방법: Multi-camera hand-eye calibration framework
+- 역할: 제안 방법과 가장 가까운 공개 multi-camera calibration baseline
+- 공개 구현: `davidea97/Multi-Camera-Hand-Eye-Calibration`
+- 특징:
+  - Multi-camera joint calibration
+  - Pixel-level reprojection objective
+  - Camera-to-camera consistency optimization
+  - Robot pose fixed input
+- 논문:
+  *Multi-Camera Hand-Eye Calibration for Human-Robot Collaboration in Industrial Robotic Workcells*
+- Simulation 적용
+  - 현재 benchmark는 3D corner noise 기반 pose-level calibration
+  - Allegro는 pixel-level reprojection optimization 기반이므로 2D observation branch 이후 적용
+- 작업 순서
+  1. 공개 repository example 재현
+  2. 현재 simulation의 3D corner를 camera projection하여 2D corner observation 생성
+  3. Allegro 입력 형식 adapter 작성
+  4. zero-noise 검증 후 기존 noise sweep 및 held-out evaluation 수행
+- 완료 조건:
+  동일 trajectory, noise sample, held-out split, evaluation metric 조건에서 결과가 저장되어야 한다.
+
+#### 4단계 — Ha (2023)
+
+- 방법: Probabilistic AX=YB robot-world/hand-eye calibration
+- 역할: covariance-aware pose-level calibration baseline
+- 특징:
+  - Measurement covariance 사용
+  - Measurement reliability 반영
+  - Uncertainty estimation 가능
+- 주의:
+  Ha 방법은 본 연구 A4의 corrected-FK latent optimization과 동일한 방법이 아니다.
+  본 비교에서는 uncertainty-aware pose calibration baseline으로 사용한다.
+- Simulation 적용:
+  pose covariance input branch 추가 후 적용한다.
+- 작업 순서
+  1. Pose covariance representation 정의
+  2. 현재 transform convention에 맞는 adapter 작성
+  3. zero-noise recovery 검증
+  4. 기존 noise sweep 및 held-out evaluation 수행
+- 완료 조건:
+  covariance input과 calibration 결과가 동일 evaluation pipeline에 저장되어야 한다.
+
+#### 5단계 — Generalized Robot-world Hand-eye Calibration
+
+- 방법: Generalized robot-world/hand-eye calibration graph optimization
+- 역할: 최근 generalized robot-world calibration baseline
+- 특징:
+  - Multiple sensor 지원
+  - Heterogeneous precision 지원
+  - Generalized calibration formulation
+- Simulation 적용:
+  현재 pose-level transform input 기반으로 adapter 작성 후 적용한다.
+- 작업 순서
+  1. 공개 implementation example 재현
+  2. 현재 simulation transform convention adapter 작성
+  3. zero-noise recovery 검증
+  4. 기존 Shah/Tabb와 동일 noise sweep 및 evaluation 수행
+- 완료 조건:
+  동일 trajectory와 evaluation protocol에서 결과가 저장되어야 한다.
+  
+#### 다섯 단계의 공통 원칙
 
 - 기존 robot trajectory, held-out event, random seed와 noise sample을 변경하지 않는다.
 - 외부 방법의 transform convention은 adapter 안에서만 변환한다.
 - 관측에 오차가 전혀 없는 가장 쉬운 조건에서도 정답을 찾지 못한다면 noise 실험으로 넘어가지 말고, 먼저 좌표계 방향과 입력 변환 코드를 점검한다.
 - 논문에 없는 refinement를 추가할 경우 원 방법과 구분되는 별도 variant로 기록한다.
 
-## 7. 논문 결과용 held-out evaluation
+## 6.2 Baseline별 실행 방법
 
+### 1단계 — Shah 실행
+
+기존 Shah adapter 실행 방법을 따른다.
+검증 순서:
+1. zero-noise transform recovery
+2. transform convention 확인
+3. `0, 1, 3, 5 mm` noise sweep
+4. held-out evaluation
+
+### 2단계 — Tabb 실행
+기존 Tabb adapter 실행 방법을 따른다.
+검증 순서:
+1. 공개 implementation example 재현
+2. cost function 및 parameterization 고정
+3. zero-noise 검증
+4. Shah와 동일 noise sweep 수행
+
+### 3단계 — Allegro 실행
+추가 파일:
+```text
+SOTA_Simulation/
+
+├── allegro_evaluation.py
+├── pixel_observation_sim.py
+│
+├── adapters/
+│   └── allegro_adapter.py
+│
+└── wrappers/
+    └── run_allegro.sh
+```
+
+실행:
+
+```bash
+python SOTA_Simulation/allegro_evaluation.py \
+  --noise-pixel 0 1 3 \
+  --trials 30
+```
+
+### 4단계 — Ha 실행
+추가 파일:
+
+```text
+SOTA_Simulation/
+│
+├── ha_evaluation.py
+│
+├── adapters/
+│   └── ha_adapter.py
+│
+└── wrappers/
+    └── run_ha.m
+```
+
+실행:
+
+```bash
+python SOTA_Simulation/ha_evaluation.py \
+  --noise-mm 0 1 3 5
+```
+
+### 5단계 — Generalized RWHEC 실행
+추가 파일:
+```text
+SOTA_Simulation/
+│
+├── generalized_rwhe_evaluation.py
+│
+├── adapters/
+│   └── generalized_rwhe_adapter.py
+│
+└── wrappers/
+    └── run_generalized_rwhe.jl
+```
+
+실행:
+
+```bash
+python SOTA_Simulation/generalized_rwhe_evaluation.py \
+  --noise-mm 0 1 3 5 \
+  --trials 30
+```
+
+## 7. 논문 결과용 held-out evaluation
 ```bash
 python SOTA_Simulation/opencv_multicam_evaluation.py \
   --methods all \
@@ -440,386 +586,3 @@ JSON과 그래프는 [`examples/daniilidis_multicam_metrics/`](examples/daniilid
 - [ ] Reprojection을 held-out frame에서 계산했는가
 - [ ] Failure trial과 NaN을 숨기지 않았는가
 - [ ] 실제 noise 분포를 별도로 측정했는가
-
-
----
-
-## 6.2 Additional Multi-camera / Probabilistic Baselines
-
-기존 Shah, Tabb & Ahmad Yousef robot-world/hand-eye baseline 이후,
-multi-camera joint calibration 및 uncertainty-aware calibration baseline을 추가한다.
-
-추가 방법들은 동일 simulation 조건에서 비교한다.
-
-공통 조건:
-
-- 동일 robot trajectory
-- 동일 calibration / held-out split
-- 동일 random seed
-- 동일 noise sample
-- 동일 evaluation metric
-- 동일 transform convention
-
-외부 방법의 transform convention 차이는 adapter 내부에서만 변환한다.
-
----
-
-## D3. Allegro et al. (2024)
-
-### Multi-Camera Hand-Eye Calibration
-
-방법:
-
-여러 camera observation을 하나의 multi-camera optimization problem으로 구성하고,
-reprojection error 기반으로 camera calibration을 수행한다.
-
-특징:
-
-- Multi-camera calibration
-- Pixel-level reprojection objective
-- Camera-to-camera consistency optimization
-- Robot pose fixed input
-
-역할:
-
-제안 방법과 가장 가까운 공개 multi-camera calibration baseline.
-
-기존 방법과 차이:
-
-```text
-Classical:
-camera별 independent calibration
-
-Allegro:
-multi-camera joint optimization
-```
-
-공개 구현:
-
-```text
-davidea97/Multi-Camera-Hand-Eye-Calibration
-```
-
----
-
-## Simulation 적용
-
-현재 benchmark는:
-
-```text
-3D corner coordinate noise
-→ T_camera_board estimation
-→ pose-level calibration
-```
-
-구조이다.
-
-Allegro는 pixel-level reprojection optimization 기반이므로
-다음 simulation branch 이후 적용한다.
-
-```text
-3D board corner
-        ↓
-camera projection
-        ↓
-2D corner observation
-        ↓
-reprojection optimization
-```
-
-추가 파일:
-
-```text
-SOTA_Simulation/
-
-├── allegro_evaluation.py
-├── pixel_observation_sim.py
-│
-├── adapters/
-│   └── allegro_adapter.py
-│
-└── wrappers/
-    └── run_allegro.sh
-```
-
-실행:
-
-```bash
-python SOTA_Simulation/allegro_evaluation.py \
-  --noise-pixel 0 1 3 \
-  --trials 30
-```
-
-주의:
-
-원 구현은 eye-in-hand 또는 eye-on-base topology를 지원한다.
-
-현재 benchmark의:
-
-```text
-eye-in-hand wrist camera 1대
-+
-eye-to-hand fixed camera 3대
-```
-
-전체 mixed topology는 별도 adapter 검증이 필요하다.
-
----
-
-## D4. Ha (2023)
-
-### Probabilistic Robot-world / Hand-eye Calibration
-
-방법:
-
-Measurement covariance를 이용하여 probabilistic maximum likelihood calibration을 수행한다.
-
-특징:
-
-- Covariance-aware calibration
-- Measurement reliability 반영
-- Uncertainty estimation
-
-분류:
-
-```text
-covariance-aware pose-level AX=YB calibration
-```
-
-주의:
-
-Ha 방법은 본 연구 A4의 corrected-FK latent optimization과 동일한 방법이 아니다.
-
----
-
-## Simulation 적용
-
-추가 필요:
-
-```text
-pose covariance input
-```
-
-적용 단계:
-
-1. Pose covariance 생성
-2. Transform convention adapter 작성
-3. Zero-noise recovery 확인
-4. 기존 noise sweep과 동일 조건 평가
-
-추가 파일:
-
-```text
-SOTA_Simulation/
-
-├── ha_evaluation.py
-│
-├── adapters/
-│   └── ha_adapter.py
-│
-└── wrappers/
-    └── run_ha.m
-```
-
-실행:
-
-```bash
-python SOTA_Simulation/ha_evaluation.py \
-  --noise-mm 0 1 3 5
-```
-
----
-
-## D5. Generalized Robot-world Hand-eye Calibration
-
-방법:
-
-Generalized robot-world/hand-eye calibration을 graph optimization 형태로 해결한다.
-
-특징:
-
-- Multiple sensor 지원
-- Heterogeneous precision 지원
-- Generalized calibration formulation
-
-역할:
-
-최근 robot-world/hand-eye calibration baseline.
-
----
-
-## Simulation 적용
-
-입력:
-
-```text
-T_camera_board
-T_base_gripper
-```
-
-기반 pose-level calibration으로 적용한다.
-
-추가 파일:
-
-```text
-SOTA_Simulation/
-
-├── generalized_rwhe_evaluation.py
-│
-├── adapters/
-│   └── generalized_rwhe_adapter.py
-│
-└── wrappers/
-    └── run_generalized_rwhe.jl
-```
-
-실행:
-
-```bash
-python SOTA_Simulation/generalized_rwhe_evaluation.py \
-  --noise-mm 0 1 3 5 \
-  --trials 30
-```
-
----
-
-# 6.3 Comparison Exclusion
-
-## Calib3R
-
-Main quantitative comparison에서는 제외한다.
-
-이유:
-
-- Targetless RGB calibration 방법
-- 현재 benchmark는 marker/board 기반 calibration
-- 입력 데이터 구조가 다름
-- 동일 조건 공개 재현 환경 확인 필요
-
-따라서:
-
-```text
-Main comparison:
-제외
-
-Related work:
-포함 가능
-```
-
----
-
-## Ulrich–Hillemann
-
-Main executable baseline에서는 제외한다.
-
-이유:
-
-- Uncertainty-aware hand-eye calibration으로 연구 방향과 관련성이 있음
-- 하지만 현재 benchmark 조건에서 동일하게 비교 가능한 공개 reference implementation 확인 필요
-
-따라서:
-
-```text
-Main comparison:
-제외
-
-Related work:
-포함
-```
-
----
-
-# 6.4 Research Methods Definition
-
-## B1. Independent Fair Baseline
-
-목적:
-
-A4 multi-camera joint optimization 효과를 검증하기 위한 ablation.
-
-동일 조건:
-
-- Observation
-- FK
-- Optimizer
-- Loss
-- Initialization
-
-차이:
-
-```text
-camera별 independent calibration
-```
-
----
-
-## A2. Unified No-FK Calibration
-
-특징:
-
-- Unified visual optimization
-- FK hard constraint 제거
-
-목적:
-
-FK 사용 여부가 calibration 성능에 미치는 영향 비교.
-
----
-
-## A4. Unified Cube + Board Robust FK Calibration
-
-본 연구 핵심 방법.
-
-특징:
-
-- Mixed eye-in-hand / eye-to-hand unified calibration
-- Cube + board shared latent pose
-- Pixel-level optimization
-- Covariance-weighted robust FK factor
-- Corrected-FK optimization
-
-목적:
-
-기존 FK-fixed calibration 대비 robot pose uncertainty를 고려한 calibration 성능 검증.
-
----
-
-## A5. Residual Correction Extension
-
-A4 이후 추가 correction module.
-
-조건:
-
-A4 대비 translation / rotation improvement 조건 만족 시 최종 contribution으로 채택한다.
-
----
-
-# Additional Simulation Files
-
-추가 파일 구조:
-
-```text
-SOTA_Simulation/
-
-├── allegro_evaluation.py
-├── ha_evaluation.py
-├── generalized_rwhe_evaluation.py
-├── pixel_observation_sim.py
-│
-├── adapters/
-│   ├── allegro_adapter.py
-│   ├── ha_adapter.py
-│   └── generalized_rwhe_adapter.py
-│
-└── wrappers/
-    ├── run_allegro.sh
-    ├── run_ha.m
-    └── run_generalized_rwhe.jl
-```
-
-구현 순서:
-
-1. Allegro adapter
-2. Generalized RWHEC adapter
-3. Pixel observation simulation branch
-4. Ha covariance branch
