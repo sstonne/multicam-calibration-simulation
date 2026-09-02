@@ -1,0 +1,12 @@
+Server started. Waiting for client connection...
+[SERVER] Server started, waiting for client connection...
+[SERVER] Main loop started.
+Received data from client: {u'action': u'set_symptom', u'data': {u'required_class': u'Tylenol', u'symptom': u'\ub450\ud1b5'}}
+[SERVER] Symptom='두통' → Required medicine='Tylenol'
+[SERVER] → Moving to camera view position: [24.870000000000001, 523.13, 478.43000000000001, -90.0, 0.01, -180.0]
+[SERVER] Pose updated (state=camera_view_ready): {'rx': -179.99526429814324, 'ry': 0.019365973475421825, 'rz': -89.999981276031662, 'y': 523.13200000000006, 'x': 24.875999999999998, 'z': 478.47899999999998, 'posture': 2}
+[SERVER] Waiting 2 seconds before YOLO detection...
+[SERVER] Pose updated (state=ready): {'rx': -179.99526429814324, 'ry': 0.019365973475421825, 'rz': -89.999981276031662, 'y': 523.21500000000003, 'x': 24.896000000000001, 'z': 233.47899999999998, 'posture': 2}
+Received data from client: {u'action': u'handover_detected', u'data': {u'action': u'pick_and_give', u'xyz': [-24.218999207637189, -0.72842685870909918, -437.71126861038408], u'drz': 33.482371004419861, u'cls': u'Tylenol'}}
+[SERVER] YOLO Detected: Tylenol ([-24.218999207637189, -0.72842685870909918, -222.71126861038408]) → Action: pick_and_give
+[SERVER] Pick and give at (-24.2189992076,-0.728426858709,-222.71126861)

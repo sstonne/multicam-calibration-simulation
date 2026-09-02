@@ -1,0 +1,57 @@
+{                                                                                                                                           
+  "red": [                                                                                                                                  
+    {"pose": [0, 0, 0], "priority": "1", "id": 1},                                                                                          
+    {"pose": [0, 0, 0], "priority": "1", "id": 2},                                                                                          
+    {"pose": [0, 0, 0], "priority": "2", "id": 3},                                                                                          
+    {"pose": [0, 0, 0], "priority": "2", "id": 4},                                                                                          
+    {"pose": [0, 0, 0], "priority": "3", "id": 5},                                                                                          
+    {"pose": [0, 0, 0], "priority": "3", "id": 6}                                                                                           
+  ],                                                                                                                                        
+                                                                                                                                            
+  "yellow": [                                                                                                                               
+    {"pose": [0, 0, 0], "priority": "1", "id": 7},                                                                                          
+    {"pose": [0, 0, 0], "priority": "2", "id": 8},                                                                                          
+    {"pose": [0, 0, 0], "priority": "3", "id": 9},                                                                                          
+    {"pose": [0, 0, 0], "priority": "4", "id": 10}                                                                                          
+  ],                                                                                                                                        
+                                                                                                                                            
+  "purple_blue": [                                                                                                                               
+    {"pose": [0, 0, 0], "priority": "0.8", "id": 11, "color": "purple"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "2", "id": 12, "color": "purple"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "2", "id": 13, "color": "purple"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "3", "id": 14, "color": "purple"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "3", "id": 15, "color": "purple"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "4", "id": 16, "color": "purple"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "4", "id": 17, "color": "purple"},  
+    {"pose": [0, 0, 0], "priority": "0.9", "id": 18, "color": "blue"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "1", "id": 19, "color": "blue"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "1", "id": 20, "color": "blue"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "1", "id": 21, "color": "blue"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "1", "id": 22, "color": "blue"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "2", "id": 23, "color": "blue"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "2", "id": 24, "color": "blue"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "2", "id": 25, "color": "blue"},                                                                                         
+    {"pose": [0, 0, 0], "priority": "2", "id": 26, "color":" blue"}                                                                                          
+  ],                                                                                                                                        
+                                                                                                                                            
+  "green": [                                                                                                                                
+    {"pose": [0, 0, 0], "priority": "1", "id": 27}, 
+    {"pose": [0, 0, 0], "priority": "1", "id": 28}, 
+    {"pose": [0, 0, 0], "priority": "1", "id": 29}, 
+    {"pose": [0, 0, 0], "priority": "2", "id": 30}, 
+    {"pose": [0, 0, 0], "priority": "2", "id": 31}, 
+    {"pose": [0, 0, 0], "priority": "3", "id": 32}, 
+    {"pose": [0, 0, 0], "priority": "3", "id": 33}                                                                                         
+  ],                                                                                                                                        
+                                                                                                                                            
+  "pink": [                                                                                                                                 
+    {"pose": [0, 0, 0], "priority": "1", "id": 34},                                                                                         
+    {"pose": [0, 0, 0], "priority": "2", "id": 35},                                                                                         
+    {"pose": [0, 0, 0], "priority": "2", "id": 36},                                                                                         
+    {"pose": [0, 0, 0], "priority": "3", "id": 37},                                                                                         
+    {"pose": [0, 0, 0], "priority": "3", "id": 38},                                                                                         
+    {"pose": [0, 0, 0], "priority": "4", "id": 39},                                                                                         
+    {"pose": [0, 0, 0], "priority": "4", "id": 40},                                                                                         
+    {"pose": [0, 0, 0], "priority": "5", "id": 41}                                                                                          
+  ]                                                                                                                                         
+}                              
