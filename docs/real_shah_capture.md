@@ -294,6 +294,28 @@ capture/
 12348은 `handeye_server.py`·`sam3d_calb/robot_pose_server.py`, 12349는
 `i611usr/model.py`(sim-to-real 스트리밍)가 이미 쓴다.
 
+### `pose_query_server.py`는 shm-only — `zeus_jog_onboard.py`와 공존한다
+
+ZEUS 컨트롤러는 `rb.open()`을 한 번만 허용한다. 그래서 원래 이 서버가 `rb.open()`을
+부르면 이미 떠 있는 `zeus_jog_onboard.py`와 컨트롤러를 두고 싸운다(촬영 방법 PDF §3,
+`i611usr/align_pose_onboard.py:19-20`).
+
+지금 `pose_query_server.py`는 **`rb.open()`을 부르지 않는다.** 로봇 상태는 전부
+공유 메모리에서 읽는다 — `i611usr/output.py`가 `zeus_pose_log.csv`를 15Hz로 쓸 때 쓰는
+방식이고(`i611usr/output.py:33`), `example_6axis_pendant.py`의 관절/자세 읽기와도 같다
+(`i611usr/example_6axis_pendant.py:35,57`). 따라서:
+
+- **`zeus_jog_onboard.py`가 이미 돌고 있어도 그대로 두고**, 다른 SSH 세션에서
+  `pose_query_server.py`를 띄운다. 조작은 로봇 콘솔에서, 촬영·저장은 PC에서 한다.
+- 대신 이 서버는 로봇을 **움직이지 못한다**(motion은 `rb.open()`이 필요하다).
+  `record_dataset.py`도 조작키를 로봇에 보내지 않고, 조작키가 눌리면 "로봇 콘솔에서 하라"고 안내한다.
+
+한계 하나: shm이 주는 자세는 **컨트롤러의 현재 tool 기준**이다. `zeus_jog_onboard.py`가
+어떤 tool을 쓰고 있는지에 달렸다. Shah 규약은 tool 1(플랜지)이고 이 리그엔 그리퍼가
+없으므로 대개 tool 1이지만, 확실하지 않다면 로봇 콘솔에서 확인해야 한다. 서버 응답은
+`tool: null, source: "shm"`이고, `record_dataset.py`는 이 조합을 만나면 한 번만 안내를
+찍는다.
+
 `pose_query_server.py`는 명령 이름을 `sam3d_calb/robot_pose_server.py`에 맞춰
 `get_pose`/`ping`/`notify_saved`/`quit`도 받고, 응답에 그쪽 필드 이름
 (`tcp_6dof`, `joint_6dof`)을 함께 넣는다. 반대로 `record_dataset.py`는 `get_state`를
@@ -394,44 +416,40 @@ ZEUS 자세 : [x, y, z (mm), rz, ry, rx (deg)]
 | `start [speed]` | 기록된 자세를 순회하며 자동 촬영 |
 | `q` | 종료 |
 
-### 2단계 (대안) — PC에서 엔터로 기록
+### 2단계 (대안) — PC에서 엔터로 기록, 조작은 `zeus_jog_onboard.py`로
 
 자세를 미리 티칭하지 않고 손으로 잡아 가며 데이터를 늘릴 때는 이쪽이 편하다.
-로봇 콘솔은 로그만 찍고, 명령은 전부 PC 터미널에서 친다.
+**조작은 그대로 `zeus_jog_onboard.py`**(SSH 로봇 콘솔)에서 하고, PC 터미널은 엔터
+한 번마다 자세를 스냅해 기록한다. 로봇을 잡는 프로그램이 하나뿐이라 충돌이 없다.
 
 ```
-터미널 A: SSH → ZEUS                      터미널 B: PC (로컬)
-  python pose_query_server.py               python capture/record_dataset.py \
-  "PC를 기다린다"       ←── 접속 ──────────    --algorithm shah --show
-                        ←── get_state ───    엔터 → 자세 요청
-  현재 자세 응답         ─── pose/joints ─→   3대 촬영·검출·저장 (meta.json에 즉시 기록)
+터미널 A: SSH → ZEUS                       터미널 B (다른 SSH): 관찰 서버
+  python zeus_jog_onboard.py                 python pose_query_server.py
+  w/s a/d r/f i/k j/l u/o 로 조작            (rb.open() 없이 shm 만 읽는다)
+
+                                          터미널 C: PC (로컬)
+                                            python capture/record_dataset.py --algorithm shah
+                                            엔터 → shm 자세 조회 → 3대 촬영 → meta.json 갱신
 ```
 
-조작키는 **온보드 조작 스크립트 `zeus_jog_onboard.py`와 같은 배치**로 맞췄다(촬영 방법
-문서 §3). 손에 익은 키가 여기서 다른 뜻이 되면 안 되기 때문이다. 그래서 기록 취소는
-그 표에 없는 `z`에 두었다 — `u`는 여기서도 **로봇 +rz 회전**이다.
+| 분류 | 어디서 | 키 | 동작 |
+| --- | --- | --- | --- |
+| **기록** | PC 터미널 | `Enter` | **지금 자세를 기록** (자세 + 관절 + 촬영). 한 번이면 된다 |
+| | | `z` 또는 `undo` | 마지막 기록 취소 (이미지도 지운다) |
+| | | `s` | 기록하지 않고 현재 자세만 확인 |
+| | | `list` / `div` | 기록 목록 / 평균 상대회전 |
+| | | `q` | 종료 |
+| **조작** | 로봇 SSH | `w`/`s` `a`/`d` `r`/`f` 등 | 촬영 방법 문서 §3의 `zeus_jog_onboard.py` 키를 그대로 쓴다 |
 
-| 분류 | 키 | 동작 |
-| --- | --- | --- |
-| 기록 | `Enter` | **지금 자세를 기록** (flange 자세 + 관절 + 촬영). 한 번이면 된다 |
-| | `z` 또는 `undo` | 마지막 기록 취소 (이미지도 지운다) |
-| | `list` / `div` | 기록 목록 / 평균 상대회전 |
-| 이동 | `w`/`s` `a`/`d` `r`/`f` | ±x ±y ±z (현재 스텝 mm) |
-| 회전 | `i`/`k` `j`/`l` `u`/`o` | ±rx ±ry ±rz (현재 스텝 deg) |
-| 스텝 | `[` / `]` | 1/2배 / 2배 (0.1 ~ 45) |
-| | `1`~`5` | 0.5 / 1 / 5 / 10 / 25 프리셋 |
-| 확인 | `p` 또는 스페이스+Enter | 현재 자세 |
-| 기타 | `speed <0-100>` | override |
-| | `tcp x,10` / `joint d1,5` | 축과 값을 직접 지정해 이동 |
-| | `q` | 종료 |
+PC 터미널에서 `w`/`s` 등 조작키를 눌러도 로봇은 움직이지 않는다 — 대신 "그건 로봇
+콘솔에서 하라"고 안내 한 줄이 뜬다. 이 레코더는 관찰만 하고 로봇에 이동 명령을 내리지
+않는다.
 
-`g`/`h`(그리퍼), `x`(정지), `m`(포인트 기록)은 이 리그에 대응물이 없어 눌러도 동작하지
-않지만, 왜 안 되는지 한 줄로 알려 준다. 축 방향은 `relline`/`reljntmove` 기준이라
-온보드 스크립트와 부호가 다를 수 있으니 **처음 한 번은 스텝 `1`(0.5mm)로 확인할 것.**
-
-> **`zeus_jog_onboard.py`와 동시에 띄우지 말 것.** 촬영 방법 문서 §3의 경고와 같은
-> 이유다 — 둘 다 `rb.open()`을 호출해 컨트롤러를 두고 싸운다. `pose_query_server.py`도
-> `rb.open()`을 하므로, 조작은 이 레코더의 키로 하거나 로봇을 수동(펜던트)으로 움직인다.
+> **`pose_query_server.py`는 `rb.open()`을 부르지 않는 shm-only 서버**이므로
+> `zeus_jog_onboard.py`와 공존한다. 자세한 이유는 앞의 §8 "shm-only" 절 참조.
+> 단 shm이 주는 자세는 컨트롤러의 현재 tool 기준이므로, `zeus_jog_onboard.py`가
+> tool 1(플랜지)을 쓰고 있어야 한다. `record_dataset.py`가 `tool: null` 응답을
+> 만나면 시작할 때 안내를 한 번 찍는다.
 
 저장 위치는 **알고리즘 이름이 폴더**가 된다.
 

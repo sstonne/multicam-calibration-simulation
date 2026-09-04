@@ -1,0 +1,4 @@
+# 로봇(리눅스/BusyBox) 에서 돌 파이썬 스크립트는 반드시 LF 로 유지한다.
+# CRLF 가 들어가면 shebang 해석과 heredoc 이 깨진다.
+capture/robot/*.py text eol=lf
+i611usr/**/*.py    text eol=lf

@@ -26,8 +26,16 @@ capture/shah_capture_client.py 와 다른 점
   * 저장되는 변환은 전부 T_destination_source, 병진 단위는 metre
 
 조작 (자세한 목록은 실행 후 help)
-  엔터 한 번 - 기록 한 건
-  기록 취소 - z
+  로봇 조작은 SSH 로봇 콘솔의 zeus_jog_onboard.py 에서 계속 한다. 이 레코더는
+  자세를 관찰만 하고 로봇을 움직이지 않는다 (그렇게 해서 zeus_jog_onboard.py
+  와 컨트롤러를 두고 싸우지 않는다 — capture/robot/pose_query_server.py 참조).
+
+  PC 터미널에서 하는 것은 다음 뿐이다:
+    Enter        지금 자세를 기록 (자세 + 관절 + 카메라 3대 촬영)
+    z / undo     마지막 기록 취소 (이미지도 함께 지운다)
+    s            기록하지 않고 현재 자세만 확인
+    list / div   기록 목록 / 평균 상대회전
+    q            종료
 
 저장 위치 — 이 스크립트를 실행한 PC 안에만 쌓인다
   이미지, meta.json 도 전부 로컬 디스크에 쓴다.
@@ -188,9 +196,17 @@ class RobotLink:
             self.joint_warned = True
 
         tool = response.get("tool")
-        if tool != 1 and not self.tool_warned:
+        source = response.get("source")
+        if tool is None and source == "shm" and not self.tool_warned:
+            # shm-only 서버는 컨트롤러의 현재 tool 을 확정할 수 없다. 이건 오류가
+            # 아니라 이 방식의 한계다. 한 번만 안내한다.
+            print("[안내] pose_query_server.py (shm) 는 컨트롤러의 현재 tool 을 알 수 없다.")
+            print("       zeus_jog_onboard.py 가 tool 1(플랜지)을 쓰고 있는지 확인하라 —")
+            print("       그리퍼 오프셋이 섞인 tool 이라면 결과가 어긋난다 (docs §8.2).")
+            self.tool_warned = True
+        elif tool is not None and tool != 1 and not self.tool_warned:
             print("[경고] 이 서버가 돌려주는 자세는 tool {} 기준이다 (tool 1 이 아니다)."
-                  .format(tool if tool is not None else "미상"))
+                  .format(tool))
             print("       이 리그의 규약은 tool 1(플랜지)다. 그리퍼 오프셋이 섞인 자세를")
             print("       쓰면 보드 오프셋이 이중으로 들어가 결과가 조용히 틀어진다")
             print("       (docs/real_shah_capture.md §8.2). 로봇측 서버를 확인하라.")
@@ -200,14 +216,11 @@ class RobotLink:
             "flange_pose_6dof": [float(v) for v in pose[:6]],
             "joints_6dof": [float(v) for v in joints[:6]] if joints else None,
             "tool": tool,
+            "source": source,
         }
 
-    def jog(self, space: str, axis: str, value: float) -> dict:
-        return self.request({"command": "jog", "space": space,
-                             "axis": axis, "value": float(value)})
-
-    def set_speed(self, value: int) -> dict:
-        return self.request({"command": "speed", "value": int(value)})
+    # 로봇 이동은 이 클라이언트가 하지 않는다. 조작은 SSH 로봇 콘솔의
+    # zeus_jog_onboard.py 에서 한다. pose_query_server.py 는 자세만 관찰한다.
 
     def close(self) -> None:
         try:
@@ -498,56 +511,32 @@ def update_dataset_index(algorithm_dir: Path, session_dir: Path, meta: dict) -> 
 # 대화 루프
 # ────────────────────────────────────────────────────────────────
 
-# 로봇 조작 키는 온보드 조작 스크립트(zeus_jog_onboard.py)와 같은 배치로 맞췄다.
-# 출처: 로봇 촬영 방법 (for SOTA) 문서 §3. 손에 익은 키가 여기서 다른 뜻이 되면
-# 안 되므로, 기록 취소는 이 표에 없는 키(z)에 둔다.
-JOG_KEYS = {
-    "w": ("x", +1.0), "s": ("x", -1.0),
-    "a": ("y", +1.0), "d": ("y", -1.0),
-    "r": ("z", +1.0), "f": ("z", -1.0),
-    "i": ("rx", +1.0), "k": ("rx", -1.0),
-    "j": ("ry", +1.0), "l": ("ry", -1.0),
-    "u": ("rz", +1.0), "o": ("rz", -1.0),
-}
-ROTATION_AXES = ("rx", "ry", "rz")
-STEP_PRESETS = {"1": 0.5, "2": 1.0, "3": 5.0, "4": 10.0, "5": 25.0}
-DEFAULT_STEP = 5.0
-MIN_STEP, MAX_STEP = 0.1, 45.0      # 45 는 로봇측 회전 jog 한계와 같다
-
-# 온보드 스크립트에는 있지만 이 리그/이 도구에서는 뜻이 없는 키.
-# 무시하지 않고 왜 안 되는지 알려 준다 — 손에 익은 키를 눌렀는데 아무 일도
-# 일어나지 않으면 프로그램이 멈춘 줄 알기 때문이다.
-UNSUPPORTED_KEYS = {
-    "g": "이 리그에는 그리퍼가 없다. IO 48 을 건드리지 않는다 (docs §8.1).",
-    "h": "이 리그에는 그리퍼가 없다. IO 48 을 건드리지 않는다 (docs §8.1).",
-    "x": "여기서는 이동 명령이 끝난 뒤에 프롬프트가 돌아오므로 중지할 것이 없다. "
-         "위험하면 로봇의 빨강 STOP 버튼을 눌러라.",
-    "m": "포인트 기록이 아니라 촬영 기록이다. 엔터를 쳐라.",
-}
+# 로봇은 SSH 콘솔의 zeus_jog_onboard.py 에서 조작한다. pose_query_server.py 는
+# shm 만 읽는 관찰자이므로 이 레코더는 로봇에 이동 명령을 내리지 않는다.
+# 손이 조작키를 두드렸을 때 아무 일도 안 일어나면 프로그램이 멈춘 줄 알기 쉽다.
+# 그래서 조작키들도 무시하지 않고 "그건 로봇 콘솔에서 하라"고 알려 준다.
+JOG_HINT_KEYS = tuple("wsadrfikjluo")
+STEP_HINT_KEYS = tuple("12345") + ("[", "]")
 
 MENU = """
 ==================================================================
-  촬영 기록 레코더 — 엔터 한 번에 자세 + 촬영을 함께 적는다
+  촬영 기록 레코더 — 엔터 한 번에 자세와 촬영을 함께 적는다
 ------------------------------------------------------------------
- [기록]
+ [ PC 터미널에서 하는 것 ]
    Enter            지금 자세를 기록 (TCP + 관절 + 카메라 3대 촬영)
-   z  또는  undo    마지막 기록 취소 (이미지도 함께 지운다)
-   list             기록 목록          div   평균 상대회전 (목표 {target:.0f}deg)
+   s                기록하지 않고 현재 자세만 확인
+   z 또는 undo      마지막 기록 취소 (이미지도 함께 지운다)
+   list             기록 목록
+   div              평균 상대회전 (목표 {target:.0f}deg)
+   q                종료
 
- [로봇 조작]  온보드 조작 스크립트(zeus_jog_onboard.py)와 같은 키
-   w / s   +x / -x        i / k   +rx / -rx
-   a / d   +y / -y        j / l   +ry / -ry
-   r / f   +z / -z        u / o   +rz / -rz
-   [  /  ]  스텝 1/2배 / 2배      1~5  0.5 / 1 / 5 / 10 / 25 프리셋
-   p  또는  스페이스+Enter        현재 자세 확인
-   speed <0-100>                 override
-   tcp x,10   joint d1,5         축과 값을 직접 지정해 이동
-   q                             종료
+ [ 로봇 조작 — 이 터미널이 아니라 SSH 로봇 콘솔에서 ]
+   zeus_jog_onboard.py 를 그대로 쓰라 (w/s a/d r/f, i/k j/l u/o, [ ], 1~5).
+   이 레코더는 shm 을 읽어 자세를 가져올 뿐이라 로봇을 움직이지 못한다.
+   조작을 위한 SSH 터미널 하나, 이 레코더용 로컬 터미널 하나 - 총 2개면 된다.
 
- ※ 취소는 z 다. u 는 로봇 +rz 회전이다 — 조작키와 겹치지 않게 옮겼다.
- ※ 축 방향은 relline/reljntmove 기준이라 온보드 스크립트와 부호가 다를 수 있다.
-    처음 한 번은 스텝을 1(0.5mm)로 낮춰 방향을 확인하라.
- ※ 평행이동만 하지 말 것. 자세마다 회전을 20~30deg 씩 바꿔라.
+ ※ 자세를 잡은 뒤 엔터. 로봇이 완전히 멎었을 때 치라 (진동이 남으면 흐릿함).
+ ※ 평행이동만 하지 말 것. 자세마다 rz/ry/rx 를 20~30deg 씩 바꿔라.
 ==================================================================
 """
 
@@ -609,14 +598,14 @@ def interactive(args, robot, cameras, detector, meta, session_dir,
 
     def show_pose():
         state = robot.get_state()
-        print(f"  flange: {fmt6(state['flange_pose_6dof'])}  (tool {state.get('tool')})")
+        source = state.get("source") or "?"
+        print(f"  flange: {fmt6(state['flange_pose_6dof'])}  (source={source})")
         joints = state.get("joints_6dof")
         print(f"  joints: {fmt6(joints) if joints else '(로봇이 주지 않음)'}")
 
-    step = DEFAULT_STEP
     while True:
         try:
-            typed = input(f"[step {step:g}] > ")
+            typed = input("> ")
         except (EOFError, KeyboardInterrupt):
             print()
             break
@@ -626,8 +615,7 @@ def interactive(args, robot, cameras, detector, meta, session_dir,
 
         # ─── 기록 ───
         if typed and not command:
-            # 스페이스만 치고 엔터. 온보드 스크립트에서 스페이스가 '자세 갱신'
-            # 이므로 여기서도 같은 뜻으로 둔다. 기록은 순수한 빈 줄일 때만 한다.
+            # 스페이스만 치고 엔터 → 현재 자세만 확인. 기록은 순수한 빈 줄일 때만.
             try:
                 show_pose()
             except Exception as error:
@@ -645,56 +633,9 @@ def interactive(args, robot, cameras, detector, meta, session_dir,
                 flush()
                 print(f"       {diversity_line(meta['captures'])}")
 
-        # ─── 로봇 조작 (온보드 스크립트와 같은 키) ───
-        elif lowered in JOG_KEYS:
-            axis, sign = JOG_KEYS[lowered]
-            value = sign * step
-            unit = "deg" if axis in ROTATION_AXES else "mm"
-            try:
-                state = robot.jog("tcp", axis, value)
-            except Exception as error:
-                print(f"[오류] 이동 실패: {type(error).__name__}: {error}")
-                continue
-            print(f"  {axis} {value:+g}{unit} -> {fmt6(state['flange_pose_6dof'])}")
-
-        elif command in ("[", "]"):
-            step = step / 2.0 if command == "[" else step * 2.0
-            step = min(MAX_STEP, max(MIN_STEP, step))
-            print(f"  스텝 {step:g} (mm / deg)")
-
-        elif command in STEP_PRESETS:
-            step = STEP_PRESETS[command]
-            print(f"  스텝 {step:g} (mm / deg)")
-
-        elif lowered in ("p", "show"):
+        elif lowered in ("s", "p", "show"):
             try:
                 show_pose()
-            except Exception as error:
-                print(f"[오류] {type(error).__name__}: {error}")
-
-        elif lowered.startswith(("tcp ", "joint ", "p ", "j ")):
-            head, _, rest = command.partition(" ")
-            space = "joint" if head.lower() in ("joint", "j") else "tcp"
-            try:
-                axis, value = rest.split(",")
-            except ValueError:
-                print("[오류] 형식: tcp x,10  /  joint d1,5")
-                continue
-            try:
-                state = robot.jog(space, axis.strip().lower(), float(value))
-            except Exception as error:
-                print(f"[오류] 이동 실패: {type(error).__name__}: {error}")
-                continue
-            print(f"  flange: {fmt6(state['flange_pose_6dof'])}")
-
-        elif lowered.startswith("speed"):
-            parts = command.split()
-            if len(parts) < 2:
-                print("[오류] 형식: speed 30")
-                continue
-            try:
-                robot.set_speed(int(parts[1]))
-                print(f"  override={int(parts[1])}")
             except Exception as error:
                 print(f"[오류] {type(error).__name__}: {error}")
 
@@ -721,11 +662,15 @@ def interactive(args, robot, cameras, detector, meta, session_dir,
         elif lowered in ("q", "quit", "exit"):
             break
 
-        elif lowered in ("help", "?"):
+        elif lowered in ("help", "?", "h"):
             print(MENU.format(target=ROTATION_DIVERSITY_TARGET_DEG))
 
-        elif lowered in UNSUPPORTED_KEYS:
-            print(f"  [{command}] {UNSUPPORTED_KEYS[lowered]}")
+        # 로봇 조작키를 여기서 눌러도 아무 일도 안 일어난다는 걸 명확히 알려 준다.
+        # 무시하면 사용자는 프로그램이 멎은 줄 안다.
+        elif lowered in JOG_HINT_KEYS or command in STEP_HINT_KEYS or lowered in ("g", "h", "x", "m"):
+            print(f"  [{command}] 로봇 조작 키다. 이 터미널이 아니라 SSH 로봇 콘솔의 "
+                  f"zeus_jog_onboard.py 에서 눌러라.")
+            print("       이 레코더는 자세를 관찰만 하고 로봇에 이동 명령은 내리지 않는다.")
 
         else:
             print(f"[오류] 알 수 없는 명령: {command}   (도움말: help)")
