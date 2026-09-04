@@ -270,10 +270,36 @@ README §8의 통합 지표를 실데이터에 옮기면 이렇게 된다.
 capture/
 ├── board_config.py             두 보드의 단일 정의. 여기만 고치면 전체에 반영된다
 ├── check_board_ids.py          로봇 보드 마커 ID를 실물에서 읽는다
-├── shah_capture_client.py      PC측 촬영 세션 레코더 (Python 3)
+├── shah_capture_client.py      PC측 촬영 세션 레코더 (Python 3) — 로봇 주도
+├── record_dataset.py           PC측 데이터셋 레코더 (Python 3) — PC 주도, 엔터로 기록
 └── robot/
-    └── shah_capture_server.py  로봇측 조작·촬영 트리거 (Python 2, ZEUS에 scp)
+    ├── shah_capture_server.py  로봇측 조작·촬영 트리거 (Python 2, ZEUS에 scp)
+    └── pose_query_server.py    로봇측 자세 응답 서버 (Python 2, ZEUS에 scp)
 ```
+
+촬영 경로가 두 가지고, **누가 촬영을 시작하는가**만 다르다. `meta.json` 형식은
+같으므로 하류 분석은 둘을 구분할 필요가 없다.
+
+| | 로봇 주도 | **PC 주도** |
+| --- | --- | --- |
+| 짝 | `shah_capture_server.py` ↔ `shah_capture_client.py` | `pose_query_server.py` ↔ `record_dataset.py` |
+| 포트 | 12348 | 12350 |
+| 명령을 치는 곳 | 로봇 콘솔(SSH) | PC 터미널 |
+| 기록 시점 | 로봇이 `c` / `start` | **PC에서 엔터** |
+| 맞는 상황 | 자세를 미리 티칭해 두고 한 번에 순회 | 손으로 자세를 잡아 가며 조금씩 데이터셋을 늘림 |
+| 카메라 없이 자세만 | 불가 | **가능** (`--no-camera`) |
+
+두 서버를 동시에 띄우지 말 것. 같은 로봇을 두 프로그램이 잡는다. 포트 12350은
+저장소에서 쓰이지 않는 번호로 골랐다 — 12346은 `calibration_server.py` 계열,
+12348은 `handeye_server.py`·`sam3d_calb/robot_pose_server.py`, 12349는
+`i611usr/model.py`(sim-to-real 스트리밍)가 이미 쓴다.
+
+`pose_query_server.py`는 명령 이름을 `sam3d_calb/robot_pose_server.py`에 맞춰
+`get_pose`/`ping`/`notify_saved`/`quit`도 받고, 응답에 그쪽 필드 이름
+(`tcp_6dof`, `joint_6dof`)을 함께 넣는다. 반대로 `record_dataset.py`는 `get_state`를
+모르는 서버를 만나면 `get_pose`로 물러선다. **단 그 서버는 `changetool(3)`(그리퍼
+150mm) 기준 TCP를 주므로**, 응답의 `tool`이 1이 아니면 레코더가 경고를 찍는다 —
+그 자세를 그대로 쓰면 보드 오프셋이 이중으로 들어간다(§8.2).
 
 ### 8.1 왜 새로 만들었나
 
@@ -368,6 +394,71 @@ ZEUS 자세 : [x, y, z (mm), rz, ry, rx (deg)]
 | `start [speed]` | 기록된 자세를 순회하며 자동 촬영 |
 | `q` | 종료 |
 
+### 2단계 (대안) — PC에서 엔터로 기록
+
+자세를 미리 티칭하지 않고 손으로 잡아 가며 데이터를 늘릴 때는 이쪽이 편하다.
+로봇 콘솔은 로그만 찍고, 명령은 전부 PC 터미널에서 친다.
+
+```
+터미널 A: SSH → ZEUS                      터미널 B: PC (로컬)
+  python pose_query_server.py               python capture/record_dataset.py \
+  "PC를 기다린다"       ←── 접속 ──────────    --algorithm shah --show
+                        ←── get_state ───    엔터 → 자세 요청
+  현재 자세 응답         ─── pose/joints ─→   3대 촬영·검출·저장 (meta.json에 즉시 기록)
+```
+
+조작키는 **온보드 조작 스크립트 `zeus_jog_onboard.py`와 같은 배치**로 맞췄다(촬영 방법
+문서 §3). 손에 익은 키가 여기서 다른 뜻이 되면 안 되기 때문이다. 그래서 기록 취소는
+그 표에 없는 `z`에 두었다 — `u`는 여기서도 **로봇 +rz 회전**이다.
+
+| 분류 | 키 | 동작 |
+| --- | --- | --- |
+| 기록 | `Enter` | **지금 자세를 기록** (flange 자세 + 관절 + 촬영). 한 번이면 된다 |
+| | `z` 또는 `undo` | 마지막 기록 취소 (이미지도 지운다) |
+| | `list` / `div` | 기록 목록 / 평균 상대회전 |
+| 이동 | `w`/`s` `a`/`d` `r`/`f` | ±x ±y ±z (현재 스텝 mm) |
+| 회전 | `i`/`k` `j`/`l` `u`/`o` | ±rx ±ry ±rz (현재 스텝 deg) |
+| 스텝 | `[` / `]` | 1/2배 / 2배 (0.1 ~ 45) |
+| | `1`~`5` | 0.5 / 1 / 5 / 10 / 25 프리셋 |
+| 확인 | `p` 또는 스페이스+Enter | 현재 자세 |
+| 기타 | `speed <0-100>` | override |
+| | `tcp x,10` / `joint d1,5` | 축과 값을 직접 지정해 이동 |
+| | `q` | 종료 |
+
+`g`/`h`(그리퍼), `x`(정지), `m`(포인트 기록)은 이 리그에 대응물이 없어 눌러도 동작하지
+않지만, 왜 안 되는지 한 줄로 알려 준다. 축 방향은 `relline`/`reljntmove` 기준이라
+온보드 스크립트와 부호가 다를 수 있으니 **처음 한 번은 스텝 `1`(0.5mm)로 확인할 것.**
+
+> **`zeus_jog_onboard.py`와 동시에 띄우지 말 것.** 촬영 방법 문서 §3의 경고와 같은
+> 이유다 — 둘 다 `rb.open()`을 호출해 컨트롤러를 두고 싸운다. `pose_query_server.py`도
+> `rb.open()`을 하므로, 조작은 이 레코더의 키로 하거나 로봇을 수동(펜던트)으로 움직인다.
+
+저장 위치는 **알고리즘 이름이 폴더**가 된다.
+
+```
+<dataset-root>/shah/dataset_index.json          이 알고리즘 아래 세션 목록
+<dataset-root>/shah/session_20260904_1530/meta.json
+<dataset-root>/shah/session_20260904_1530/cam0/rgb_00000.jpg ...
+```
+
+저장은 **레코더를 실행한 PC의 로컬 디스크**에만 이뤄진다. 로봇 컨트롤러로는 아무것도
+보내지 않는다. `--dataset-root`의 기본값은 `~/shah_data`(저장소 밖)이고, 저장소 폴더 안에
+두고 VS Code에서 바로 보고 싶으면 `--dataset-root ./data`를 쓰면 된다 — `.gitignore`에
+`/data/`와 `/shah_data/`를 등록해 두었으므로 커밋에 섞이지 않는다.
+
+`--resume`을 주면 가장 최근 세션에 이어 적는다. `event_id`가 이어지고 이어붙인
+이력이 `dataset.append_history`에 남는다. **단 세션 하나는 카메라가 한 번도 움직이지
+않은 구간이어야 한다.** 카메라를 건드렸거나 보드를 다시 붙였다면 새 세션으로 시작할
+것 — 한 `meta.json` 안에 서로 다른 `Y = T_base_cam`이 섞이면 어떤 방법도 경고 없이
+틀린 답을 낸다. 해상도·카메라 구성·보드 ID가 달라지면 스크립트가 이어붙이기를 거부한다.
+
+보드 마커 ID 확인(§3)이 아직 안 됐어도 `--no-camera`로 **자세와 관절만 먼저** 모을 수
+있다. 이때도 `meta.json` 형식은 같고 `cams`만 비어 있다.
+
+```bash
+python capture/record_dataset.py --algorithm shah --no-camera --robot-host 192.168.0.23
+```
+
 ---
 
 ## 10. meta.json 스키마
@@ -401,6 +492,21 @@ Step3~Step5와 CP_* 분석 코드가 **전부 `meta.json`만 읽고 파일시스
   charuco { ok, n_corners, reproj_error_px, rvec, tvec, T_cam_board_4x4 },
   gate_reason (null이면 통과), skip_reason (취득 실패 시)
 ```
+
+`record_dataset.py`로 기록하면 여기에 세 가지가 더 붙는다. 나머지는 동일하므로
+하류는 두 경로를 구분할 필요가 없다.
+
+```
+세션   dataset { schema_version("pose_dataset_v1"), algorithm, dataset_root,
+                 session_id, capture_mode("pose_only" | "pose_and_image"),
+                 recorder, created_at, updated_at,
+                 append_history[ {started_at, ended_at, robot_host, records_added} ] }
+촬영   recorded_at (기록 시각), capture_mode
+```
+
+`capture_mode`가 `"pose_only"`면 `cams`가 비어 있고 `capture_gate.pass`는 항상 true다
+(검사할 카메라가 없다). 자세만 모으는 단계에서 나온 세션이라는 뜻이므로, 이미지가
+필요한 분석은 이 세션을 건너뛰어야 한다.
 
 ### 기존 스키마와 다른 점
 
