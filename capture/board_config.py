@@ -87,7 +87,7 @@ ROBOT_BOARD = BoardConfig(
     square_length_m=0.017,
     marker_length_m=0.012,
     dictionary_name="DICT_4X4_250",
-    marker_id_start=None,
+    marker_id_start=0,
     note="로봇 팔 끝(플랜지)에 볼트 고정. Shah 의 X = T_gripper_board 대상. "
          "ID 미확인 — check_board_ids.py 로 확인 후 여기에 기입할 것.",
 )
