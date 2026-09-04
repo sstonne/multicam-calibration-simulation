@@ -1,0 +1,17 @@
+Server started. Waiting for client connection...
+[SERVER] Waiting for client ready...
+Received data from client: {u'status': u'ready', u'action': u'start'}
+Start main loop
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'fail', u'action': u'initial_block'}
+initial_block
+[NO BLOCK] no detect...???? what!!!!
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'unknown command', u'action': u'yolo_stop'}
+yolo_stop
+No data from client.
+('error: ', 'AttributeError', ':', AttributeError("'NoneType' object has no attribute 'get'",))

@@ -1,0 +1,674 @@
+[SERVER] fever_facetracking ing....
+[SERVER] Sending start command to client...
+[SERVER] Moving to initial pose...
+[SERVER] Waiting for client ready...
+Start facetraking main loop
+Received data from client: {u'action': u'facetracking_start', u'status': u'ready'}
+[SERVER] client ready!
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 246, u'time': 4.76837158203125e-07, u'action': u'face_detect', u'x': -1117, u'z': 623}
+[server] x,y,z -1117 246 623
+[SERVER] Face detected at (-617, 246, 623)
+[SERVER] Tracking to: (-1117, 246, 623)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 246, u'time': 0.077162742614746094, u'action': u'face_detect', u'x': -1117, u'z': 622}
+[server] x,y,z -1117 246 622
+[SERVER] Face detected at (-617, 246, 622)
+[SERVER] Tracking to: (-1117, 246, 622)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 246, u'time': 0.11537337303161621, u'action': u'face_detect', u'x': -1117, u'z': 624}
+[server] x,y,z -1117 246 624
+[SERVER] Face detected at (-617, 246, 624)
+[SERVER] Tracking to: (-1117, 246, 624)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 247, u'time': 0.16366052627563477, u'action': u'face_detect', u'x': -1119, u'z': 627}
+[server] x,y,z -1119 247 627
+[SERVER] Face detected at (-619, 247, 627)
+[SERVER] Tracking to: (-1119, 247, 627)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 247, u'time': 0.21004271507263184, u'action': u'face_detect', u'x': -1121, u'z': 633}
+[server] x,y,z -1121 247 633
+[SERVER] Face detected at (-621, 247, 633)
+[SERVER] Tracking to: (-1121, 247, 633)
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 1.3811264038085938}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 254, u'time': 1.4248833656311035, u'action': u'face_detect', u'x': -1127, u'z': 648}
+[server] x,y,z -1127 254 648
+[SERVER] Face detected at (-627, 254, 648)
+[SERVER] Tracking to: (-1127, 254, 648)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 263, u'time': 1.4737348556518555, u'action': u'face_detect', u'x': -1133, u'z': 661}
+[server] x,y,z -1133 263 661
+[SERVER] Face detected at (-633, 263, 661)
+[SERVER] Tracking to: (-1133, 263, 661)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 274, u'time': 1.530869722366333, u'action': u'face_detect', u'x': -1140, u'z': 673}
+[server] x,y,z -1140 274 673
+[SERVER] Face detected at (-640, 274, 673)
+[SERVER] Tracking to: (-1140, 274, 673)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 295, u'time': 1.6525113582611084, u'action': u'face_detect', u'x': -1143, u'z': 682}
+[server] x,y,z -1143 295 682
+[SERVER] Face detected at (-643, 295, 682)
+[SERVER] Tracking to: (-1143, 295, 682)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 328, u'time': 1.7953884601593018, u'action': u'face_detect', u'x': -1142, u'z': 679}
+[server] x,y,z -1142 328 679
+[SERVER] Face detected at (-642, 328, 679)
+[SERVER] Tracking to: (-1142, 328, 679)
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.0881586074829102}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.1383624076843262}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.1746160984039307}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.2131233215332031}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.2490880489349365}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.2863326072692871}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.3228635787963867}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.359013557434082}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.395456075668335}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.4324996471405029}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.4698634147644043}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.5071125030517578}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.5446655750274658}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.5810465812683105}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.6187746524810791}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.656994104385376}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.6956667900085449}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.7333440780639648}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.7719399929046631}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.811356782913208}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.8495101928710938}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.8867666721343994}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.923750638961792}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.9609103202819824}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 2.9981105327606201}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 3.0344109535217285}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 3.0709967613220215}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 3.1085555553436279}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 3.1460657119750977}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 3.1821668148040771}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 404, u'time': 3.2184474468231201, u'action': u'face_detect', u'x': -1136, u'z': 675}
+[server] x,y,z -1136 404 675
+[SERVER] Face detected at (-636, 404, 675)
+[SERVER] Tracking to: (-1136, 404, 675)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 469, u'time': 3.2669782638549805, u'action': u'face_detect', u'x': -1133, u'z': 667}
+[server] x,y,z -1133 469 667
+[SERVER] Face detected at (-633, 469, 667)
+[SERVER] Tracking to: (-1133, 469, 667)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 517, u'time': 3.3167397975921631, u'action': u'face_detect', u'x': -1131, u'z': 660}
+[server] x,y,z -1131 517 660
+[SERVER] Face detected at (-631, 517, 660)
+[SERVER] Tracking to: (-1131, 517, 660)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 534, u'time': 3.3649654388427734, u'action': u'face_detect', u'x': -1130, u'z': 658}
+[server] x,y,z -1130 534 658
+[SERVER] Face detected at (-630, 534, 658)
+[SERVER] Tracking to: (-1130, 534, 658)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 498, u'time': 3.417529821395874, u'action': u'face_detect', u'x': -1134, u'z': 654}
+[server] x,y,z -1134 498 654
+[SERVER] Face detected at (-634, 498, 654)
+[SERVER] Tracking to: (-1134, 498, 654)
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 4.1782567501068115}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 455, u'time': 4.2298572063446045, u'action': u'face_detect', u'x': -1133, u'z': 654}
+[server] x,y,z -1133 455 654
+[SERVER] Face detected at (-633, 455, 654)
+[SERVER] Tracking to: (-1133, 455, 654)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 430, u'time': 4.319638729095459, u'action': u'face_detect', u'x': -1127, u'z': 654}
+[server] x,y,z -1127 430 654
+[SERVER] Face detected at (-627, 430, 654)
+[SERVER] Tracking to: (-1127, 430, 654)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 436, u'time': 4.8204047679901123, u'action': u'face_detect', u'x': -1120, u'z': 653}
+[server] x,y,z -1120 436 653
+[SERVER] Face detected at (-620, 436, 653)
+[SERVER] Tracking to: (-1120, 436, 653)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 457, u'time': 4.8994231224060059, u'action': u'face_detect', u'x': -1109, u'z': 651}
+[server] x,y,z -1109 457 651
+[SERVER] Face detected at (-609, 457, 651)
+[SERVER] Tracking to: (-1109, 457, 651)
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 5.444206714630127}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 485, u'time': 5.4929513931274414, u'action': u'face_detect', u'x': -1091, u'z': 621}
+[server] x,y,z -1091 485 621
+[SERVER] Face detected at (-591, 485, 621)
+[SERVER] Tracking to: (-1091, 485, 621)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 494, u'time': 5.5771985054016113, u'action': u'face_detect', u'x': -1077, u'z': 591}
+[server] x,y,z -1077 494 591
+[SERVER] Face detected at (-577, 494, 591)
+[SERVER] Tracking to: (-1077, 494, 591)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 478, u'time': 5.9000518321990967, u'action': u'face_detect', u'x': -1062, u'z': 564}
+[server] x,y,z -1062 478 564
+[SERVER] Face detected at (-562, 478, 564)
+[SERVER] Tracking to: (-1062, 478, 564)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 456, u'time': 5.9706401824951172, u'action': u'face_detect', u'x': -1047, u'z': 538}
+[server] x,y,z -1047 456 538
+[SERVER] Face detected at (-547, 456, 538)
+[SERVER] Tracking to: (-1047, 456, 538)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 437, u'time': 6.4060330390930176, u'action': u'face_detect', u'x': -1040, u'z': 539}
+[server] x,y,z -1040 437 539
+[SERVER] Face detected at (-540, 437, 539)
+[SERVER] Tracking to: (-1040, 437, 539)
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 6.6621224880218506}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 419, u'time': 6.7109689712524414, u'action': u'face_detect', u'x': -1054, u'z': 546}
+[server] x,y,z -1054 419 546
+[SERVER] Face detected at (-554, 419, 546)
+[SERVER] Tracking to: (-1054, 419, 546)
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 7.0135462284088135}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 374, u'time': 7.0641632080078125, u'action': u'face_detect', u'x': -1097, u'z': 570}
+[server] x,y,z -1097 374 570
+[SERVER] Face detected at (-597, 374, 570)
+[SERVER] Tracking to: (-1097, 374, 570)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 321, u'time': 7.2727484703063965, u'action': u'face_detect', u'x': -1151, u'z': 605}
+[server] x,y,z -1151 321 605
+[SERVER] Face detected at (-651, 321, 605)
+[SERVER] Tracking to: (-1151, 321, 605)
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 7.643643856048584}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 325, u'time': 7.6931760311126709, u'action': u'face_detect', u'x': -1204, u'z': 648}
+[server] x,y,z -1204 325 648
+[SERVER] Face detected at (-704, 325, 648)
+[SERVER] Tracking to: (-1204, 325, 648)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 334, u'time': 7.7430908679962158, u'action': u'face_detect', u'x': -1238, u'z': 685}
+[server] x,y,z -1238 334 685
+[SERVER] Face detected at (-738, 334, 685)
+[SERVER] Tracking to: (-1238, 334, 685)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 347, u'time': 8.1494958400726318, u'action': u'face_detect', u'x': -1247, u'z': 699}
+[server] x,y,z -1247 347 699
+[SERVER] Face detected at (-747, 347, 699)
+[SERVER] Tracking to: (-1247, 347, 699)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 343, u'time': 8.5868391990661621, u'action': u'face_detect', u'x': -1262, u'z': 702}
+[server] x,y,z -1262 343 702
+[SERVER] Face detected at (-762, 343, 702)
+[SERVER] Tracking to: (-1262, 343, 702)
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 9.1057519912719727}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 339, u'time': 9.144930362701416, u'action': u'face_detect', u'x': -1294, u'z': 689}
+[server] x,y,z -1294 339 689
+[SERVER] Face detected at (-794, 339, 689)
+[SERVER] Tracking to: (-1294, 339, 689)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 311, u'time': 9.441387414932251, u'action': u'face_detect', u'x': -1334, u'z': 674}
+[server] x,y,z -1334 311 674
+[SERVER] Face detected at (-834, 311, 674)
+[SERVER] Tracking to: (-1334, 311, 674)
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 9.8464441299438477}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 308, u'time': 9.8985204696655273, u'action': u'face_detect', u'x': -1391, u'z': 652}
+[server] x,y,z -1391 308 652
+[SERVER] Face detected at (-891, 308, 652)
+[SERVER] Tracking to: (-1391, 308, 652)
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 0, u'time': 9.9480452537536621, u'action': u'face_detect', u'x': 0, u'z': 0}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.406729459762573}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.435374021530151}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.478734970092773}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.52328634262085}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.566235065460205}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.609258651733398}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.651572227478027}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.694799184799194}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.735316038131714}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.778151512145996}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.820954561233521}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.859807014465332}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.901767253875732}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.944911479949951}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 15.984114170074463}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 16.026515007019043}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 16.068855762481689}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 16.112608671188354}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 16.154090881347656}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 16.197799682617188}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 16.240267515182495}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 16.282772541046143}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 16.325814247131348}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 16.368184804916382}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 16.411007165908813}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 16.453536033630371}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 0, u'time': 16.496908664703369, u'action': u'face_detect', u'x': 0, u'z': 0}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 21.823413610458374}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 21.851694107055664}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 21.889887809753418}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 21.929564476013184}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 21.9691321849823}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.007267713546753}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.046628952026367}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.087859153747559}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.130780458450317}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.172903060913086}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.212615966796875}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.251374244689941}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.290506601333618}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.32988429069519}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.369336605072021}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.408622026443481}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.447319746017456}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.486352920532227}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.525490522384644}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.564906358718872}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.603580951690674}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.64187479019165}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.680859327316284}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.719690561294556}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.760057687759399}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.799115657806396}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.838577508926392}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.877156257629395}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.915911912918091}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.954903841018677}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 22.995258808135986}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.033568382263184}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.071988344192505}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.11128830909729}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.15030574798584}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.18889307975769}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.230365753173828}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.269658327102661}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.309708118438721}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.3489990234375}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.389176368713379}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.429133415222168}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.468677520751953}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.507572174072266}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.554318189620972}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.59260368347168}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.632859468460083}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.671462297439575}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.711262702941895}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.750608444213867}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.789940357208252}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.828908681869507}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.868232488632202}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 23.906891345977783}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 0, u'time': 23.946824789047241, u'action': u'face_detect', u'x': 0, u'z': 0}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'action': u'face_detect', u'x': 0, u'z': 0, u'y': 0, u'time': 29.092732191085815}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 0, u'time': 29.126214265823364, u'action': u'face_detect', u'x': 0, u'z': 0}
+[server] x,y,z 0 0 0
+no face
+[SERVER] client ready, face tracking...
+Received data from client: {u'fever': False, u'temperature': None, u'y': 0, u'time': 34.348681688308716, u'action': u'face_detect', u'x': 0, u'z': 0}
+[SERVER] 10 초 지남
+face tracking close..
+Server closed.

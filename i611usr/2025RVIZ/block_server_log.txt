@@ -1,0 +1,598 @@
+Server started. Waiting for client connection...
+[SERVER] Waiting for client ready...
+Received data from client: {u'status': u'ready', u'action': u'start'}
+Start main loop
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-89.750432458775705, 694.02512084113494, -32.034459016958117, -76.192480983798688, 0.0], u'd_target': [-168.95643245877571, 192.90012084113488, -376.59045901695811, 13.740005863966559], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-89.750432458775705, 694.02512084113494, -32.034459016958117, -76.192480983798688, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-89.750432458775705, 694.02512084113494, -32.034459016958117, -76.192480983798688, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-168.95643245877571, 192.90012084113488, -376.59045901695811, 13.740005863966559)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-83.830802308175905, 682.53199173381756, -8.2256570218528502, -79.562524648881819, 0.0], u'd_target': [-78.283802308175908, -11.492008266182438, -102.78165702185285, 10.369733015765377], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-396.42000000000007, 525.89999999999998, -180.0]}
+placement_target is.. [-396.42000000000007, 525.89999999999998, -180.0]
+[PLCEMENT] letter_x , y, z is :  -396.42 525.9 -180.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [14.271911004189791, 564.49510646839212, -30.200434525069152, -126.82084305208247, 0.0], u'd_target': [-64.934088995810214, 63.370106468392066, -374.75643452506915, -36.888356204317233], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [14.271911004189791, 564.49510646839212, -30.200434525069152, -126.82084305208247, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(14.271911004189791, 564.49510646839212, -30.200434525069152, -126.82084305208247, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-64.934088995810214, 63.370106468392066, -374.75643452506915, -36.888356204317233)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [23.041188546159351, 367.27181914382339, -7.7585042320402753, -44.057375702188416, 0.0], u'd_target': [-75.434811453840652, -197.22418085617659, -102.31350423204029, 45.874824666679274], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-440.32000000000005, 254.94, -90.0]}
+placement_target is.. [-440.32000000000005, 254.94, -90.0]
+[PLCEMENT] letter_x , y, z is :  -440.32 254.94 -90.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [78.680882858085909, 506.25960119150261, -23.101670393695816, -163.99432450057796, 0.0], u'd_target': [-0.52511714191409453, 5.1346011915025542, -367.65767039369581, -74.061837652812713], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [78.680882858085909, 506.25960119150261, -23.101670393695816, -163.99432450057796, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(78.680882858085909, 506.25960119150261, -23.101670393695816, -163.99432450057796, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-0.52511714191409453, 5.1346011915025542, -367.65767039369581, -74.061837652812713)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [77.597369293210974, 504.85753116007123, -12.15846482632349, -165.36066533769298, 0.0], u'd_target': [-85.288630706789021, -1.4024688399288152, -106.7154648263235, -75.428293081486757], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-521.44000000000005, 420.91999999999996, -90.0]}
+placement_target is.. [-521.44000000000005, 420.91999999999996, -90.0]
+[PLCEMENT] letter_x , y, z is :  -521.44 420.92 -90.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-62.162232282175665, 268.82195073147727, -25.124104713606819, -180.0, 0.0], u'd_target': [-141.36823228217565, -232.30304926852278, -369.6801047136068, -90.067513152234753], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-62.162232282175665, 268.82195073147727, -25.124104713606819, -180.0, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-62.162232282175665, 268.82195073147727, -25.124104713606819, -180.0, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-141.36823228217565, -232.30304926852278, -369.6801047136068, -90.067513152234753)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-62.422489136333233, 273.5060821540838, -11.228027861579893, -173.30712464216592, 0.0], u'd_target': [-84.464489136333228, 4.6850821540838297, -105.7830278615799, -83.374809681739208], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-426.31000000000006, -79.039999999999992, -135.0]}
+placement_target is.. [-426.31000000000006, -79.039999999999992, -135.0]
+[PLCEMENT] letter_x , y, z is :  -426.31 -79.04 -135.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-11.13495350617611, 306.31247241883983, -14.525288683301829, -180.0, 0.0], u'd_target': [-90.340953506176106, -194.81252758116023, -359.08128868330181, -90.067513152234753], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-11.13495350617611, 306.31247241883983, -14.525288683301829, -180.0, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-11.13495350617611, 306.31247241883983, -14.525288683301829, -180.0, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-90.340953506176106, -194.81252758116023, -359.08128868330181, -90.067513152234753)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [66.882580533461422, 283.93794951384962, -9.685033653900831, -170.58658582918909, 0.0], u'd_target': [-6.1844194665385714, -22.372050486150385, -104.24003365390084, -80.654385460321407], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-737.37, -109.68000000000001, -60.0]}
+placement_target is.. [-737.37, -109.68000000000001, -60.0]
+[PLCEMENT] letter_x , y, z is :  -737.37 -109.68 -60.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-98.916428471122885, 288.3317161423754, -23.495353164781353, -90.0, 0.0], u'd_target': [-178.12242847112287, -212.79328385762466, -368.05135316478135, -0.067513152234766949], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-98.916428471122885, 288.3317161423754, -23.495353164781353, -90.0, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-98.916428471122885, 288.3317161423754, -23.495353164781353, -90.0, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-178.12242847112287, -212.79328385762466, -368.05135316478135, -0.067513152234766949)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-92.036729979102788, 292.06473682577359, -9.3728577160698272, -90.0, 0.0], u'd_target': [-77.323729979102779, 3.7357368257735857, -103.92785771606984, -0.067685039573291306], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-672.32999999999993, 60.319999999999993, -90.0]}
+placement_target is.. [-672.32999999999993, 60.319999999999993, -90.0]
+[PLCEMENT] letter_x , y, z is :  -672.33 60.32 -90.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-220.56984573434619, 364.14822998295841, -16.506359811337301, -156.18134950026624, 0.0], u'd_target': [-299.77584573434621, -136.97677001704164, -361.06235981133727, -66.248862652500989], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-220.56984573434619, 364.14822998295841, -16.506359811337301, -156.18134950026624, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-220.56984573434619, 364.14822998295841, -16.506359811337301, -156.18134950026624, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-299.77584573434621, -136.97677001704164, -361.06235981133727, -66.248862652500989)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-219.2206973689841, 382.95240763847443, -9.3784040499059191, -159.62963489732991, 0.0], u'd_target': [-82.855697368984124, 18.807407638474444, -103.93340404990593, -69.697491824241737], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-395.42000000000007, 448.88999999999999, -180.0]}
+placement_target is.. [-395.42000000000007, 448.88999999999999, -180.0]
+[PLCEMENT] letter_x , y, z is :  -395.42 448.89 -180.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-197.91699347450418, 368.61472086701332, -22.030847143540754, -156.5570792850377, 0.0], u'd_target': [-277.1229934745042, -132.51027913298674, -366.58684714354075, -66.624592437272455], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-197.91699347450418, 368.61472086701332, -22.030847143540754, -156.5570792850377, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-197.91699347450418, 368.61472086701332, -22.030847143540754, -156.5570792850377, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-277.1229934745042, -132.51027913298674, -366.58684714354075, -66.624592437272455)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-116.63193520540126, 362.58802274409891, 0.11286131557169954, -79.37107056084507, 0.0], u'd_target': [-2.9209352054012498, -6.0239772559011158, -94.442138684428301, 10.561416286920178], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-699.29999999999995, 175.31, -90.0]}
+placement_target is.. [-699.29999999999995, 175.31, -90.0]
+[PLCEMENT] letter_x , y, z is :  -699.3 175.31 -90.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-31.286692392783269, 607.24879494091351, -18.571417127414502, -27.170265774322804, 0.0], u'd_target': [-110.49269239278327, 106.12379494091346, -363.1274171274145, 62.762221073442447], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-31.286692392783269, 607.24879494091351, -18.571417127414502, -27.170265774322804, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-31.286692392783269, 607.24879494091351, -18.571417127414502, -27.170265774322804, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-110.49269239278327, 106.12379494091346, -363.1274171274145, 62.762221073442447)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-29.250917153251518, 605.59741203697274, -9.2236739192894106, -27.615028094676774, 0.0], u'd_target': [-82.169917153251518, -1.6495879630272157, -103.77967391928941, 62.317458753088488], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-671.32999999999993, 33.319999999999993, -90.0]}
+placement_target is.. [-671.32999999999993, 33.319999999999993, -90.0]
+[PLCEMENT] letter_x , y, z is :  -671.33 33.32 -90.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-61.026233063891297, 402.56445224593733, -20.24830988208981, -121.08750532347997, 0.0], u'd_target': [-140.2322330638913, -98.560547754062725, -364.8043098820898, -31.155018475714712], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-61.026233063891297, 402.56445224593733, -20.24830988208981, -121.08750532347997, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-61.026233063891297, 402.56445224593733, -20.24830988208981, -121.08750532347997, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-140.2322330638913, -98.560547754062725, -364.8043098820898, -31.155018475714712)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-57.499068379198079, 406.77772209347006, -10.303209016879478, -124.8244891569568, 0.0], u'd_target': [-80.679068379198071, 4.2127220934700631, -104.86020901687948, -34.89211690075058], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-534.74000000000001, 103.23, -180.0]}
+placement_target is.. [-534.74000000000001, 103.23, -180.0]
+[PLCEMENT] letter_x , y, z is :  -534.74 103.23 -180.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-31.016254047862276, 308.98185943755396, -19.121719612386066, -180.0, 0.0], u'd_target': [-110.22225404786228, -192.14314056244609, -363.67771961238606, -90.067513152234753], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-31.016254047862276, 308.98185943755396, -19.121719612386066, -180.0, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-31.016254047862276, 308.98185943755396, -19.121719612386066, -180.0, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-110.22225404786228, -192.14314056244609, -363.67771961238606, -90.067513152234753)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-31.047517662647024, 327.24992011691364, -11.343708558552768, -0.0, 0.0], u'd_target': [-84.235517662647027, 18.268920116913648, -105.89970855855276, 89.932372256206236], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-668.34999999999991, -72.670000000000002, -60.0]}
+placement_target is.. [-668.34999999999991, -72.670000000000002, -60.0]
+[PLCEMENT] letter_x , y, z is :  -668.35 -72.67 -60.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-197.53118590066379, 366.36210481727892, -23.020844483998438, -149.03624346792648, 0.0], u'd_target': [-276.7371859006638, -134.76289518272114, -367.5768444839984, -59.103756620161235], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-197.53118590066379, 366.36210481727892, -23.020844483998438, -149.03624346792648, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-197.53118590066379, 366.36210481727892, -23.020844483998438, -149.03624346792648, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-276.7371859006638, -134.76289518272114, -367.5768444839984, -59.103756620161235)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-189.49137967581098, 371.04351882268071, -10.405889666854462, -156.42045911920988, 0.0], u'd_target': [-76.164379675810977, 4.6825188226807199, -104.96088966685447, -66.488144158783172], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-775.29999999999995, 175.31, -90.0]}
+placement_target is.. [-775.29999999999995, 175.31, -90.0]
+[PLCEMENT] letter_x , y, z is :  -775.3 175.31 -90.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-12.630913340428926, 433.12543771751137, -23.539618325430943, -122.26475572111065, 0.0], u'd_target': [-91.836913340428936, -67.999562282488682, -368.09561832543091, -32.332268873345413], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-12.630913340428926, 433.12543771751137, -23.539618325430943, -122.26475572111065, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-12.630913340428926, 433.12543771751137, -23.539618325430943, -122.26475572111065, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-91.836913340428936, -67.999562282488682, -368.09561832543091, -32.332268873345413)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [28.342945368685367, 457.4490199374597, -8.2719601945929195, -11.676737830953996, 0.0], u'd_target': [-43.23005463131463, 24.326019937459705, -102.82896019459292, 78.255634425252197], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-467.43000000000006, 446.90999999999997, -180.0]}
+placement_target is.. [-467.43000000000006, 446.90999999999997, -180.0]
+[PLCEMENT] letter_x , y, z is :  -467.43 446.91 -180.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-68.30927958718334, 287.17792680714558, -22.142493028551868, -164.2143799802684, 0.0], u'd_target': [-147.51527958718333, -213.94707319285448, -366.69849302855187, -74.281893132503157], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-68.30927958718334, 287.17792680714558, -22.142493028551868, -164.2143799802684, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-68.30927958718334, 287.17792680714558, -22.142493028551868, -164.2143799802684, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-147.51527958718333, -213.94707319285448, -366.69849302855187, -74.281893132503157)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-90.965325691998189, 343.16634461335724, -10.169427965202704, -39.392568039308237, 0.0], u'd_target': [-106.86032569199818, 55.989344613357218, -104.72442796520271, 50.539746921118478], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-443.46000000000004, 380.94999999999999, -90.0]}
+placement_target is.. [-443.46000000000004, 380.94999999999999, -90.0]
+[PLCEMENT] letter_x , y, z is :  -443.46 380.95 -90.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [14.311608683672326, 565.97306992923427, -26.212400543373814, -129.68545433005525, 0.0], u'd_target': [-64.89439131632767, 64.848069929234214, -370.76840054337379, -39.752967482289989], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [14.311608683672326, 565.97306992923427, -26.212400543373814, -129.68545433005525, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(14.311608683672326, 565.97306992923427, -26.212400543373814, -129.68545433005525, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-64.89439131632767, 64.848069929234214, -370.76840054337379, -39.752967482289989)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [16.14781941739421, 563.54783391921762, -1.2106199457799227, -132.9249736385826, 0.0], u'd_target': [-82.368180582605788, -2.4221660807824037, -95.766619945779922, -42.992601382376392], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'standing', u'action': u'block_class'}
+[BLOCK CLASS VALUE] standing
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-206.7467937432119, 321.31903891993716, -18.450977052582694, -90.0, 0.0], u'd_target': [-285.95279374321188, -179.8059610800629, -363.00697705258267, -0.067513152234766949], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-206.7467937432119, 321.31903891993716, -18.450977052582694, -90.0, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-206.7467937432119, 321.31903891993716, -18.450977052582694, -90.0, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-285.95279374321188, -179.8059610800629, -363.00697705258267, -0.067513152234766949)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-197.38456674764467, 323.45106445462341, -9.4119053123108429, -90.0, 0.0], u'd_target': [-74.842566747644668, 2.1320644546233893, -103.96790531231085, -0.067570448014265594], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-459.72000000000003, 105.23, -180.0]}
+placement_target is.. [-459.72000000000003, 105.23, -180.0]
+[PLCEMENT] letter_x , y, z is :  -459.72 105.23 -180.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-87.283308484413197, 287.23799145881799, -25.73665131382219, -158.96248897457818, 0.0], u'd_target': [-166.48930848441319, -213.88700854118207, -370.29265131382215, -69.030002126812931], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-87.283308484413197, 287.23799145881799, -25.73665131382219, -158.96248897457818, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-87.283308484413197, 287.23799145881799, -25.73665131382219, -158.96248897457818, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-166.48930848441319, -213.88700854118207, -370.29265131382215, -69.030002126812931)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-79.611908760144644, 293.03012080565753, -9.4065847546805905, -156.66856094780988, 0.0], u'd_target': [-76.531908760144645, 5.7931208056575088, -103.9615847546806, -66.736131395824145], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-390.31000000000006, 277.93000000000001, -180.0]}
+placement_target is.. [-390.31000000000006, 277.93000000000001, -180.0]
+[PLCEMENT] letter_x , y, z is :  -390.31 277.93 -180.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-54.209415826968346, 658.96168614210796, -18.505107734109629, -76.812940092170919, 0.0], u'd_target': [-133.41541582696834, 157.83668614210791, -363.06110773410961, 13.119546755594342], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-54.209415826968346, 658.96168614210796, -18.505107734109629, -76.812940092170919, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-54.209415826968346, 658.96168614210796, -18.505107734109629, -76.812940092170919, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-133.41541582696834, 157.83668614210791, -363.06110773410961, 13.119546755594342)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-53.455729356497564, 655.33902229016985, -10.181114165560279, -73.354961785324051, 0.0], u'd_target': [-83.450729356497561, -3.622977709830252, -104.73611416556028, 16.57718128776412], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-545.48000000000002, 472.96000000000004, -180.0]}
+placement_target is.. [-545.48000000000002, 472.96000000000004, -180.0]
+[PLCEMENT] letter_x , y, z is :  -545.48 472.96 -180.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-22.325158424655587, 536.73198019046629, -13.181787030319914, -17.171822429094124, 0.0], u'd_target': [-101.53115842465559, 35.606980190466231, -357.73778703031991, 72.760664418671126], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-22.325158424655587, 536.73198019046629, -13.181787030319914, -17.171822429094124, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-22.325158424655587, 536.73198019046629, -13.181787030319914, -17.171822429094124, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-101.53115842465559, 35.606980190466231, -357.73778703031991, 72.760664418671126)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-22.978363002244539, 533.63116015744595, -7.1551916501050865, -15.888195474488908, 0.0], u'd_target': [-84.856363002244535, -3.0998398425540472, -101.70919165010508, 74.044062190158286], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-390.30000000000007, 356.93000000000001, -180.0]}
+placement_target is.. [-390.30000000000007, 356.93000000000001, -180.0]
+[PLCEMENT] letter_x , y, z is :  -390.3 356.93 -180.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-56.117155287413688, 580.50714079576846, -13.81699729741559, -60.743097010065149, 0.0], u'd_target': [-135.3231552874137, 79.382140795768407, -358.37299729741557, 29.189389837700105], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-56.117155287413688, 580.50714079576846, -13.81699729741559, -60.743097010065149, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-56.117155287413688, 580.50714079576846, -13.81699729741559, -60.743097010065149, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-135.3231552874137, 79.382140795768407, -358.37299729741557, 29.189389837700105)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-54.000989348175182, 578.35314951721625, -8.2209256754072761, -63.180867209030765, 0.0], u'd_target': [-82.088989348175176, -2.1528504827837196, -102.77692567540727, 26.751562342954969], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-806.30999999999995, 134.31, -135.0]}
+placement_target is.. [-806.30999999999995, 134.31, -135.0]
+[PLCEMENT] letter_x , y, z is :  -806.31 134.31 -135.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-11.161640762607215, 436.72986442821542, -21.600319721761242, -122.7068268793835, 0.0], u'd_target': [-90.367640762607223, -64.395135571784635, -366.15631972176124, -32.774340031618237], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-11.161640762607215, 436.72986442821542, -21.600319721761242, -122.7068268793835, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-11.161640762607215, 436.72986442821542, -21.600319721761242, -122.7068268793835, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-90.367640762607223, -64.395135571784635, -366.15631972176124, -32.774340031618237)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-8.8427897917040745, 438.87190089616166, -10.261910211465054, -124.09497795476554, 0.0], u'd_target': [-81.88478979170408, 2.1439008961616537, -104.81691021146506, -34.162662994338831], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-529.33000000000004, -14.049999999999997, -180.0]}
+placement_target is.. [-529.33000000000004, -14.049999999999997, -180.0]
+[PLCEMENT] letter_x , y, z is :  -529.33 -14.05 -180.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [122.46048906428341, 636.64158965160914, -13.112221337371444, -25.974393962431318, 0.0], u'd_target': [43.254489064283405, 135.51658965160908, -357.66822133737145, 63.95809288533394], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [122.46048906428341, 636.64158965160914, -13.112221337371444, -25.974393962431318, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(122.46048906428341, 636.64158965160914, -13.112221337371444, -25.974393962431318, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(43.254489064283405, 135.51658965160908, -357.66822133737145, 63.95809288533394)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [122.13881041607777, 633.2306627701962, -8.1581016792832131, -25.97099180225997, 0.0], u'd_target': [-84.525189583922213, -3.4103372298037584, -102.7141016792832, 63.961265862387222], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-673.32999999999993, 87.319999999999993, -90.0]}
+placement_target is.. [-673.32999999999993, 87.319999999999993, -90.0]
+[PLCEMENT] letter_x , y, z is :  -673.33 87.32 -90.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-44.185045353252882, 533.5587099994126, -17.687619812369213, -167.81908392099444, 0.0], u'd_target': [-123.39104535325288, 32.433709999412542, -362.24361981236922, -77.886597073229197], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-44.185045353252882, 533.5587099994126, -17.687619812369213, -167.81908392099444, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-44.185045353252882, 533.5587099994126, -17.687619812369213, -167.81908392099444, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-123.39104535325288, 32.433709999412542, -362.24361981236922, -77.886597073229197)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-39.818180983491217, 536.30322568032705, -4.308350813803596, -167.05737573420541, 0.0], u'd_target': [-79.836180983491218, 2.746225680327143, -98.864350813803597, -77.125060773778699], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-472.43000000000006, 524.91000000000008, -180.0]}
+placement_target is.. [-472.43000000000006, 524.91000000000008, -180.0]
+[PLCEMENT] letter_x , y, z is :  -472.43 524.91 -180.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-122.98087810231371, 331.94426876860172, -18.336499303303388, -148.79380861217655, 0.0], u'd_target': [-202.1868781023137, -169.18073123139834, -362.8924993033034, -58.861321764411301], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-122.98087810231371, 331.94426876860172, -18.336499303303388, -148.79380861217655, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-122.98087810231371, 331.94426876860172, -18.336499303303388, -148.79380861217655, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-202.1868781023137, -169.18073123139834, -362.8924993033034, -58.861321764411301)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-137.43273958124109, 389.50582727807159, -3.3566568334707503, -90.0, 0.0], u'd_target': [-98.655739581241093, 57.563827278071585, -97.911656833470758, -0.067627743793764239], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-384.72000000000003, 107.23, -180.0]}
+placement_target is.. [-384.72000000000003, 107.23, -180.0]
+[PLCEMENT] letter_x , y, z is :  -384.72 107.23 -180.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-88.060251408562223, 322.6021781205738, -16.008557473586649, -146.17791478250604, 0.0], u'd_target': [-167.26625140856223, -178.52282187942626, -360.56455747358666, -56.245427934740789], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-88.060251408562223, 322.6021781205738, -16.008557473586649, -146.17791478250604, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-88.060251408562223, 322.6021781205738, -16.008557473586649, -146.17791478250604, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-167.26625140856223, -178.52282187942626, -360.56455747358666, -56.245427934740789)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-46.485829845229048, 362.81358038816222, -8.4166443213641315, -16.101302399158421, 0.0], u'd_target': [-42.628829845229049, 40.212580388162223, -102.97264432136413, 73.831012561268295], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-498.69000000000005, 50.209999999999994, -270.0]}
+placement_target is.. [-498.69000000000005, 50.209999999999994, -270.0]
+[PLCEMENT] letter_x , y, z is :  -498.69 50.21 -270.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+move robot to the block detection pose
+server send command 'initial_block' to client.
+Received data from client: {u'status': u'success', u'target': [-159.00341499344145, 562.75915404593127, -12.462017440929007, -155.19257102685825, 0.0], u'd_target': [-238.20941499344144, 61.634154045931211, -357.01801744092899, -65.260084179092999], u'height': u'lying', u'action': u'initial_block', u'orientation': u'unknown'}
+initial_block
+('[SERVER] Pick target from client:', [-159.00341499344145, 562.75915404593127, -12.462017440929007, -155.19257102685825, 0.0])
+[SERVER] abs position(x,y,z,rz,ry) by yolo detector: 
+(-159.00341499344145, 562.75915404593127, -12.462017440929007, -155.19257102685825, 0.0)
+[SERVER] delta position(x,y,z,rz) by yolo detector: 
+(-238.20941499344144, 61.634154045931211, -357.01801744092899, -65.260084179092999)
+[1ST MOVING] move the robot to Tracking view point~
+Received data from client: {u'status': u'success', u'target': [-108.90275847336017, 495.20130703649022, -2.7117463361206462, -140.54045769839098, 0.0], u'd_target': [-34.103758473360159, -67.555692963509728, -97.266746336120647, -50.608085442184745], u'height': u'lying', u'action': u'exact_block', u'orientation': u'unknown'}
+[EXACT MOVE] depth value is within the normal range.
+[TRACKING] move the robot to pick block~
+Lift the block to the minimun safe z-height
+Received data from client: {u'status': u'lying', u'action': u'block_class'}
+[BLOCK CLASS VALUE] lying
+block pick success~~ block state is lying!!
+Received data from client: {u'status': u'success', u'action': u'placement', u'target': [-420.70000000000005, 54.209999999999994, -270.0]}
+placement_target is.. [-420.70000000000005, 54.209999999999994, -270.0]
+[PLCEMENT] letter_x , y, z is :  -420.7 54.21 -270.0
+!!!!!!!! place block !!!!!!!!!
+put the block on letter..
+server send command 'detect_block' to client.
+KeyboardInterrupt
