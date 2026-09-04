@@ -170,7 +170,7 @@ python SOTA_Simulation/tsai_noise_sweep.py \
 방법별 script를 복사하지 않는다. 하나의 runner를 사용해야 모든 방법이 동일한 trajectory,
 noise sample과 random seed를 공유한다.
 
-### 6.1 다음에 적용할 robot-world/hand-eye baseline
+### 6.1 다음에 적용할 robot-world/hand-eye baseline - 5가지 방법
 
 다음 두 방법만 우선 적용한다. **두 방법을 동시에 진행하지 않고, Shah를 끝낸 뒤
 Tabb & Ahmad Yousef로 넘어가는 것을 추천함!!** 아직 adapter가 구현되지 않았으므로 현재 README의 예시
@@ -204,16 +204,162 @@ Tabb & Ahmad Yousef로 넘어가는 것을 추천함!!** 아직 adapter가 구�
   3. `SOTA_Simulation/adapter_template.py` 형식으로 입력 생성과 결과 변환 구현
   4. 무잡음(노이즈 0) 검증 후 Shah와 동일한 noise sweep 및 통합 평가 실행
 
+#### 3단계 — Allegro et al. (2024)
 
-#### 두 단계의 공통 원칙
+- 방법: Multi-camera hand-eye calibration framework
+- 역할: 제안 방법과 가장 가까운 공개 multi-camera calibration baseline
+- 공개 구현: `davidea97/Multi-Camera-Hand-Eye-Calibration`
+- 특징:
+  - Multi-camera joint calibration
+  - Pixel-level reprojection objective
+  - Camera-to-camera consistency optimization
+  - Robot pose fixed input
+- 논문:
+  *Multi-Camera Hand-Eye Calibration for Human-Robot Collaboration in Industrial Robotic Workcells*
+- Simulation 적용
+  - 현재 benchmark는 3D corner noise 기반 pose-level calibration
+  - Allegro는 pixel-level reprojection optimization 기반이므로 2D observation branch 이후 적용
+- 작업 순서
+  1. 공개 repository example 재현
+  2. 현재 simulation의 3D corner를 camera projection하여 2D corner observation 생성
+  3. Allegro 입력 형식 adapter 작성
+  4. zero-noise 검증 후 기존 noise sweep 및 held-out evaluation 수행
+- 완료 조건:
+  동일 trajectory, noise sample, held-out split, evaluation metric 조건에서 결과가 저장되어야 한다.
+
+#### 4단계 — Ha (2023)
+
+- 방법: Probabilistic AX=YB robot-world/hand-eye calibration
+- 역할: covariance-aware pose-level calibration baseline
+- 특징:
+  - Measurement covariance 사용
+  - Measurement reliability 반영
+  - Uncertainty estimation 가능
+- 주의:
+  Ha 방법은 본 연구 A4의 corrected-FK latent optimization과 동일한 방법이 아니다.
+  본 비교에서는 uncertainty-aware pose calibration baseline으로 사용한다.
+- Simulation 적용:
+  pose covariance input branch 추가 후 적용한다.
+- 작업 순서
+  1. Pose covariance representation 정의
+  2. 현재 transform convention에 맞는 adapter 작성
+  3. zero-noise recovery 검증
+  4. 기존 noise sweep 및 held-out evaluation 수행
+- 완료 조건:
+  covariance input과 calibration 결과가 동일 evaluation pipeline에 저장되어야 한다.
+
+#### 5단계 — Generalized Robot-world Hand-eye Calibration
+
+- 방법: Generalized robot-world/hand-eye calibration graph optimization
+- 역할: 최근 generalized robot-world calibration baseline
+- 특징:
+  - Multiple sensor 지원
+  - Heterogeneous precision 지원
+  - Generalized calibration formulation
+- Simulation 적용:
+  현재 pose-level transform input 기반으로 adapter 작성 후 적용한다.
+- 작업 순서
+  1. 공개 implementation example 재현
+  2. 현재 simulation transform convention adapter 작성
+  3. zero-noise recovery 검증
+  4. 기존 Shah/Tabb와 동일 noise sweep 및 evaluation 수행
+- 완료 조건:
+  동일 trajectory와 evaluation protocol에서 결과가 저장되어야 한다.
+  
+#### 다섯 단계의 공통 원칙
 
 - 기존 robot trajectory, held-out event, random seed와 noise sample을 변경하지 않는다.
 - 외부 방법의 transform convention은 adapter 안에서만 변환한다.
 - 관측에 오차가 전혀 없는 가장 쉬운 조건에서도 정답을 찾지 못한다면 noise 실험으로 넘어가지 말고, 먼저 좌표계 방향과 입력 변환 코드를 점검한다.
 - 논문에 없는 refinement를 추가할 경우 원 방법과 구분되는 별도 variant로 기록한다.
 
-## 7. 논문 결과용 held-out evaluation
+## 6.2 Baseline별 실행 방법
 
+### 1단계 — Shah 실행
+
+기존 Shah adapter 실행 방법을 따른다.
+검증 순서:
+1. zero-noise transform recovery
+2. transform convention 확인
+3. `0, 1, 3, 5 mm` noise sweep
+4. held-out evaluation
+
+### 2단계 — Tabb 실행
+기존 Tabb adapter 실행 방법을 따른다.
+검증 순서:
+1. 공개 implementation example 재현
+2. cost function 및 parameterization 고정
+3. zero-noise 검증
+4. Shah와 동일 noise sweep 수행
+
+### 3단계 — Allegro 실행
+추가 파일:
+```text
+SOTA_Simulation/
+
+├── allegro_evaluation.py
+├── pixel_observation_sim.py
+│
+├── adapters/
+│   └── allegro_adapter.py
+│
+└── wrappers/
+    └── run_allegro.sh
+```
+
+실행:
+
+```bash
+python SOTA_Simulation/allegro_evaluation.py \
+  --noise-pixel 0 1 3 \
+  --trials 30
+```
+
+### 4단계 — Ha 실행
+추가 파일:
+
+```text
+SOTA_Simulation/
+│
+├── ha_evaluation.py
+│
+├── adapters/
+│   └── ha_adapter.py
+│
+└── wrappers/
+    └── run_ha.m
+```
+
+실행:
+
+```bash
+python SOTA_Simulation/ha_evaluation.py \
+  --noise-mm 0 1 3 5
+```
+
+### 5단계 — Generalized RWHEC 실행
+추가 파일:
+```text
+SOTA_Simulation/
+│
+├── generalized_rwhe_evaluation.py
+│
+├── adapters/
+│   └── generalized_rwhe_adapter.py
+│
+└── wrappers/
+    └── run_generalized_rwhe.jl
+```
+
+실행:
+
+```bash
+python SOTA_Simulation/generalized_rwhe_evaluation.py \
+  --noise-mm 0 1 3 5 \
+  --trials 30
+```
+
+## 7. 논문 결과용 held-out evaluation
 ```bash
 python SOTA_Simulation/opencv_multicam_evaluation.py \
   --methods all \
@@ -364,6 +510,26 @@ SOTA_Simulation/outputs/opencv_multicam_metrics/
 
 재현된 예시 report는 [`examples/opencv_multicam_metrics_report.json`](examples/opencv_multicam_metrics_report.json)에
 포함되어 있다.
+
+Tsai–Lenz 단독 30-trial 재현 결과와 실제 데이터 적용 요건은
+[`docs/tsai_calibration_evaluation.md`](docs/tsai_calibration_evaluation.md)에 정리했다. 원시 CSV,
+JSON과 그래프는 [`examples/tsai_multicam_metrics/`](examples/tsai_multicam_metrics/)에 있다.
+
+Park–Martin 단독 30-trial 재현 결과와 실제 데이터 적용 요건은
+[`docs/park_calibration_evaluation.md`](docs/park_calibration_evaluation.md)에 정리했다. 원시 CSV,
+JSON과 그래프는 [`examples/park_multicam_metrics/`](examples/park_multicam_metrics/)에 있다.
+
+Horaud–Dornaika 단독 30-trial 재현 결과와 실제 데이터 적용 요건은
+[`docs/horaud_calibration_evaluation.md`](docs/horaud_calibration_evaluation.md)에 정리했다. 원시 CSV,
+JSON과 그래프는 [`examples/horaud_multicam_metrics/`](examples/horaud_multicam_metrics/)에 있다.
+
+Andreff 단독 30-trial 재현 결과와 실제 데이터 적용 요건은
+[`docs/andreff_calibration_evaluation.md`](docs/andreff_calibration_evaluation.md)에 정리했다. 원시 CSV,
+JSON과 그래프는 [`examples/andreff_multicam_metrics/`](examples/andreff_multicam_metrics/)에 있다.
+
+Daniilidis 단독 30-trial 재현 결과와 실제 데이터 적용 요건은
+[`docs/daniilidis_calibration_evaluation.md`](docs/daniilidis_calibration_evaluation.md)에 정리했다. 원시 CSV,
+JSON과 그래프는 [`examples/daniilidis_multicam_metrics/`](examples/daniilidis_multicam_metrics/)에 있다.
 
 ## 11. 새로운 SOTA 방법을 붙일 때
 

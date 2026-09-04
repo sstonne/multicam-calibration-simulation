@@ -28,7 +28,7 @@ Shah(2013)는 hand–eye calibration의 고전적 `AX = XB` 관계가 아니라 
 
 ## 3. 입력·출력과 transform convention
 
-저장소의 변환은 source frame 좌표를 destination frame으로 옮기는 `T_destination_source` 4×4 homogeneous transform으로 표기한다. Shah는 **미지수가 2개**이므로, 다른 방법과 직접 비교 가능한 "주 출력"과, 보드(또는 gripper) 고정 위치를 알려주는 "보너스 출력"으로 나누어 기록한다.
+저장소의 변환은 source frame 좌표를 destination frame으로 옮기는 `T_destination_source` 4×4 homogeneous transform으로 표기한다. Shah는 **미지수가 2개**이므로, 다른 방법과 직접 비교 가능한 '주 출력'과, 보드(또는 gripper) 고정 위치를 알려주는 '추가 출력'으로 나누어 기록한다.
 
 ### Eye-in-hand wrist camera
 
