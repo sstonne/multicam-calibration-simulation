@@ -37,11 +37,9 @@ capture/shah_capture_client.py 와 다른 점
     list / div   기록 목록 / 평균 상대회전
     q            종료
 
-저장 위치 — 이 스크립트를 실행한 PC 안에만 쌓인다
-  이미지, meta.json 도 전부 로컬 디스크에 쓴다.
-  기본 경로는 --dataset-root 로 정하며 기본값은 홈 디렉터리 아래 ~/shah_data
-  저장소 폴더 안에 두고 VS Code 에서 바로 보고 싶다면 --dataset-root ./data
-  를 쓰면 된다.
+저장 위치 — 이 스크립트를 실행한 PC의 저장소 안에 쌓인다
+  이미지와 meta.json 은 기본적으로 <repo>/datasets 에 기록되어 Git 아카이브 후보가 된다.
+  다른 위치가 필요하면 --dataset-root 로 명시적으로 바꿀 수 있다.
 
 저장 구조 — 어떤 알고리즘의 데이터인지가 폴더 이름이 됨.
 
@@ -116,6 +114,7 @@ DATASET_SCHEMA_VERSION = "pose_dataset_v1"
 DEFAULT_ROBOT_PORT = 12350
 ROTATION_DIVERSITY_TARGET_DEG = 40.0
 RECORDER_ID = "capture/record_dataset.py"
+REPOSITORY_DATASET_ROOT = ROOT / "datasets"
 
 # 로봇 서버마다 자세 필드 이름이 다르다. 먼저 나오는 것을 쓴다.
 #   flange_pose_6dof / joints_6dof : capture/robot/pose_query_server.py
@@ -685,8 +684,8 @@ def parse_args(argv=None):
         description="엔터로 로봇 자세와 촬영을 함께 기록하는 데이터셋 레코더")
 
     dataset = parser.add_argument_group("데이터셋")
-    dataset.add_argument("--dataset-root", default=str(Path.home() / "shah_data"),
-                         help="데이터셋 최상위. 기본 ~/shah_data (저장소 밖)")
+    dataset.add_argument("--dataset-root", default=str(REPOSITORY_DATASET_ROOT),
+                         help="데이터셋 최상위. 기본 <repo>/datasets (Git 아카이브 대상)")
     dataset.add_argument("--algorithm", default="shah",
                          help="이 데이터로 돌릴 알고리즘. 폴더 이름이 된다 "
                               "(shah / tsai / park / horaud / andreff / daniilidis)")

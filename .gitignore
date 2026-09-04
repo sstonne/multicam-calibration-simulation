@@ -5,7 +5,6 @@ __pycache__/
 SOTA_Simulation/outputs/
 SOTA_Simulation/outputs_*/
 
-# 촬영 세션 데이터 (record_dataset.py --dataset-root). 이미지가 수백 장이라
-# 저장소에 넣지 않는다. 저장소 밖(~/shah_data)에 두는 것이 기본값이다.
+# 과거 로컬 촬영 경로. 새 기본 경로는 추적 대상인 /datasets/ 이다.
 /data/
 /shah_data/

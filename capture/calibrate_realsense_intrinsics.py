@@ -205,10 +205,11 @@ def validate_candidate(path: Path, reference_path: Path, serial: str) -> list[st
     with np.load(path, allow_pickle=False) as candidate, np.load(reference_path, allow_pickle=False) as reference:
         if tuple(candidate.files) != EXPECTED_KEYS:
             errors.append(f"key 순서/구성이 다름: {candidate.files}")
+        missing_candidate = [key for key in EXPECTED_KEYS if key not in candidate]
+        if missing_candidate:
+            errors.extend(f"필수 key 누락: {key}" for key in missing_candidate)
+            return errors
         for key in EXPECTED_KEYS:
-            if key not in candidate:
-                errors.append(f"필수 key 누락: {key}")
-                continue
             if key not in reference:
                 errors.append(f"기준 파일 key 누락: {key}")
                 continue

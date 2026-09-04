@@ -76,10 +76,10 @@ class BoardConfig:
 
 # 로봇 팔 끝에 고정된 보드. 실험실 표기 '5*7' = 세로 5 x 가로 7.
 #
-# marker_id_start 가 None 인 이유: 인쇄에 쓴 PDF 에 ID 가 적혀 있지 않고,
-# PC 어디에도 이 보드의 생성 기록이 없다. 실물에서 읽어야 한다 —
+# 현재 marker_id_start=0 은 보드 제작 기본값에 근거한 추정이다. 인쇄에 쓴 PDF 에 ID가
+# 적혀 있지 않아, Shah 촬영 전에 실물에서 반드시 다시 읽어야 한다 —
 #   python capture/check_board_ids.py --live
-# 확인한 값을 여기 적어 넣으면 그 뒤로는 이 파일이 진실의 출처가 된다.
+# 확인 결과가 다르면 이 값을 고치고 새 세션으로 시작한다.
 ROBOT_BOARD = BoardConfig(
     name="robot_board",
     squares_x=7,
@@ -89,7 +89,7 @@ ROBOT_BOARD = BoardConfig(
     dictionary_name="DICT_4X4_250",
     marker_id_start=0,
     note="로봇 팔 끝(플랜지)에 볼트 고정. Shah 의 X = T_gripper_board 대상. "
-         "ID 미확인 — check_board_ids.py 로 확인 후 여기에 기입할 것.",
+         "ID 0은 추정값 — Shah 촬영 전 check_board_ids.py 로 실물 확인 필요.",
 )
 
 # 광학 테이블 위 정지 보드. 규격 출처는 두 곳에서 교차 확인됨:
