@@ -20,8 +20,7 @@ PC 측 상대 스크립트: capture/record_dataset.py
 주의 - shm 이 주는 자세는 컨트롤러의 현재 tool 기준이다
   즉 zeus_jog_onboard.py 가 어떤 tool 을 설정해 두었는지에 달렸다. 이 리그의
   Shah 규약은 tool 1 (플랜지) 이다 (docs/real_shah_capture.md 8.2).
-  그리퍼가 없으므로 zeus_jog_onboard.py 도 tool 1 일 확률이 높지만, 확실하지 않다면
-  로봇 콘솔에서 확인하라.
+  그리퍼가 없으므로 zeus_jog_onboard.py 도 tool 1 일 확률이 높지만, 확실하지 않다면 로봇 콘솔에서 확인.
 
 프로토콜 (newline-delimited JSON, 요청 1개에 응답 1개)
   -> {"command": "get_state"}   (get_pose 도 같은 뜻으로 받는다)
