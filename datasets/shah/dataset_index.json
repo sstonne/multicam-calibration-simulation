@@ -1,0 +1,16 @@
+{
+  "schema_version": "pose_dataset_v1",
+  "algorithm": "shah",
+  "sessions": {
+    "session_20260904_173735": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260904_173735",
+      "capture_mode": "pose_and_image",
+      "n_captures": 57,
+      "n_gate_passed": 57,
+      "rotation_diversity_deg": 28.65,
+      "created_at": "2026-09-04T17:37:39+09:00",
+      "updated_at": "2026-09-04T18:18:21+09:00"
+    }
+  },
+  "updated_at": "2026-09-04T18:18:21+09:00"
+}
