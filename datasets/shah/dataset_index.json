@@ -10,7 +10,97 @@
       "rotation_diversity_deg": 28.65,
       "created_at": "2026-09-04T17:37:39+09:00",
       "updated_at": "2026-09-04T18:18:21+09:00"
+    },
+    "session_20260905_125529": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_125529",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T12:55:33+09:00",
+      "updated_at": "2026-09-05T13:02:08+09:00"
+    },
+    "session_20260905_130214": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_130214",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T13:02:19+09:00",
+      "updated_at": "2026-09-05T13:03:13+09:00"
+    },
+    "session_20260905_130559": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_130559",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T13:06:04+09:00",
+      "updated_at": "2026-09-05T13:07:40+09:00"
+    },
+    "session_20260905_134509": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_134509",
+      "capture_mode": "pose_and_image",
+      "n_captures": 17,
+      "n_gate_passed": 17,
+      "rotation_diversity_deg": 21.55,
+      "created_at": "2026-09-05T13:45:16+09:00",
+      "updated_at": "2026-09-05T13:58:50+09:00"
+    },
+    "session_20260905_141042": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_141042",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T14:10:48+09:00",
+      "updated_at": "2026-09-05T14:14:01+09:00"
+    },
+    "session_20260905_141521": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_141521",
+      "capture_mode": "pose_and_image",
+      "n_captures": 16,
+      "n_gate_passed": 16,
+      "rotation_diversity_deg": 19.52,
+      "created_at": "2026-09-05T14:15:28+09:00",
+      "updated_at": "2026-09-05T14:42:45+09:00"
+    },
+    "session_20260905_144616": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_144616",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T14:46:26+09:00",
+      "updated_at": "2026-09-05T14:48:16+09:00"
+    },
+    "session_20260905_144821": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_144821",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T14:48:31+09:00",
+      "updated_at": "2026-09-05T14:49:45+09:00"
+    },
+    "session_20260905_145017": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_145017",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T14:50:27+09:00",
+      "updated_at": "2026-09-05T14:50:49+09:00"
+    },
+    "session_20260905_145207": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_145207",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T14:52:17+09:00",
+      "updated_at": "2026-09-05T14:52:17+09:00"
     }
   },
-  "updated_at": "2026-09-04T18:18:21+09:00"
+  "updated_at": "2026-09-05T14:52:17+09:00"
 }

@@ -1,0 +1,105 @@
+{
+  "schema_version": "shah_capture_v1",
+  "root_folder": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_145017",
+  "session_allocation": null,
+  "gripper_cam_idx": null,
+  "n_fixed_cams": 2,
+  "n_gripper_cams": 0,
+  "cam_indices": [
+    1,
+    3
+  ],
+  "cam_serials": {
+    "1": "319522062138",
+    "3": "912322060991"
+  },
+  "board_config_source": "capture/board_config.py:ROBOT_BOARD",
+  "board_config": {
+    "name": "robot_board",
+    "squares_x": 7,
+    "squares_y": 5,
+    "square_length_m": 0.017,
+    "marker_length_m": 0.012,
+    "dictionary_name": "DICT_4X4_250",
+    "marker_id_start": 0,
+    "note": "로봇 팔 끝(플랜지)에 볼트 고정. Shah 의 X = T_gripper_board 대상. ID 0은 추정값 — Shah 촬영 전 check_board_ids.py 로 실물 확인 필요.",
+    "marker_count": 17,
+    "corner_count": 24,
+    "size_mm": [
+      119.00000000000001,
+      85.0
+    ]
+  },
+  "table_board_config": {
+    "name": "table_board",
+    "squares_x": 11,
+    "squares_y": 7,
+    "square_length_m": 0.025,
+    "marker_length_m": 0.018,
+    "dictionary_name": "DICT_4X4_250",
+    "marker_id_start": 5,
+    "note": "테이블 고정. 고정 카메라 상호등록(camera-to-camera)의 독립 기준. Shah 입력이 아니라 검증용.",
+    "marker_count": 38,
+    "corner_count": 60,
+    "size_mm": [
+      275.0,
+      175.00000000000003
+    ]
+  },
+  "capture_config": {
+    "schema_version": "capture_config_v1",
+    "intrinsics_dir": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/intrinsics",
+    "width": 1280,
+    "height": 720,
+    "fps": 15,
+    "save_depth": false,
+    "settle_time_s": 0.5,
+    "cross_camera_timestamp_basis": "host_monotonic_receipt_v1",
+    "min_charuco_corners": 12,
+    "max_charuco_reproj_px": 1.5,
+    "robot_pose_convention": "tool 1 (flange), [x,y,z mm, rz,ry,rx deg], R = Rz@Ry@Rx",
+    "transform_convention": "T_destination_source, translation in metre",
+    "color_photometry": {
+      "1": {
+        "locked": true,
+        "values": {
+          "exposure_us": 166.0,
+          "gain": 64.0,
+          "white_balance": 4600.0
+        },
+        "source": "auto_converged"
+      },
+      "3": {
+        "locked": true,
+        "values": {
+          "exposure_us": 166.0,
+          "gain": 64.0,
+          "white_balance": 4600.0
+        },
+        "source": "auto_converged"
+      }
+    }
+  },
+  "captures": [],
+  "dataset": {
+    "schema_version": "pose_dataset_v1",
+    "algorithm": "shah",
+    "dataset_root": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets",
+    "algorithm_dir": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah",
+    "session_id": "session_20260905_145017",
+    "capture_mode": "pose_and_image",
+    "recorder": "capture/record_dataset.py",
+    "created_at": "2026-09-05T14:50:27+09:00",
+    "updated_at": "2026-09-05T14:50:49+09:00",
+    "append_history": [
+      {
+        "started_at": "2026-09-05T14:50:27+09:00",
+        "ended_at": "2026-09-05T14:50:49+09:00",
+        "robot_host": "192.168.0.23:12350",
+        "recorder": "capture/record_dataset.py",
+        "n_before": 0,
+        "records_added": 0
+      }
+    ]
+  }
+}
