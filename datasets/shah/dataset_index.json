@@ -99,8 +99,62 @@
       "n_gate_passed": 0,
       "rotation_diversity_deg": 0.0,
       "created_at": "2026-09-05T14:52:17+09:00",
-      "updated_at": "2026-09-05T14:52:17+09:00"
+      "updated_at": "2026-09-05T14:56:07+09:00"
+    },
+    "session_20260905_145726": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_145726",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T14:57:36+09:00",
+      "updated_at": "2026-09-05T15:03:07+09:00"
+    },
+    "session_20260905_150809": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_150809",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T15:08:19+09:00",
+      "updated_at": "2026-09-05T15:10:04+09:00"
+    },
+    "session_20260905_151008": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_151008",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T15:10:18+09:00",
+      "updated_at": "2026-09-05T15:10:36+09:00"
+    },
+    "session_20260905_151133": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_151133",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T15:11:43+09:00",
+      "updated_at": "2026-09-05T15:12:15+09:00"
+    },
+    "session_20260905_151344": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_151344",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T15:13:54+09:00",
+      "updated_at": "2026-09-05T15:14:21+09:00"
+    },
+    "session_20260905_151504": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260905_151504",
+      "capture_mode": "pose_and_image",
+      "n_captures": 0,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-05T15:15:14+09:00",
+      "updated_at": "2026-09-05T15:15:28+09:00"
     }
   },
-  "updated_at": "2026-09-05T14:52:17+09:00"
+  "updated_at": "2026-09-05T15:15:28+09:00"
 }
