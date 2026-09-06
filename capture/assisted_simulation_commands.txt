@@ -1,0 +1,11 @@
+# Only accepted with a simulation robot; never replayed against real hardware.
+state
+anchor
+arm
+jog x 1
+capture x_plus_1
+jog x -1
+plan
+run
+suggest
+disarm
