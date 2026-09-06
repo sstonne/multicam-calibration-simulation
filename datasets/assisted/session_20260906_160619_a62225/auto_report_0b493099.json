@@ -1,0 +1,52 @@
+{
+  "run_id": "0b493099",
+  "status": "aborted",
+  "detail": "Out of range float values are not JSON compliant: nan",
+  "camera_pair": [
+    "cam1",
+    "cam3"
+  ],
+  "goal": 30,
+  "evaluated": 2,
+  "original_anchor": {
+    "joints": [
+      4.13984925293825,
+      -41.471372760923146,
+      -95.1602110663184,
+      -161.56349850768225,
+      52.69028746004125,
+      -197.87309449227178
+    ],
+    "pose": [
+      -154.99599999999998,
+      583.135,
+      192.446,
+      100.41813016067493,
+      6.191038159506597,
+      -164.6628564046629
+    ]
+  },
+  "search_radius_mm": 10.0,
+  "search_angle_deg": 6.0,
+  "validation": {
+    "frames": 5,
+    "required_joint_passes": 4,
+    "max_pose_jitter_mm": 5.0,
+    "max_pose_jitter_deg": 2.0,
+    "min_corners": 12
+  },
+  "selected_event_ids": [],
+  "coverage": {
+    "count": 0,
+    "translation_span_mm": 0.0,
+    "rotation_span_deg": 0.0,
+    "rotation_singular_values_deg": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "diverse": false
+  },
+  "simulation": false,
+  "note": "Coverage is a screening diagnostic, not proof of Shah calibration accuracy."
+}
