@@ -1,0 +1,61 @@
+{
+  "run_id": "9885617b",
+  "status": "incomplete",
+  "detail": "시간 한도 도달",
+  "camera_pair": [
+    "cam1",
+    "cam3"
+  ],
+  "goal": 30,
+  "evaluated": 90,
+  "original_anchor": {
+    "joints": [
+      0.5044893386126899,
+      -34.84620448004592,
+      -95.66372637667936,
+      -160.3761007730531,
+      52.09578645181351,
+      -200.2490931728998
+    ],
+    "pose": [
+      -117.88600000000001,
+      581.507,
+      259.55899999999997,
+      98.11592844405976,
+      -1.1613281549506655,
+      -164.64858975556416
+    ]
+  },
+  "search_radius_mm": 10.0,
+  "search_angle_deg": 6.0,
+  "validation": {
+    "frames": 5,
+    "required_joint_passes": 4,
+    "max_pose_jitter_mm": 5.0,
+    "max_pose_jitter_deg": 2.0,
+    "min_corners": 12
+  },
+  "selected_event_ids": [
+    95,
+    131,
+    149,
+    189,
+    259,
+    381,
+    390,
+    392
+  ],
+  "coverage": {
+    "count": 8,
+    "translation_span_mm": 2.237862819745638,
+    "rotation_span_deg": 4.219045078294649,
+    "rotation_singular_values_deg": [
+      3.563503812016785,
+      2.732885317252112,
+      1.6712628759422645
+    ],
+    "diverse": true
+  },
+  "simulation": false,
+  "note": "Coverage is a screening diagnostic, not proof of Shah calibration accuracy."
+}
