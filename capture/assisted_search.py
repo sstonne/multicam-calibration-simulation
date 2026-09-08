@@ -262,8 +262,6 @@ class AutoCollector:
         if self.session.rig is None or set(self.args.cameras) not in (
                 {'cam0','cam1'},{'cam0','cam3'},{'cam1','cam3'}):
             raise ValueError('auto는 테이블 카메라 (0,1), (0,3), (1,3)만 지원; cam2 제외')
-        if self.args.min_corners<10:
-            raise ValueError('auto는 --min-corners 10 이상 필요 (기본 12)')
         s=self.robot.state()
         if not s['anchor'] or not s['armed'] or s['fault'] or s['pending'] or s['moving']:
             raise ValueError('정지 상태에서 anchor, arm 후 auto 실행')

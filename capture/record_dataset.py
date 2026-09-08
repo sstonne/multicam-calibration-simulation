@@ -112,7 +112,7 @@ DATASET_SCHEMA_VERSION = "pose_dataset_v1"
 # pose_query_server.py 와 같아야 한다. 12346/12348 은 기존 서버들이,
 # 12349 는 i611usr/model.py 가 이미 쓴다.
 DEFAULT_ROBOT_PORT = 12350
-ROTATION_DIVERSITY_TARGET_DEG = 40.0
+ROTATION_DIVERSITY_TARGET_DEG = 30.0
 RECORDER_ID = "capture/record_dataset.py"
 REPOSITORY_DATASET_ROOT = ROOT / "datasets"
 
@@ -719,8 +719,9 @@ def parse_args(argv=None):
     camera.add_argument("--settle-time-s", type=float, default=0.5,
                         help="엔터를 친 뒤 촬영까지 기다리는 시간. 사람이 자세를 "
                              "잡고 손을 뗀 뒤이므로 자동 순회보다 짧아도 된다")
-    camera.add_argument("--min-corners", type=int, default=12,
-                        help=f"로봇 보드 전체 코너는 {ROBOT_BOARD.corner_count}개")
+    camera.add_argument("--min-corners", type=int, default=0,
+                        help=f"최소 코너 게이트 (기본 0 = 모든 검출을 유효로 저장; "
+                             f"로봇 보드 전체 코너는 {ROBOT_BOARD.corner_count}개)")
     camera.add_argument("--max-reproj-px", type=float, default=1.5)
     camera.add_argument("--jpg-quality", type=int, default=95)
     camera.add_argument("--show", action="store_true")
