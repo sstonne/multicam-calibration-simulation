@@ -349,7 +349,7 @@ def solve_and_report(records, camera_names):
                   cv2.Rodrigues((invert(a) @ b)[:3, :3])[0]))
               for a, b in combinations(robot, 2)]
     diversity = float(np.mean(angles))
-    verdict = "충분" if diversity >= 40 else "부족 — 더 기울여 재촬영 권장"
+    verdict = "충분" if diversity >= 30 else "부족 — 더 기울여 재촬영 권장"
     print(f"자세 간 평균 상대회전: {diversity:.1f}deg  ({verdict})")
 
     estimates, boards = {}, []
@@ -545,8 +545,9 @@ def main() -> int:
     parser.add_argument("--no-save-depth", dest="save_depth", action="store_false")
     parser.add_argument("--settle-time-s", type=float, default=1.5)
     parser.add_argument("--startup-stagger-s", type=float, default=0.8)
-    parser.add_argument("--min-corners", type=int, default=12,
-                        help=f"로봇 보드 전체 코너는 {ROBOT_BOARD.corner_count}개")
+    parser.add_argument("--min-corners", type=int, default=0,
+                        help=f"최소 코너 게이트 (기본 0 = 모든 검출을 유효로 저장; "
+                             f"로봇 보드 전체 코너는 {ROBOT_BOARD.corner_count}개)")
     parser.add_argument("--max-reproj-px", type=float, default=1.5)
     parser.add_argument("--jpg-quality", type=int, default=95)
     parser.add_argument("--show", action="store_true")

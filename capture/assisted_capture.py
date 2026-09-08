@@ -399,7 +399,8 @@ def parse_args(argv=None):
     p.add_argument('--save-depth',action='store_true')
     p.add_argument('--startup-stagger-s',type=float,default=.8)
     p.add_argument('--settle-time-s',type=float,default=.6)
-    p.add_argument('--min-corners',type=int,default=12)
+    p.add_argument('--min-corners',type=int,default=0,
+                   help='최소 코너 게이트 (기본 0 = 모든 검출을 유효로 저장)')
     p.add_argument('--detection-scale',type=int,choices=(1,2,3),default=3,
                    help='검출 전용 확대 배율; 저장 영상·코너 좌표·내부 파라미터는 원본 기준')
     p.add_argument('--max-reproj-px',type=float,default=1.5)
@@ -415,8 +416,8 @@ def parse_args(argv=None):
         p.error('카메라 이름은 중복 없는 cam0~cam3')
     if not args.no_camera and len(args.cameras)!=2:
         p.error('이 첫 버전은 카메라 2대를 명시해야 합니다')
-    if not 4<=args.min_corners<=24 or not .5<=args.settle_time_s<=5.:
-        p.error('min-corners 4..24, settle-time-s 0.5..5')
+    if not 0<=args.min_corners<=24 or not .5<=args.settle_time_s<=5.:
+        p.error('min-corners 0..24, settle-time-s 0.5..5')
     import math
     if not all(math.isfinite(v) for v in (args.max_reproj_px,args.max_camera_span_ms,
                                          args.min_margin_px,args.min_sharpness,args.startup_stagger_s)) or \

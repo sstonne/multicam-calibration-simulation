@@ -139,8 +139,8 @@ def parse_args():
     parser.add_argument("--name", required=True,
                         help="저장 파일 이름. intrinsics/<name>.npz 로 저장된다 (예: cam0)")
     parser.add_argument("--intrinsics-dir", default=str(ROOT / "intrinsics"))
-    parser.add_argument("--frames", type=int, default=30,
-                        help="목표 캡처 수 (기본 30, 권장 25~40)")
+    parser.add_argument("--frames", type=int, default=15,
+                        help="목표 캡처 수 (기본 15, 최소 10 권장)")
     parser.add_argument("--min-corners", type=int, default=12,
                         help="한 프레임을 유효로 인정할 최소 코너 수 (기본 12)")
     parser.add_argument("--width", type=int, default=1280,
