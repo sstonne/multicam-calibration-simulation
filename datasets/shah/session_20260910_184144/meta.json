@@ -1,0 +1,524 @@
+{
+  "schema_version": "shah_capture_v1",
+  "root_folder": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260910_184144",
+  "session_allocation": null,
+  "gripper_cam_idx": null,
+  "n_fixed_cams": 3,
+  "n_gripper_cams": 0,
+  "cam_indices": [
+    0,
+    1,
+    3
+  ],
+  "cam_serials": {
+    "0": "039422061216",
+    "1": "319522062138",
+    "3": "912322060991"
+  },
+  "board_config_source": "capture/board_config.py:ROBOT_BOARD",
+  "board_config": {
+    "name": "robot_board",
+    "squares_x": 7,
+    "squares_y": 5,
+    "square_length_m": 0.017,
+    "marker_length_m": 0.012,
+    "dictionary_name": "DICT_4X4_250",
+    "marker_id_start": 0,
+    "note": "로봇 팔 끝(플랜지)에 볼트 고정. Shah 의 X = T_gripper_board 대상. ID 0은 추정값 — Shah 촬영 전 check_board_ids.py 로 실물 확인 필요.",
+    "marker_count": 17,
+    "corner_count": 24,
+    "size_mm": [
+      119.00000000000001,
+      85.0
+    ]
+  },
+  "table_board_config": {
+    "name": "table_board",
+    "squares_x": 11,
+    "squares_y": 7,
+    "square_length_m": 0.025,
+    "marker_length_m": 0.018,
+    "dictionary_name": "DICT_4X4_250",
+    "marker_id_start": 5,
+    "note": "테이블 고정. 고정 카메라 상호등록(camera-to-camera)의 독립 기준. Shah 입력이 아니라 검증용.",
+    "marker_count": 38,
+    "corner_count": 60,
+    "size_mm": [
+      275.0,
+      175.00000000000003
+    ]
+  },
+  "capture_config": {
+    "schema_version": "capture_config_v1",
+    "intrinsics_dir": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/intrinsics",
+    "width": 1280,
+    "height": 720,
+    "fps": 15,
+    "save_depth": true,
+    "settle_time_s": 0.5,
+    "cross_camera_timestamp_basis": "host_monotonic_receipt_v1",
+    "min_charuco_corners": 0,
+    "max_charuco_reproj_px": 1.5,
+    "robot_pose_convention": "tool 1 (flange), [x,y,z mm, rz,ry,rx deg], R = Rz@Ry@Rx",
+    "transform_convention": "T_destination_source, translation in metre",
+    "color_photometry": {
+      "0": {
+        "locked": true,
+        "values": {
+          "exposure_us": 166.0,
+          "gain": 64.0,
+          "white_balance": 4600.0
+        },
+        "source": "auto_converged"
+      },
+      "1": {
+        "locked": true,
+        "values": {
+          "exposure_us": 166.0,
+          "gain": 64.0,
+          "white_balance": 4600.0
+        },
+        "source": "auto_converged"
+      },
+      "3": {
+        "locked": true,
+        "values": {
+          "exposure_us": 166.0,
+          "gain": 64.0,
+          "white_balance": 4600.0
+        },
+        "source": "auto_converged"
+      }
+    }
+  },
+  "captures": [
+    {
+      "event_id": 0,
+      "capture_index": 0,
+      "capture_block": "B_eyetohand",
+      "robot_pose_6dof": [
+        -342.43,
+        410.60999999999996,
+        342.211,
+        -62.21261683199748,
+        -0.4191186271381972,
+        -168.11343743005878
+      ],
+      "robot_pose_matrix_4x4": [
+        [
+          0.46617936692421524,
+          -0.8650112576681126,
+          0.18555948362066524,
+          -0.34243
+        ],
+        [
+          -0.8846599852957878,
+          -0.45752838190705386,
+          0.0896910818641943,
+          0.41061
+        ],
+        [
+          0.007314934763511059,
+          -0.20596918181354976,
+          -0.9785311379166544,
+          0.342211
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "capture_gripper_pose_6dof": [
+        -342.43,
+        410.60999999999996,
+        342.211,
+        -62.21261683199748,
+        -0.4191186271381972,
+        -168.11343743005878
+      ],
+      "capture_gripper_pose_matrix_4x4": [
+        [
+          0.46617936692421524,
+          -0.8650112576681126,
+          0.18555948362066524,
+          -0.34243
+        ],
+        [
+          -0.8846599852957878,
+          -0.45752838190705386,
+          0.0896910818641943,
+          0.41061
+        ],
+        [
+          0.007314934763511059,
+          -0.20596918181354976,
+          -0.9785311379166544,
+          0.342211
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "capture_robot_joints_6dof": [
+        51.792,
+        -24.3952,
+        -97.0257,
+        -11.8598,
+        -64.3392,
+        -150.3497
+      ],
+      "tool": null,
+      "cams": {
+        "0": {
+          "saved": true,
+          "is_gripper": false,
+          "rgb_path": "cam0/rgb_00000.jpg",
+          "depth_path": "cam0/depth_00000.png",
+          "ts_ms": 1789033562884.8855,
+          "host_monotonic_ts_ms": 276627849.088239,
+          "device_ts_ms": 1928180078.0,
+          "n_markers_detected": 8,
+          "marker_ids": [
+            5,
+            7,
+            8,
+            10,
+            12,
+            13,
+            14,
+            16
+          ],
+          "foreign_marker_ids": [
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105,
+            106,
+            107
+          ],
+          "charuco_detect_n": 0,
+          "charuco": {
+            "ok": false,
+            "detection_scale": 1,
+            "corner_coordinate_space": "original_image_pixels",
+            "n_corners": 0,
+            "reproj_error_px": null,
+            "rvec": null,
+            "tvec": null,
+            "T_cam_board_4x4": null,
+            "marker_ids": [
+              5,
+              7,
+              8,
+              10,
+              12,
+              13,
+              14,
+              16
+            ],
+            "foreign_marker_ids": [
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107
+            ]
+          },
+          "gate_reason": "charuco_pose_failed(corners=0)"
+        },
+        "1": {
+          "saved": true,
+          "is_gripper": false,
+          "rgb_path": "cam1/rgb_00000.jpg",
+          "depth_path": "cam1/depth_00000.png",
+          "ts_ms": 1789033563026.101,
+          "host_monotonic_ts_ms": 276627948.563526,
+          "device_ts_ms": 2887905097.0,
+          "n_markers_detected": 10,
+          "marker_ids": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "foreign_marker_ids": [
+            19,
+            20,
+            22,
+            23,
+            24,
+            25,
+            26,
+            30,
+            31,
+            33,
+            34,
+            37,
+            40,
+            41,
+            42,
+            241
+          ],
+          "charuco_detect_n": 0,
+          "charuco": {
+            "ok": false,
+            "detection_scale": 1,
+            "corner_coordinate_space": "original_image_pixels",
+            "n_corners": 0,
+            "reproj_error_px": null,
+            "rvec": null,
+            "tvec": null,
+            "T_cam_board_4x4": null,
+            "marker_ids": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "foreign_marker_ids": [
+              19,
+              20,
+              22,
+              23,
+              24,
+              25,
+              26,
+              30,
+              31,
+              33,
+              34,
+              37,
+              40,
+              41,
+              42,
+              241
+            ]
+          },
+          "gate_reason": "charuco_pose_failed(corners=0)"
+        },
+        "3": {
+          "saved": true,
+          "is_gripper": false,
+          "rgb_path": "cam3/rgb_00000.jpg",
+          "depth_path": "cam3/depth_00000.png",
+          "ts_ms": 1789033563109.3572,
+          "host_monotonic_ts_ms": 276628062.437899,
+          "device_ts_ms": 2887796197.0,
+          "n_markers_detected": 12,
+          "marker_ids": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "foreign_marker_ids": [
+            17,
+            18,
+            19,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            32,
+            33,
+            34,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42
+          ],
+          "charuco_detect_n": 0,
+          "charuco": {
+            "ok": false,
+            "detection_scale": 1,
+            "corner_coordinate_space": "original_image_pixels",
+            "n_corners": 0,
+            "reproj_error_px": null,
+            "rvec": null,
+            "tvec": null,
+            "T_cam_board_4x4": null,
+            "marker_ids": [
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "foreign_marker_ids": [
+              17,
+              18,
+              19,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              32,
+              33,
+              34,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42
+            ]
+          },
+          "gate_reason": "charuco_pose_failed(corners=0)"
+        }
+      },
+      "capture_span_ms": 810.0144499912858,
+      "capture_gate": {
+        "pass": false,
+        "n_cams_passed": 0,
+        "n_cams_required": 3,
+        "reason": "cam0:charuco_pose_failed(corners=0); cam1:charuco_pose_failed(corners=0); cam3:charuco_pose_failed(corners=0)"
+      },
+      "recorded_at": "2026-09-10T18:46:03+09:00",
+      "capture_mode": "pose_and_image"
+    }
+  ],
+  "dataset": {
+    "schema_version": "pose_dataset_v1",
+    "algorithm": "shah",
+    "dataset_root": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets",
+    "algorithm_dir": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah",
+    "session_id": "session_20260910_184144",
+    "capture_mode": "pose_and_image",
+    "recorder": "capture/record_dataset.py",
+    "created_at": "2026-09-10T18:41:51+09:00",
+    "updated_at": "2026-09-10T18:53:48+09:00",
+    "append_history": [
+      {
+        "started_at": "2026-09-10T18:41:51+09:00",
+        "ended_at": "2026-09-10T18:53:48+09:00",
+        "robot_host": "192.168.0.23:12350",
+        "recorder": "capture/record_dataset.py",
+        "n_before": 0,
+        "records_added": 1
+      }
+    ]
+  }
+}

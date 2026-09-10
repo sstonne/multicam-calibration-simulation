@@ -277,7 +277,8 @@ capture/
 ├── record_dataset.py           PC측 데이터셋 레코더 (Python 3) — PC 주도, 엔터로 기록
 └── robot/
     ├── shah_capture_server.py  로봇측 조작·촬영 트리거 (Python 2, ZEUS에 scp)
-    └── pose_query_server.py    로봇측 자세 응답 서버 (Python 2, ZEUS에 scp)
+    ├── pose_server.py          로봇측 자세 응답 서버 (Python 2, ZEUS에 scp)
+    └── pose_query_server.py    기존 이름 호환 실행기 (pose_server.py도 함께 배포)
 ```
 
 촬영 경로가 두 가지고, **누가 촬영을 시작하는가**만 다르다. `meta.json` 형식은
@@ -285,19 +286,23 @@ capture/
 
 | | 로봇 주도 | **PC 주도** |
 | --- | --- | --- |
-| 짝 | `shah_capture_server.py` ↔ `shah_capture_client.py` | `pose_query_server.py` ↔ `record_dataset.py` |
-| 포트 | 12348 | 12350 |
+| 짝 | `shah_capture_server.py` ↔ `shah_capture_client.py` | `pose_server.py` ↔ `record_dataset.py` |
+| 포트 | 12348 | 12352 |
 | 명령을 치는 곳 | 로봇 콘솔(SSH) | PC 터미널 |
 | 기록 시점 | 로봇이 `c` / `start` | **PC에서 엔터** |
 | 맞는 상황 | 자세를 미리 티칭해 두고 한 번에 순회 | 손으로 자세를 잡아 가며 조금씩 데이터셋을 늘림 |
 | 카메라 없이 자세만 | 불가 | **가능** (`--no-camera`) |
 
-두 서버를 동시에 띄우지 말 것. 같은 로봇을 두 프로그램이 잡는다. 포트 12350은
-저장소에서 쓰이지 않는 번호로 골랐다 — 12346은 `calibration_server.py` 계열,
-12348은 `handeye_server.py`·`sam3d_calb/robot_pose_server.py`, 12349는
-`i611usr/model.py`(sim-to-real 스트리밍)가 이미 쓴다.
+`rb.open()`을 호출하는 조작 서버는 하나만 실행한다. 자세 조회 서버는 공유
+메모리만 읽으므로 조작 서버와 함께 실행할 수 있다. 포트도 분리한다: 12350은
+`zeus_gello.py`, 12351은 `zeus_capture_server.py`, **12352는 `pose_server.py`**.
+GELLO와 자세 서버의 프로토콜도 각각 `op/ok`, `command/status`로 다르므로
+레코더를 GELLO 포트에 연결하면 안 된다. 레코더와 자세 서버 모두 12350 지정을 거부한다.
 
-### `pose_query_server.py`는 shm-only — `zeus_jog_onboard.py`와 공존한다
+### `pose_server.py`는 shm-only — GELLO 또는 `zeus_jog_onboard.py`와 공존한다
+
+`pose_query_server.py`는 같은 서버를 실행하는 호환 이름이다. 기존 이름으로 실행할
+때도 기본 포트는 12352이며, 같은 폴더에 `pose_server.py`가 필요하다.
 
 ZEUS 컨트롤러는 `rb.open()`을 한 번만 허용한다. 그래서 원래 이 서버가 `rb.open()`을
 부르면 이미 떠 있는 `zeus_jog_onboard.py`와 컨트롤러를 두고 싸운다(촬영 방법 PDF §3,

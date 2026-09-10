@@ -154,7 +154,16 @@
       "rotation_diversity_deg": 0.0,
       "created_at": "2026-09-05T15:15:14+09:00",
       "updated_at": "2026-09-05T15:15:28+09:00"
+    },
+    "session_20260910_184144": {
+      "path": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/datasets/shah/session_20260910_184144",
+      "capture_mode": "pose_and_image",
+      "n_captures": 1,
+      "n_gate_passed": 0,
+      "rotation_diversity_deg": 0.0,
+      "created_at": "2026-09-10T18:41:51+09:00",
+      "updated_at": "2026-09-10T18:53:48+09:00"
     }
   },
-  "updated_at": "2026-09-05T15:15:28+09:00"
+  "updated_at": "2026-09-10T18:53:48+09:00"
 }
