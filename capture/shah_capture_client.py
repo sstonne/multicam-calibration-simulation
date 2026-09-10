@@ -94,8 +94,11 @@ def invert(T: np.ndarray) -> np.ndarray:
 class BoardDetector:
     """한 보드에 대한 검출기. 보드가 두 장이므로 항상 어느 보드인지 명시한다."""
 
-    def __init__(self, board: BoardConfig, marker_id_start: int):
+    def __init__(self, board: BoardConfig, marker_id_start: int, detection_scale: int = 1):
         self.board_config = board
+        if isinstance(detection_scale,bool) or detection_scale not in (1,2,3):
+            raise ValueError('detection_scale must be 1, 2 or 3')
+        self.detection_scale=int(detection_scale)
         self.marker_id_start = int(marker_id_start)
         dictionary = cv2.aruco.getPredefinedDictionary(
             getattr(cv2.aruco, board.dictionary_name))
@@ -112,11 +115,20 @@ class BoardDetector:
     def detect(self, image_bgr, K, D) -> dict:
         """검출 결과를 meta.json 의 cams[i]['charuco'] 형태로 반환한다."""
         gray = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2GRAY)
+        if self.detection_scale!=1:
+            gray=cv2.resize(gray,None,fx=self.detection_scale,fy=self.detection_scale,
+                            interpolation=cv2.INTER_CUBIC)
         corners, corner_ids, _, marker_ids = self.detector.detectBoard(gray)
+        if corners is not None and self.detection_scale!=1:
+            # Inverse OpenCV resize pixel-centre mapping. SolvePnP, overlays and
+            # residuals below all use ORIGINAL pixels and unchanged K / D.
+            corners=((corners+.5)/self.detection_scale-.5).astype(np.float32)
 
         seen = [] if marker_ids is None else sorted(int(v) for v in marker_ids.ravel())
         result = {
             "ok": False,
+            "detection_scale": self.detection_scale,
+            "corner_coordinate_space": "original_image_pixels",
             "n_corners": 0 if corners is None else int(len(corners)),
             "reproj_error_px": None,
             "rvec": None,
@@ -130,6 +142,9 @@ class BoardDetector:
         }
         if corners is None or len(corners) < 4:
             return result
+        if self.grid.checkCharucoCornersCollinear(corner_ids):
+            result['failure_reason']='collinear_corners'
+            return result
 
         object_points, image_points = self.grid.matchImagePoints(corners, corner_ids)
         if object_points is None or len(object_points) < 4:
@@ -139,11 +154,20 @@ class BoardDetector:
             object_points, image_points, K, D, flags=cv2.SOLVEPNP_IPPE)
         if not ok:
             return result
+        if not np.isfinite(rvec).all() or not np.isfinite(tvec).all():
+            result['failure_reason']='nonfinite_pose'
+            return result
         rvec, tvec = cv2.solvePnPRefineLM(object_points, image_points, K, D, rvec, tvec)
+        if not np.isfinite(rvec).all() or not np.isfinite(tvec).all():
+            result['failure_reason']='nonfinite_pose'
+            return result
 
         projected, _ = cv2.projectPoints(object_points, rvec, tvec, K, D)
         residual = projected.reshape(-1, 2) - image_points.reshape(-1, 2)
         rmse = float(np.sqrt(np.mean(np.sum(residual ** 2, axis=1))))
+        if not np.isfinite(rmse):
+            result['failure_reason']='nonfinite_reprojection'
+            return result
 
         T = np.eye(4)
         T[:3, :3] = cv2.Rodrigues(rvec)[0]
@@ -326,7 +350,7 @@ def solve_and_report(records, camera_names):
                   cv2.Rodrigues((invert(a) @ b)[:3, :3])[0]))
               for a, b in combinations(robot, 2)]
     diversity = float(np.mean(angles))
-    verdict = "충분" if diversity >= 40 else "부족 — 더 기울여 재촬영 권장"
+    verdict = "충분" if diversity >= 30 else "부족 — 더 기울여 재촬영 권장"
     print(f"자세 간 평균 상대회전: {diversity:.1f}deg  ({verdict})")
 
     estimates, boards = {}, []
@@ -522,8 +546,9 @@ def main() -> int:
     parser.add_argument("--no-save-depth", dest="save_depth", action="store_false")
     parser.add_argument("--settle-time-s", type=float, default=1.5)
     parser.add_argument("--startup-stagger-s", type=float, default=0.8)
-    parser.add_argument("--min-corners", type=int, default=12,
-                        help=f"로봇 보드 전체 코너는 {ROBOT_BOARD.corner_count}개")
+    parser.add_argument("--min-corners", type=int, default=0,
+                        help=f"최소 코너 게이트 (기본 0 = 모든 검출을 유효로 저장; "
+                             f"로봇 보드 전체 코너는 {ROBOT_BOARD.corner_count}개)")
     parser.add_argument("--max-reproj-px", type=float, default=1.5)
     parser.add_argument("--jpg-quality", type=int, default=95)
     parser.add_argument("--show", action="store_true")

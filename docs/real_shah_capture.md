@@ -47,7 +47,7 @@ T_base_gripper(k) @ X  ==  Y_i @ T_cam_i_board(k)
 | cam3 | 912322060991 | `False` | 테이블 고정 |
 | cam2 | 752112070297 | `True` | **구 손목 카메라, 현재 미장착** |
 
-전부 1280×720, 2026-08-06 ChArUco intrinsic 캘리브레이션, reprojection 0.22~0.36px.
+전부 1280×720. cam1/cam3는 2026-08-06 ChArUco 보정값을, 교체된 cam0는 아래에 명시한 2026-09-07 보정값을 사용한다.
 
 `config.example.json`이 이미 cam0/cam1/cam3만 fixed로 정의하고 cam2를 wrist로 따로
 읽으므로, **시뮬레이션의 고정 3대가 실물 3대와 1:1로 대응**한다. 구조를 새로 짤 필요는
@@ -418,10 +418,11 @@ PC 터미널에서 `w`/`s` 등 조작키를 눌러도 로봇은 움직이지 않
 <dataset-root>/shah/session_20260904_1530/cam0/rgb_00000.jpg ...
 ```
 
-저장은 **레코더를 실행한 PC의 로컬 디스크**에만 이뤄진다. 로봇 컨트롤러로는 아무것도
-보내지 않는다. `--dataset-root`의 기본값은 `~/shah_data`(저장소 밖)이고, 저장소 폴더 안에
-두고 VS Code에서 바로 보고 싶으면 `--dataset-root ./data`를 쓰면 된다 — `.gitignore`에
-`/data/`와 `/shah_data/`를 등록해 두었으므로 커밋에 섞이지 않는다.
+저장은 **레코더를 실행한 PC의 로컬 저장소**에만 이뤄진다. 로봇 컨트롤러로는 아무것도
+보내지 않는다. `--dataset-root`의 기본값은 `<repo>/datasets/260910`이며, 세션의 RGB, depth,
+`meta.json`, `dataset_index.json`은 Git 아카이브 대상으로 남는다. 기존 로컬 경로
+`~/shah_data`와 저장소 내부 `./data`는 `.gitignore`로 계속 제외한다. 데이터가 커지면
+`datasets/`에 Git LFS를 적용한다.
 
 `--resume`을 주면 가장 최근 세션에 이어 적는다. `event_id`가 이어지고 이어붙인
 이력이 `dataset.append_history`에 남는다. **단 세션 하나는 카메라가 한 번도 움직이지
@@ -508,9 +509,9 @@ Step3~Step5와 CP_* 분석 코드가 **전부 `meta.json`만 읽고 파일시스
 
 ### 저장 위치
 
-세션 데이터는 이미지가 많아(기존 session01은 928장) 저장소에 커밋하지 않는 것이 좋다.
-`--session-dir`을 저장소 밖으로 두거나, 저장소 안에 둔다면 `.gitignore`에 추가할 것.
-**아직 `.gitignore`에 추가하지 않았다.**
+`record_dataset.py`의 기본 세션 데이터는 `<repo>/datasets/260910/`에 저장하며 Git 아카이브
+대상이다. RGB/depth가 누적되어 저장소 크기가 커지면 Git LFS로 전환한다. 서버 주도
+`shah_capture_client.py`를 쓸 때는 `--session-dir`을 명시하므로 같은 경로 아래를 지정한다.
 
 ---
 
