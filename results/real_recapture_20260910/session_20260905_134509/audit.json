@@ -1,0 +1,491 @@
+[
+  {
+    "event_id": 0,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 12,
+        "stored_pnp_reprojection_px": 0.5916488170623779,
+        "evaluation_corners": 10,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.6934099346512678,
+        "rgb_sha256": "e4e789eaa2e43c774fa823e5c4afbff23c7f7f354514f7a90d65ce43075fe4da"
+      },
+      "1": {
+        "stored_corners": 24,
+        "stored_pnp_reprojection_px": 0.2146170437335968,
+        "evaluation_corners": 16,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.7172345106407418,
+        "rgb_sha256": "61a86a3d419962475173cdf4e90635915b96eff2435453fd25b6c467172eae0a"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 26.20952400006354,
+    "capture_span_ms": 546.6028999999253
+  },
+  {
+    "event_id": 1,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 14,
+        "stored_pnp_reprojection_px": 0.5956910848617554,
+        "evaluation_corners": 6,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.6183075344874919,
+        "rgb_sha256": "b9c3ad9d1aa74b2078edabbc932e11b3ab0cd59c67638da0bd946fd3cbb7c0ab"
+      },
+      "1": {
+        "stored_corners": 24,
+        "stored_pnp_reprojection_px": 0.2198510468006134,
+        "evaluation_corners": 22,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.7468006142058012,
+        "rgb_sha256": "e7d90da3480a0d6da51466e4a6d577329db47309449e6a2b8536fcc47c277ad5"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 25.612414999864995,
+    "capture_span_ms": 547.6640920005593
+  },
+  {
+    "event_id": 2,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 16,
+        "stored_pnp_reprojection_px": 0.8699652552604675,
+        "evaluation_corners": 10,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.5641559862009476,
+        "rgb_sha256": "076dc2c2d84db036502dd5d305e651a4bf565c3817faef83bbbd5f7b559955fc"
+      },
+      "1": {
+        "stored_corners": 24,
+        "stored_pnp_reprojection_px": 0.5800089836120605,
+        "evaluation_corners": 24,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.9091808562446915,
+        "rgb_sha256": "f32ca64242a48f23e9087cb65f88ba212c3a8fc183ea18be9b58a29ea3f69dd4"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 17.425526999868453,
+    "capture_span_ms": 534.5774249999522
+  },
+  {
+    "event_id": 3,
+    "accepted": false,
+    "reasons": [
+      "cam1_foreign_marker_ids"
+    ],
+    "cameras": {
+      "0": {
+        "stored_corners": 18,
+        "stored_pnp_reprojection_px": 0.5049659609794617,
+        "evaluation_corners": 7,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.6165045412967632,
+        "rgb_sha256": "4c3063a8a8ebf2104acfed7870fc586838e61896ab771cb0441697895061dd56"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": [
+        190
+      ]
+    }
+  },
+  {
+    "event_id": 4,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 19,
+        "stored_pnp_reprojection_px": 0.4424821138381958,
+        "evaluation_corners": 16,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.7158402329394787,
+        "rgb_sha256": "6325a779ad4f45df89354734ec6a238ba3d8058eaac8338dd780f205db0b2a3b"
+      },
+      "1": {
+        "stored_corners": 22,
+        "stored_pnp_reprojection_px": 0.5589902400970459,
+        "evaluation_corners": 22,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.9067290381058034,
+        "rgb_sha256": "9f96dff91fd9aab245d452b003ba1b81463472fabb7cb7adc631c5a906ae2647"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 17.727401999756694,
+    "capture_span_ms": 535.4789359998904
+  },
+  {
+    "event_id": 5,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 15,
+        "stored_pnp_reprojection_px": 0.46986711025238037,
+        "evaluation_corners": 10,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.5910362063569591,
+        "rgb_sha256": "e5ffae4dbd2b1c727c30e148d0864276de65f8afea60c5c9aef90fddd13d5435"
+      },
+      "1": {
+        "stored_corners": 24,
+        "stored_pnp_reprojection_px": 0.9667611718177795,
+        "evaluation_corners": 20,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 1.1986477942811264,
+        "rgb_sha256": "93329c17c7ce955b1f1ceca5464cb734c4530482e0dcb4a5774b3ba5004b8256"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 18.62865999992937,
+    "capture_span_ms": 542.5659479997194
+  },
+  {
+    "event_id": 6,
+    "accepted": false,
+    "reasons": [
+      "cam1_foreign_marker_ids"
+    ],
+    "cameras": {
+      "0": {
+        "stored_corners": 15,
+        "stored_pnp_reprojection_px": 0.3589586317539215,
+        "evaluation_corners": 7,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.6897137354749004,
+        "rgb_sha256": "1cfb448ca0fd1dc5a6d6a1e9ab8fb558a16d95df5be91aa1ed0242af61512b85"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": [
+        190
+      ]
+    }
+  },
+  {
+    "event_id": 7,
+    "accepted": false,
+    "reasons": [
+      "cam1_foreign_marker_ids"
+    ],
+    "cameras": {
+      "0": {
+        "stored_corners": 19,
+        "stored_pnp_reprojection_px": 0.39944523572921753,
+        "evaluation_corners": 8,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.6084475957814008,
+        "rgb_sha256": "c6fb897acc4d187ed4ebf1a7872a3cff4ba2c5ac39e43b58982e66535f7fc3e5"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": [
+        190
+      ]
+    }
+  },
+  {
+    "event_id": 8,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 20,
+        "stored_pnp_reprojection_px": 0.45892661809921265,
+        "evaluation_corners": 7,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.8546181014097048,
+        "rgb_sha256": "fdd4b072936484cd9db53a023a6bce009afb6371636967976ac01b5799997dde"
+      },
+      "1": {
+        "stored_corners": 24,
+        "stored_pnp_reprojection_px": 0.43338289856910706,
+        "evaluation_corners": 20,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.8562879167099915,
+        "rgb_sha256": "ec9ca4cfc016f7a97f6e7acedc551ff417f4ca5502f2f43e73e5aa824b7ca7c2"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 17.943931000307202,
+    "capture_span_ms": 535.479497999404
+  },
+  {
+    "event_id": 9,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 14,
+        "stored_pnp_reprojection_px": 0.2677299976348877,
+        "evaluation_corners": 4,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.6646048574256613,
+        "rgb_sha256": "9f0b02425758f9160d4acac7bf75fe3dadb522ac8b77ac109dcca61976f4c5c8"
+      },
+      "1": {
+        "stored_corners": 15,
+        "stored_pnp_reprojection_px": 0.1271563172340393,
+        "evaluation_corners": 15,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.7035521989223961,
+        "rgb_sha256": "b1f0eeff605792a9256c9e345e52961d882c63ba5bc92e121c37f96a89c49d22"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 17.94840299990028,
+    "capture_span_ms": 535.7359010004075
+  },
+  {
+    "event_id": 10,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 19,
+        "stored_pnp_reprojection_px": 0.3306557834148407,
+        "evaluation_corners": 13,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.7794142338681622,
+        "rgb_sha256": "2ac5d07d8249219f273270c1fa130b2e7b74d17b9e9a7dc144cc5d61d27f89ba"
+      },
+      "1": {
+        "stored_corners": 22,
+        "stored_pnp_reprojection_px": 0.1444537490606308,
+        "evaluation_corners": 15,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.713693388929843,
+        "rgb_sha256": "b5ed4d6a51a3704c44f9bf31623eeba72d1bb08e70c32fd4f541978c4a46b493"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 19.292063001543283,
+    "capture_span_ms": 541.1585970005035
+  },
+  {
+    "event_id": 11,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 13,
+        "stored_pnp_reprojection_px": 0.2612556517124176,
+        "evaluation_corners": 9,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.5672078600648401,
+        "rgb_sha256": "8c7ebbd33be088905534a92f2dfd8bddfa2200d165f64a94f34d7e91f261a5df"
+      },
+      "1": {
+        "stored_corners": 22,
+        "stored_pnp_reprojection_px": 0.18579991161823273,
+        "evaluation_corners": 16,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.7471144725256734,
+        "rgb_sha256": "b3558cbc2238d47022418362468a8608d64f374d078b40447a6430e594f30e1a"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 20.27925099991262,
+    "capture_span_ms": 540.6679280004028
+  },
+  {
+    "event_id": 12,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 17,
+        "stored_pnp_reprojection_px": 0.4903481602668762,
+        "evaluation_corners": 12,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.6812983144391382,
+        "rgb_sha256": "99430771f83ed42ab8f2b064f075368be98e904ee0b9a99dcacdbded501544c9"
+      },
+      "1": {
+        "stored_corners": 14,
+        "stored_pnp_reprojection_px": 0.24651844799518585,
+        "evaluation_corners": 9,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.7177837144658862,
+        "rgb_sha256": "4575499589198e248503dac28cd42bad83a0f03c34d758bc3178ea0bd7815df7"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 27.551757001318038,
+    "capture_span_ms": 547.9228129997864
+  },
+  {
+    "event_id": 13,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 12,
+        "stored_pnp_reprojection_px": 0.2810056209564209,
+        "evaluation_corners": 12,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.7625336116976862,
+        "rgb_sha256": "57de7a79a2cfc0fec7980e26370ad26810855cbdaa9ab3ff815fe805462593f4"
+      },
+      "1": {
+        "stored_corners": 18,
+        "stored_pnp_reprojection_px": 0.21809564530849457,
+        "evaluation_corners": 12,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.6702437370449414,
+        "rgb_sha256": "a755c96f19b398f1162dca49a5c56de19b35d36f5b92ed093a452fc8f2b80605"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 17.56439899932593,
+    "capture_span_ms": 539.3154020002839
+  },
+  {
+    "event_id": 14,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 15,
+        "stored_pnp_reprojection_px": 0.2647852897644043,
+        "evaluation_corners": 13,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.6823122870149573,
+        "rgb_sha256": "d912d017dbf32d596f59060e1a4aedff8ecae549a93f5181274d93c548e488d2"
+      },
+      "1": {
+        "stored_corners": 14,
+        "stored_pnp_reprojection_px": 0.1858343482017517,
+        "evaluation_corners": 12,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.6295501177411517,
+        "rgb_sha256": "64ccfb8b99b13eadbe6149a54196595978196ad529eb2b057a138335f37c2cf0"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 15.50458800047636,
+    "capture_span_ms": 535.857828999724
+  },
+  {
+    "event_id": 15,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 15,
+        "stored_pnp_reprojection_px": 0.26883840560913086,
+        "evaluation_corners": 13,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.7208516822576739,
+        "rgb_sha256": "ce96219a5bf950f190a41397c846a8f9caff333f1f3510a43b4ad43914d606fb"
+      },
+      "1": {
+        "stored_corners": 19,
+        "stored_pnp_reprojection_px": 0.3314833641052246,
+        "evaluation_corners": 12,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.5983535032322813,
+        "rgb_sha256": "738d68358391d7e6bb7ccec315115de999b065af857574ffe6111938d749ea79"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 25.712772998958826,
+    "capture_span_ms": 543.3141339999565
+  },
+  {
+    "event_id": 16,
+    "accepted": true,
+    "reasons": [],
+    "cameras": {
+      "0": {
+        "stored_corners": 14,
+        "stored_pnp_reprojection_px": 0.260087251663208,
+        "evaluation_corners": 14,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.739674725448927,
+        "rgb_sha256": "2662974ccb7f01cc470e1797fb88f705439b4e807ed113b7a5ef2d340b6c1189"
+      },
+      "1": {
+        "stored_corners": 16,
+        "stored_pnp_reprojection_px": 0.6043041348457336,
+        "evaluation_corners": 11,
+        "corner_source": "redetected_rgb_evaluation_only",
+        "stored_pose_vs_evaluation_pixels_rmse_px": 0.7069592210327286,
+        "rgb_sha256": "39f579da97b36784c62e62e1baab5fd62aca6e9e09fa8654945b19bd93b6b958"
+      }
+    },
+    "foreign_marker_ids": {
+      "0": [],
+      "1": []
+    },
+    "tool_reference_verified": false,
+    "camera_receipt_span_ms": 24.338440000079572,
+    "capture_span_ms": 541.5099570000166
+  }
+]

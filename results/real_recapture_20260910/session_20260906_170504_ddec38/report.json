@@ -1,0 +1,1598 @@
+{
+  "session": {
+    "name": "session_20260906_170504_ddec38",
+    "meta": "datasets/assisted/session_20260906_170504_ddec38/auto_valid_meta_9885617b.json",
+    "role": "supplementary_small_motion",
+    "cameras": [
+      1,
+      3
+    ]
+  },
+  "source_sha256": "02da6248dfd03ade7e43ad157fdfdbe76a60fce80df75c442e9a997d74c9252f",
+  "cameras": {
+    "1": {
+      "file": "cam1.npz",
+      "sha256": "1876c0cace0e73a8563a96eb40ab43fae61e1906af21f845eadbc36e62f5ae6d",
+      "serial": "319522062138",
+      "K": [
+        [
+          894.3704287678798,
+          0.0,
+          652.1876387310976
+        ],
+        [
+          0.0,
+          900.0388197155128,
+          375.49964877587047
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "D": [
+        0.07594989764220259,
+        -0.05909755181945105,
+        -0.002937111039683302,
+        0.011160654544666939,
+        -0.4490013499074173
+      ]
+    },
+    "3": {
+      "file": "cam3.npz",
+      "sha256": "121c5e05e21ea7d533f54538412c912b0a9ea87352ce7ff3a8635fe839a1cf15",
+      "serial": "912322060991",
+      "K": [
+        [
+          910.3092414154876,
+          0.0,
+          658.1511529455827
+        ],
+        [
+          0.0,
+          914.6374303404788,
+          408.9122283684781
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "D": [
+        0.07327393094492762,
+        0.05662181976980041,
+        0.01716899290263677,
+        0.006985536495110579,
+        -1.0087843141799184
+      ]
+    }
+  },
+  "capture_config": {
+    "schema_version": "capture_config_v1",
+    "intrinsics_dir": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/intrinsics",
+    "width": 1280,
+    "height": 720,
+    "fps": 6,
+    "save_depth": false,
+    "settle_time_s": 0.6,
+    "cross_camera_timestamp_basis": "host_monotonic_receipt_v1",
+    "min_charuco_corners": 12,
+    "max_charuco_reproj_px": 1.5,
+    "robot_pose_convention": "tool 1 (flange), [x,y,z mm, rz,ry,rx deg], R = Rz@Ry@Rx",
+    "transform_convention": "T_destination_source, translation in metre",
+    "color_photometry": {
+      "1": {
+        "locked": true,
+        "values": {
+          "exposure_us": 166.0,
+          "gain": 64.0,
+          "white_balance": 4600.0
+        },
+        "source": "auto_converged"
+      },
+      "3": {
+        "locked": true,
+        "values": {
+          "exposure_us": 166.0,
+          "gain": 64.0,
+          "white_balance": 4600.0
+        },
+        "source": "auto_converged"
+      }
+    },
+    "detection_scale": 3,
+    "corner_coordinate_space": "original_image_pixels"
+  },
+  "board_config": {
+    "name": "robot_board",
+    "squares_x": 7,
+    "squares_y": 5,
+    "square_length_m": 0.017,
+    "marker_length_m": 0.012,
+    "dictionary_name": "DICT_4X4_250",
+    "marker_id_start": 0,
+    "note": "User confirmed: 7 x 5 squares, 17 mm, markers 12 mm, first ID 0.",
+    "marker_count": 17,
+    "corner_count": 24,
+    "size_mm": [
+      119.00000000000001,
+      85.0
+    ]
+  },
+  "warnings": [
+    "No independent camera-pose ground truth; consistency is not absolute accuracy.",
+    "Do not merge extrinsics across sessions without confirming unchanged camera mounting.",
+    "Intrinsics match serial/resolution; captures did not store an intrinsic hash.",
+    "Fewer than 10 selected poses; limited evaluation support.",
+    "Small training rotations: inspect subset sensitivity and solver failures."
+  ],
+  "raw_count": 8,
+  "accepted_count": 8,
+  "excluded_count": 0,
+  "all_pose_diversity": {
+    "count": 8,
+    "max_pair_translation_mm": 2.23786281974564,
+    "mean_pair_rotation_deg": 2.4237975165156813,
+    "max_pair_rotation_deg": 4.219045078294673,
+    "centered_rotation_singular_values_deg": [
+      3.5635038120171822,
+      2.732885317252387,
+      1.6712628759425592
+    ]
+  },
+  "methods": {
+    "shah": {
+      "cameras": {
+        "1": {
+          "success": true,
+          "T_base_camera": [
+            [
+              0.6876261166817252,
+              -0.09896226456346932,
+              0.7192890892052238,
+              -0.5510495212216887
+            ],
+            [
+              -0.726043468887632,
+              -0.1013422141091844,
+              0.6801401597649285,
+              -0.04868591579612247
+            ],
+            [
+              0.005586138453738827,
+              -0.9899172823180318,
+              -0.14153645899646317,
+              0.27655815034192704
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_gripper_board": [
+            [
+              0.9995876420525157,
+              0.02846046002088004,
+              0.003814193399849397,
+              -0.06258976712199976
+            ],
+            [
+              -0.005848492481788536,
+              0.07174096453678738,
+              0.9974061505440108,
+              -0.02312800575101641
+            ],
+            [
+              0.028113003958702892,
+              -0.9970171694723875,
+              0.07187783236636067,
+              0.10560119886010723
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "heldout": {
+            "chain_translation_mm": 1.2219739100852607,
+            "chain_rotation_deg": 0.1179918602760562,
+            "reprojection_rmse_px": 0.21517275732694355,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 2,
+            "pixel_event_camera_pairs": 2,
+            "scored_corners": 30
+          },
+          "training": {
+            "chain_translation_mm": 0.5893342809157788,
+            "chain_rotation_deg": 0.13914232271512497,
+            "reprojection_rmse_px": 0.23396899881154776,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 6,
+            "pixel_event_camera_pairs": 6,
+            "scored_corners": 97
+          },
+          "subset_sensitivity": {
+            "note": "Training-only leave-one-pose-group-out change; not a confidence interval.",
+            "trials": [
+              {
+                "omitted_event_ids": [
+                  95
+                ],
+                "success": true,
+                "translation_change_mm": 4.5452833920531335,
+                "rotation_change_deg": 0.47878381986245805
+              },
+              {
+                "omitted_event_ids": [
+                  131
+                ],
+                "success": true,
+                "translation_change_mm": 13.211146888809221,
+                "rotation_change_deg": 1.1271556994457457
+              },
+              {
+                "omitted_event_ids": [
+                  149
+                ],
+                "success": true,
+                "translation_change_mm": 11.864562741915327,
+                "rotation_change_deg": 0.5595873080108581
+              },
+              {
+                "omitted_event_ids": [
+                  259
+                ],
+                "success": true,
+                "translation_change_mm": 7.358072197030511,
+                "rotation_change_deg": 0.4698065984477566
+              },
+              {
+                "omitted_event_ids": [
+                  381
+                ],
+                "success": true,
+                "translation_change_mm": 14.64477319599745,
+                "rotation_change_deg": 1.1063831693874437
+              },
+              {
+                "omitted_event_ids": [
+                  390
+                ],
+                "success": true,
+                "translation_change_mm": 5.165511191375761,
+                "rotation_change_deg": 0.40460443803792456
+              }
+            ],
+            "failures": 0,
+            "max_translation_change_mm": 14.64477319599745,
+            "max_rotation_change_deg": 1.1271556994457457
+          }
+        },
+        "3": {
+          "success": true,
+          "T_base_camera": [
+            [
+              -0.6894364981787957,
+              -0.05536361856203886,
+              0.7222272389758478,
+              -0.5509846423494087
+            ],
+            [
+              -0.721437229186057,
+              0.14175213402868947,
+              -0.6778160936733927,
+              1.0329922008230088
+            ],
+            [
+              -0.06485090071312971,
+              -0.9883527721608465,
+              -0.13767047046722208,
+              0.2571212982575982
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_gripper_board": [
+            [
+              0.9998444951397628,
+              0.015547413485453215,
+              0.008322467940740347,
+              -0.06142076646938191
+            ],
+            [
+              -0.00841733193898829,
+              0.0060461517763354955,
+              0.9999462948437413,
+              -0.017729253450047174
+            ],
+            [
+              0.01549625960485923,
+              -0.9998608513101256,
+              0.006176079310448224,
+              0.1079600374818753
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "heldout": {
+            "chain_translation_mm": 0.39525379692590956,
+            "chain_rotation_deg": 0.06669930114422398,
+            "reprojection_rmse_px": 0.2648605762233593,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 2,
+            "pixel_event_camera_pairs": 2,
+            "scored_corners": 35
+          },
+          "training": {
+            "chain_translation_mm": 0.31923643250171,
+            "chain_rotation_deg": 0.04921682598670521,
+            "reprojection_rmse_px": 0.22138336989563348,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 6,
+            "pixel_event_camera_pairs": 6,
+            "scored_corners": 101
+          },
+          "subset_sensitivity": {
+            "note": "Training-only leave-one-pose-group-out change; not a confidence interval.",
+            "trials": [
+              {
+                "omitted_event_ids": [
+                  95
+                ],
+                "success": true,
+                "translation_change_mm": 2.164504005083237,
+                "rotation_change_deg": 0.3591126469501772
+              },
+              {
+                "omitted_event_ids": [
+                  131
+                ],
+                "success": true,
+                "translation_change_mm": 3.1923768807571573,
+                "rotation_change_deg": 0.38337844041846203
+              },
+              {
+                "omitted_event_ids": [
+                  149
+                ],
+                "success": true,
+                "translation_change_mm": 4.050445628212156,
+                "rotation_change_deg": 0.3471359625337295
+              },
+              {
+                "omitted_event_ids": [
+                  259
+                ],
+                "success": true,
+                "translation_change_mm": 16.519579656213228,
+                "rotation_change_deg": 1.3996412372884162
+              },
+              {
+                "omitted_event_ids": [
+                  381
+                ],
+                "success": true,
+                "translation_change_mm": 14.024818929491579,
+                "rotation_change_deg": 1.2380058705957924
+              },
+              {
+                "omitted_event_ids": [
+                  390
+                ],
+                "success": true,
+                "translation_change_mm": 1.2441103083839695,
+                "rotation_change_deg": 0.16925127872511947
+              }
+            ],
+            "failures": 0,
+            "max_translation_change_mm": 16.519579656213228,
+            "max_rotation_change_deg": 1.3996412372884162
+          }
+        }
+      },
+      "success": true,
+      "heldout": {
+        "chain_translation_mm": 0.8086138535055851,
+        "chain_rotation_deg": 0.09234558071014008,
+        "reprojection_rmse_px": 0.24319251108719922,
+        "reprojection_complete": true,
+        "scored_event_camera_pairs": 4,
+        "pixel_event_camera_pairs": 4,
+        "scored_corners": 65
+      },
+      "mount_spread": {
+        "translation_mm": 3.0032153009976765,
+        "rotation_deg": 1.9221178942250285
+      }
+    },
+    "tsai": {
+      "cameras": {
+        "1": {
+          "success": false,
+          "error": "tsai_insufficient_informative_motion_pairs:0"
+        },
+        "3": {
+          "success": false,
+          "error": "tsai_insufficient_informative_motion_pairs:0"
+        }
+      },
+      "success": false,
+      "heldout": null
+    },
+    "park": {
+      "cameras": {
+        "1": {
+          "success": true,
+          "T_base_camera": [
+            [
+              0.6876697850434136,
+              -0.09894358355147981,
+              0.7192499106794354,
+              -0.5811742284668131
+            ],
+            [
+              -0.7260017972370055,
+              -0.10139125510140318,
+              0.6801773326107723,
+              -0.12043792480771666
+            ],
+            [
+              0.00562646843644754,
+              -0.9899141279237333,
+              -0.14155692208431953,
+              0.2840750992650225
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_gripper_board": [
+            [
+              0.9995857114899025,
+              0.028522446827650975,
+              0.003856865591371824,
+              -0.1286738980715615
+            ],
+            [
+              -0.00589537375633801,
+              0.07173541050733367,
+              0.9974062740165706,
+              -0.06484024000882439
+            ],
+            [
+              0.02817179357973443,
+              -0.997015797721535,
+              0.07187384183548762,
+              0.10681360785163985
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "heldout": {
+            "chain_translation_mm": 1.980191227774546,
+            "chain_rotation_deg": 0.11798054112397752,
+            "reprojection_rmse_px": 1.9014438407456193,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 2,
+            "pixel_event_camera_pairs": 2,
+            "scored_corners": 30
+          },
+          "training": {
+            "chain_translation_mm": 1.4524398043802231,
+            "chain_rotation_deg": 0.13916375338057638,
+            "reprojection_rmse_px": 2.053332843500416,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 6,
+            "pixel_event_camera_pairs": 6,
+            "scored_corners": 97
+          },
+          "subset_sensitivity": {
+            "note": "Training-only leave-one-pose-group-out change; not a confidence interval.",
+            "trials": [
+              {
+                "omitted_event_ids": [
+                  95
+                ],
+                "success": true,
+                "translation_change_mm": 2.898944262866787,
+                "rotation_change_deg": 0.4799879939491785
+              },
+              {
+                "omitted_event_ids": [
+                  131
+                ],
+                "success": true,
+                "translation_change_mm": 51.49667033606648,
+                "rotation_change_deg": 1.1309808058673345
+              },
+              {
+                "omitted_event_ids": [
+                  149
+                ],
+                "success": true,
+                "translation_change_mm": 4.62005984606292,
+                "rotation_change_deg": 0.5620806151125155
+              },
+              {
+                "omitted_event_ids": [
+                  259
+                ],
+                "success": true,
+                "translation_change_mm": 8.072002543870386,
+                "rotation_change_deg": 0.47171114087207044
+              },
+              {
+                "omitted_event_ids": [
+                  381
+                ],
+                "success": true,
+                "translation_change_mm": 57.703241308809126,
+                "rotation_change_deg": 1.1023143470135868
+              },
+              {
+                "omitted_event_ids": [
+                  390
+                ],
+                "success": true,
+                "translation_change_mm": 15.396122065310292,
+                "rotation_change_deg": 0.40487781509868015
+              }
+            ],
+            "failures": 0,
+            "max_translation_change_mm": 57.703241308809126,
+            "max_rotation_change_deg": 1.1309808058673345
+          }
+        },
+        "3": {
+          "success": true,
+          "T_base_camera": [
+            [
+              -0.68943678769882,
+              -0.05536456868738959,
+              0.7222268897663618,
+              -0.554148355229485
+            ],
+            [
+              -0.7214370858885909,
+              0.1417510685433776,
+              -0.6778164690175281,
+              1.0279419578105233
+            ],
+            [
+              -0.06484941689877707,
+              -0.988352871752225,
+              -0.1376704544447298,
+              0.25770895016401935
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_gripper_board": [
+            [
+              0.9998444873322481,
+              0.01554822267317692,
+              0.00832189419657835,
+              -0.06591442295559273
+            ],
+            [
+              -0.00841678110215817,
+              0.00604731099178224,
+              0.9999462924705739,
+              -0.021674815594304963
+            ],
+            [
+              0.015497062534302764,
+              -0.9998608317168313,
+              0.006177236545084952,
+              0.10825282710692939
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "heldout": {
+            "chain_translation_mm": 0.32247882236475267,
+            "chain_rotation_deg": 0.06670055287793955,
+            "reprojection_rmse_px": 0.2542515929821457,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 2,
+            "pixel_event_camera_pairs": 2,
+            "scored_corners": 35
+          },
+          "training": {
+            "chain_translation_mm": 0.3294875832919917,
+            "chain_rotation_deg": 0.04921686261475708,
+            "reprojection_rmse_px": 0.2434880043574292,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 6,
+            "pixel_event_camera_pairs": 6,
+            "scored_corners": 101
+          },
+          "subset_sensitivity": {
+            "note": "Training-only leave-one-pose-group-out change; not a confidence interval.",
+            "trials": [
+              {
+                "omitted_event_ids": [
+                  95
+                ],
+                "success": true,
+                "translation_change_mm": 3.8007766343155236,
+                "rotation_change_deg": 0.35904904494282475
+              },
+              {
+                "omitted_event_ids": [
+                  131
+                ],
+                "success": true,
+                "translation_change_mm": 3.0977359308677346,
+                "rotation_change_deg": 0.3833642717191348
+              },
+              {
+                "omitted_event_ids": [
+                  149
+                ],
+                "success": true,
+                "translation_change_mm": 4.473349472582872,
+                "rotation_change_deg": 0.34712091263101424
+              },
+              {
+                "omitted_event_ids": [
+                  259
+                ],
+                "success": true,
+                "translation_change_mm": 12.10247476657047,
+                "rotation_change_deg": 1.3996767043790006
+              },
+              {
+                "omitted_event_ids": [
+                  381
+                ],
+                "success": true,
+                "translation_change_mm": 16.456544123302475,
+                "rotation_change_deg": 1.2380761306441992
+              },
+              {
+                "omitted_event_ids": [
+                  390
+                ],
+                "success": true,
+                "translation_change_mm": 2.8128854422326954,
+                "rotation_change_deg": 0.16922300248727645
+              }
+            ],
+            "failures": 0,
+            "max_translation_change_mm": 16.456544123302475,
+            "max_rotation_change_deg": 1.3996767043790006
+          }
+        }
+      },
+      "success": true,
+      "heldout": {
+        "chain_translation_mm": 1.1513350250696492,
+        "chain_rotation_deg": 0.09234054700095855,
+        "reprojection_rmse_px": 1.3051801875247966,
+        "reprojection_complete": true,
+        "scored_event_camera_pairs": 4,
+        "pixel_event_camera_pairs": 4,
+        "scored_corners": 65
+      },
+      "mount_spread": {
+        "translation_mm": 38.09224636911785,
+        "rotation_deg": 1.9222108743359834
+      }
+    },
+    "horaud": {
+      "cameras": {
+        "1": {
+          "success": true,
+          "T_base_camera": [
+            [
+              0.6876711953676966,
+              -0.09894454663486768,
+              0.7192484297881946,
+              -0.5811739924004807
+            ],
+            [
+              -0.7260004666576647,
+              -0.10139161458930585,
+              0.6801786992429455,
+              -0.12043822380135927
+            ],
+            [
+              0.005625786559761203,
+              -0.9899139948410633,
+              -0.14155787983503357,
+              0.2840751712191732
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_gripper_board": [
+            [
+              0.9995856873494842,
+              0.028523049465991254,
+              0.003858664953172837,
+              -0.12867332539399076
+            ],
+            [
+              -0.005897245939849886,
+              0.07173659239276975,
+              0.9974061779446725,
+              -0.06484099292774811
+            ],
+            [
+              0.028172258276275126,
+              -0.9970156954436752,
+              0.07187507845269203,
+              0.10681432358685929
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "heldout": {
+            "chain_translation_mm": 1.9801908306340033,
+            "chain_rotation_deg": 0.11798042028517011,
+            "reprojection_rmse_px": 1.901446061948596,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 2,
+            "pixel_event_camera_pairs": 2,
+            "scored_corners": 30
+          },
+          "training": {
+            "chain_translation_mm": 1.4524443932450668,
+            "chain_rotation_deg": 0.1391643717291059,
+            "reprojection_rmse_px": 2.053340229125216,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 6,
+            "pixel_event_camera_pairs": 6,
+            "scored_corners": 97
+          },
+          "subset_sensitivity": {
+            "note": "Training-only leave-one-pose-group-out change; not a confidence interval.",
+            "trials": [
+              {
+                "omitted_event_ids": [
+                  95
+                ],
+                "success": true,
+                "translation_change_mm": 2.8987295059970335,
+                "rotation_change_deg": 0.4800580231385157
+              },
+              {
+                "omitted_event_ids": [
+                  131
+                ],
+                "success": true,
+                "translation_change_mm": 51.49683516222331,
+                "rotation_change_deg": 1.131023939368513
+              },
+              {
+                "omitted_event_ids": [
+                  149
+                ],
+                "success": true,
+                "translation_change_mm": 4.619928334361583,
+                "rotation_change_deg": 0.5620253585770973
+              },
+              {
+                "omitted_event_ids": [
+                  259
+                ],
+                "success": true,
+                "translation_change_mm": 8.071932138008675,
+                "rotation_change_deg": 0.4716659763269935
+              },
+              {
+                "omitted_event_ids": [
+                  381
+                ],
+                "success": true,
+                "translation_change_mm": 57.70306750104522,
+                "rotation_change_deg": 1.1022542387835115
+              },
+              {
+                "omitted_event_ids": [
+                  390
+                ],
+                "success": true,
+                "translation_change_mm": 15.396436540432601,
+                "rotation_change_deg": 0.4049500857048989
+              }
+            ],
+            "failures": 0,
+            "max_translation_change_mm": 57.70306750104522,
+            "max_rotation_change_deg": 1.131023939368513
+          }
+        },
+        "3": {
+          "success": true,
+          "T_base_camera": [
+            [
+              -0.6894361776445325,
+              -0.05536383141033324,
+              0.7222275286407064,
+              -0.5541485775573155
+            ],
+            [
+              -0.721437581285759,
+              0.14175155232195646,
+              -0.6778158405664982,
+              1.0279417046109534
+            ],
+            [
+              -0.06485039139009297,
+              -0.9883528436676259,
+              -0.13767019703141092,
+              0.25770876639748724
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_gripper_board": [
+            [
+              0.9998444828354547,
+              0.015548045881778643,
+              0.008322764730521955,
+              -0.06591436133969997
+            ],
+            [
+              -0.008417636410089469,
+              0.006046393367071745,
+              0.9999462908199206,
+              -0.021674521927238972
+            ],
+            [
+              0.015496888099520177,
+              -0.9998608400155033,
+              0.006176330846239753,
+              0.10825287381307876
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "heldout": {
+            "chain_translation_mm": 0.32248190818255057,
+            "chain_rotation_deg": 0.06669953311527947,
+            "reprojection_rmse_px": 0.25424981093476406,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 2,
+            "pixel_event_camera_pairs": 2,
+            "scored_corners": 35
+          },
+          "training": {
+            "chain_translation_mm": 0.32948532866229535,
+            "chain_rotation_deg": 0.04921685588700805,
+            "reprojection_rmse_px": 0.24348656729218854,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 6,
+            "pixel_event_camera_pairs": 6,
+            "scored_corners": 101
+          },
+          "subset_sensitivity": {
+            "note": "Training-only leave-one-pose-group-out change; not a confidence interval.",
+            "trials": [
+              {
+                "omitted_event_ids": [
+                  95
+                ],
+                "success": true,
+                "translation_change_mm": 3.800741029926773,
+                "rotation_change_deg": 0.35909993966968495
+              },
+              {
+                "omitted_event_ids": [
+                  131
+                ],
+                "success": true,
+                "translation_change_mm": 3.0977371624933454,
+                "rotation_change_deg": 0.3833537560309408
+              },
+              {
+                "omitted_event_ids": [
+                  149
+                ],
+                "success": true,
+                "translation_change_mm": 4.47336753222829,
+                "rotation_change_deg": 0.34710955072964417
+              },
+              {
+                "omitted_event_ids": [
+                  259
+                ],
+                "success": true,
+                "translation_change_mm": 12.102408232846074,
+                "rotation_change_deg": 1.3996148642157826
+              },
+              {
+                "omitted_event_ids": [
+                  381
+                ],
+                "success": true,
+                "translation_change_mm": 16.4567425953518,
+                "rotation_change_deg": 1.2380536837295697
+              },
+              {
+                "omitted_event_ids": [
+                  390
+                ],
+                "success": true,
+                "translation_change_mm": 2.8129476906096036,
+                "rotation_change_deg": 0.16924436386604708
+              }
+            ],
+            "failures": 0,
+            "max_translation_change_mm": 16.4567425953518,
+            "max_rotation_change_deg": 1.3996148642157826
+          }
+        }
+      },
+      "success": true,
+      "heldout": {
+        "chain_translation_mm": 1.151336369408277,
+        "chain_rotation_deg": 0.09233997670022479,
+        "reprojection_rmse_px": 1.3051814941143534,
+        "reprojection_complete": true,
+        "scored_event_camera_pairs": 4,
+        "pixel_event_camera_pairs": 4,
+        "scored_corners": 65
+      },
+      "mount_spread": {
+        "translation_mm": 38.09232604659013,
+        "rotation_deg": 1.9222729831193681
+      }
+    },
+    "andreff": {
+      "cameras": {
+        "1": {
+          "success": true,
+          "T_base_camera": [
+            [
+              0.6540766586875906,
+              0.23922901452376652,
+              0.7176023990832701,
+              -0.140495499222105
+            ],
+            [
+              -0.696042668701281,
+              -0.18107739307668907,
+              0.6947917537390245,
+              0.5770544204171707
+            ],
+            [
+              0.2961559182378028,
+              -0.9539289576936727,
+              0.04807510547243915,
+              0.2617315442832438
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_gripper_board": [
+            [
+              0.9862223463281667,
+              0.1646511815240616,
+              0.015983492287223816,
+              0.49851892069225706
+            ],
+            [
+              0.025535053222206963,
+              -0.24698382726025248,
+              0.968683100982368,
+              0.4558002576098737
+            ],
+            [
+              0.16344248119722204,
+              -0.9549287813730445,
+              -0.24778534630903315,
+              -0.08059050456078677
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "heldout": {
+            "chain_translation_mm": 13.794221485557983,
+            "chain_rotation_deg": 0.3618335817001997,
+            "reprojection_rmse_px": 17.979057144783017,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 2,
+            "pixel_event_camera_pairs": 2,
+            "scored_corners": 30
+          },
+          "training": {
+            "chain_translation_mm": 14.171830585910477,
+            "chain_rotation_deg": 0.394270451370274,
+            "reprojection_rmse_px": 21.238406344994807,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 6,
+            "pixel_event_camera_pairs": 6,
+            "scored_corners": 97
+          },
+          "subset_sensitivity": {
+            "note": "Training-only leave-one-pose-group-out change; not a confidence interval.",
+            "trials": [
+              {
+                "omitted_event_ids": [
+                  95
+                ],
+                "success": true,
+                "translation_change_mm": 2.1306463904305826,
+                "rotation_change_deg": 0.5431451958977508
+              },
+              {
+                "omitted_event_ids": [
+                  131
+                ],
+                "success": true,
+                "translation_change_mm": 27.146325963654846,
+                "rotation_change_deg": 13.21069094232703
+              },
+              {
+                "omitted_event_ids": [
+                  149
+                ],
+                "success": true,
+                "translation_change_mm": 6.828285260324764,
+                "rotation_change_deg": 1.5851430896039056
+              },
+              {
+                "omitted_event_ids": [
+                  259
+                ],
+                "success": true,
+                "translation_change_mm": 14.2205537422934,
+                "rotation_change_deg": 5.000693588195667
+              },
+              {
+                "omitted_event_ids": [
+                  381
+                ],
+                "success": true,
+                "translation_change_mm": 11.107481055869755,
+                "rotation_change_deg": 10.056317177584356
+              },
+              {
+                "omitted_event_ids": [
+                  390
+                ],
+                "success": true,
+                "translation_change_mm": 1.1611695670651585,
+                "rotation_change_deg": 1.4800295608874494
+              }
+            ],
+            "failures": 0,
+            "max_translation_change_mm": 27.146325963654846,
+            "max_rotation_change_deg": 13.21069094232703
+          }
+        },
+        "3": {
+          "success": true,
+          "T_base_camera": [
+            [
+              -0.6849141350294664,
+              -0.07322973176367864,
+              0.7249345032640244,
+              -0.19821874400313852
+            ],
+            [
+              -0.7267941177849888,
+              0.1391287322268547,
+              -0.672616908962366,
+              0.6603552345228839
+            ],
+            [
+              -0.05160366256359944,
+              -0.987562961159828,
+              -0.1485141735837167,
+              0.26311805392512805
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_gripper_board": [
+            [
+              0.9997380882665958,
+              0.017028122895620005,
+              0.015290451259020364,
+              -0.4804226679623315
+            ],
+            [
+              -0.015684754027367496,
+              0.023268330280802996,
+              0.9996062091128911,
+              0.26422486993191624
+            ],
+            [
+              0.01666563410596173,
+              -0.9995842274849057,
+              0.02352931795125135,
+              0.021145298846641652
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "heldout": {
+            "chain_translation_mm": 9.438719795630995,
+            "chain_rotation_deg": 0.06993684206581163,
+            "reprojection_rmse_px": 15.547181306052407,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 2,
+            "pixel_event_camera_pairs": 2,
+            "scored_corners": 35
+          },
+          "training": {
+            "chain_translation_mm": 11.556300114148348,
+            "chain_rotation_deg": 0.0555538107269855,
+            "reprojection_rmse_px": 19.50245033613702,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 6,
+            "pixel_event_camera_pairs": 6,
+            "scored_corners": 101
+          },
+          "subset_sensitivity": {
+            "note": "Training-only leave-one-pose-group-out change; not a confidence interval.",
+            "trials": [
+              {
+                "omitted_event_ids": [
+                  95
+                ],
+                "success": true,
+                "translation_change_mm": 59.20912802603412,
+                "rotation_change_deg": 0.4094582137869638
+              },
+              {
+                "omitted_event_ids": [
+                  131
+                ],
+                "success": true,
+                "translation_change_mm": 27.73031427001766,
+                "rotation_change_deg": 0.3971031420505688
+              },
+              {
+                "omitted_event_ids": [
+                  149
+                ],
+                "success": true,
+                "translation_change_mm": 6.04359190241698,
+                "rotation_change_deg": 0.6111259246334817
+              },
+              {
+                "omitted_event_ids": [
+                  259
+                ],
+                "success": true,
+                "translation_change_mm": 27.345434422170204,
+                "rotation_change_deg": 1.4410249870160141
+              },
+              {
+                "omitted_event_ids": [
+                  381
+                ],
+                "success": true,
+                "translation_change_mm": 33.27092344602046,
+                "rotation_change_deg": 1.3612657091509477
+              },
+              {
+                "omitted_event_ids": [
+                  390
+                ],
+                "success": true,
+                "translation_change_mm": 17.142920684730107,
+                "rotation_change_deg": 0.1899531880340536
+              }
+            ],
+            "failures": 0,
+            "max_translation_change_mm": 59.20912802603412,
+            "max_rotation_change_deg": 1.4410249870160141
+          }
+        }
+      },
+      "success": true,
+      "heldout": {
+        "chain_translation_mm": 11.616470640594489,
+        "chain_rotation_deg": 0.21588521188300566,
+        "reprojection_rmse_px": 16.713612372128793,
+        "reprojection_complete": true,
+        "scored_event_camera_pairs": 4,
+        "pixel_event_camera_pairs": 4,
+        "scored_corners": 65
+      },
+      "mount_spread": {
+        "translation_mm": 501.3426814207236,
+        "rotation_deg": 8.977782479543656
+      }
+    },
+    "daniilidis": {
+      "cameras": {
+        "1": {
+          "success": true,
+          "T_base_camera": [
+            [
+              0.6901782650638398,
+              -0.10939442224390228,
+              0.7153228801145612,
+              -0.572200307379217
+            ],
+            [
+              -0.7236311443910948,
+              -0.10905290924698119,
+              0.6815170062823115,
+              -0.11284029928862498
+            ],
+            [
+              0.003453881975775064,
+              -0.9879981393538615,
+              -0.1544271586626035,
+              0.27521823311004834
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_gripper_board": [
+            [
+              0.9993805342967146,
+              0.03485313811164451,
+              0.004879183598058834,
+              -0.12209453602162075
+            ],
+            [
+              -0.007782417401564495,
+              0.08365571125420662,
+              0.9964643274869103,
+              -0.05372221009696762
+            ],
+            [
+              0.03432173725499279,
+              -0.9958850238548238,
+              0.08387513107873995,
+              0.12198803304772908
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "heldout": {
+            "chain_translation_mm": 1.7160812672707637,
+            "chain_rotation_deg": 0.12107977212126741,
+            "reprojection_rmse_px": 1.3565302855285861,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 2,
+            "pixel_event_camera_pairs": 2,
+            "scored_corners": 30
+          },
+          "training": {
+            "chain_translation_mm": 1.3030838119461374,
+            "chain_rotation_deg": 0.14177879039184185,
+            "reprojection_rmse_px": 1.7581096155332,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 6,
+            "pixel_event_camera_pairs": 6,
+            "scored_corners": 97
+          },
+          "subset_sensitivity": {
+            "note": "Training-only leave-one-pose-group-out change; not a confidence interval.",
+            "trials": [
+              {
+                "omitted_event_ids": [
+                  95
+                ],
+                "success": true,
+                "translation_change_mm": 4.580732139932543,
+                "rotation_change_deg": 0.41536285535235185
+              },
+              {
+                "omitted_event_ids": [
+                  131
+                ],
+                "success": true,
+                "translation_change_mm": 43.98484890698103,
+                "rotation_change_deg": 1.485697083973845
+              },
+              {
+                "omitted_event_ids": [
+                  149
+                ],
+                "success": true,
+                "translation_change_mm": 3.576799225054167,
+                "rotation_change_deg": 0.16006816966092166
+              },
+              {
+                "omitted_event_ids": [
+                  259
+                ],
+                "success": true,
+                "translation_change_mm": 9.230699817709686,
+                "rotation_change_deg": 0.240745749133025
+              },
+              {
+                "omitted_event_ids": [
+                  381
+                ],
+                "success": true,
+                "translation_change_mm": 58.87602390353789,
+                "rotation_change_deg": 2.140979985733201
+              },
+              {
+                "omitted_event_ids": [
+                  390
+                ],
+                "success": true,
+                "translation_change_mm": 10.245933774317695,
+                "rotation_change_deg": 0.36352953315302555
+              }
+            ],
+            "failures": 0,
+            "max_translation_change_mm": 58.87602390353789,
+            "max_rotation_change_deg": 2.140979985733201
+          }
+        },
+        "3": {
+          "success": true,
+          "T_base_camera": [
+            [
+              -0.6875412529657464,
+              -0.05530912495734919,
+              0.7240358597243254,
+              -0.5601223771461918
+            ],
+            [
+              -0.7236084716256195,
+              0.13545937433951172,
+              -0.6767876607143356,
+              1.0299295387023966
+            ],
+            [
+              -0.06064491126158622,
+              -0.9892379180965517,
+              -0.1331560593366814,
+              0.25303357814648963
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "T_gripper_board": [
+            [
+              0.9997111184481182,
+              0.02220885576594734,
+              0.009189470973879626,
+              -0.06287311066756258
+            ],
+            [
+              -0.009338839714449043,
+              0.006631305917314256,
+              0.9999344037758771,
+              -0.025364606021442266
+            ],
+            [
+              0.022146460755620927,
+              -0.99973136017002,
+              0.006836795199609391,
+              0.11065639970517967
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "heldout": {
+            "chain_translation_mm": 0.38123198775532213,
+            "chain_rotation_deg": 0.07062334175982878,
+            "reprojection_rmse_px": 0.4203948766287807,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 2,
+            "pixel_event_camera_pairs": 2,
+            "scored_corners": 35
+          },
+          "training": {
+            "chain_translation_mm": 0.36188850352476704,
+            "chain_rotation_deg": 0.05011812687080211,
+            "reprojection_rmse_px": 0.3635089964565138,
+            "reprojection_complete": true,
+            "scored_event_camera_pairs": 6,
+            "pixel_event_camera_pairs": 6,
+            "scored_corners": 101
+          },
+          "subset_sensitivity": {
+            "note": "Training-only leave-one-pose-group-out change; not a confidence interval.",
+            "trials": [
+              {
+                "omitted_event_ids": [
+                  95
+                ],
+                "success": true,
+                "translation_change_mm": 3.997880840072469,
+                "rotation_change_deg": 0.43584653604905044
+              },
+              {
+                "omitted_event_ids": [
+                  131
+                ],
+                "success": true,
+                "translation_change_mm": 4.662170872819108,
+                "rotation_change_deg": 0.41705028541796046
+              },
+              {
+                "omitted_event_ids": [
+                  149
+                ],
+                "success": true,
+                "translation_change_mm": 2.028838815899933,
+                "rotation_change_deg": 0.17058710099363672
+              },
+              {
+                "omitted_event_ids": [
+                  259
+                ],
+                "success": true,
+                "translation_change_mm": 12.560664488541258,
+                "rotation_change_deg": 1.3726083940117422
+              },
+              {
+                "omitted_event_ids": [
+                  381
+                ],
+                "success": true,
+                "translation_change_mm": 15.085803412096737,
+                "rotation_change_deg": 2.2945937310537814
+              },
+              {
+                "omitted_event_ids": [
+                  390
+                ],
+                "success": true,
+                "translation_change_mm": 2.0595115217741964,
+                "rotation_change_deg": 0.18575357321119815
+              }
+            ],
+            "failures": 0,
+            "max_translation_change_mm": 15.085803412096737,
+            "max_rotation_change_deg": 2.2945937310537814
+          }
+        }
+      },
+      "success": true,
+      "heldout": {
+        "chain_translation_mm": 1.048656627513043,
+        "chain_rotation_deg": 0.0958515569405481,
+        "reprojection_rmse_px": 0.9718408171097735,
+        "reprojection_complete": true,
+        "scored_event_camera_pairs": 4,
+        "pixel_event_camera_pairs": 4,
+        "scored_corners": 65
+      },
+      "mount_spread": {
+        "translation_mm": 33.31567515479955,
+        "rotation_deg": 2.2402170227229776
+      }
+    }
+  },
+  "split": {
+    "settings": {
+      "algorithm": "connected_pose_groups_every_fourth_v1",
+      "near_translation_mm": 1.5,
+      "near_rotation_deg": 1.0,
+      "note": "Group near-duplicate robot poses before splitting. Hold out group indices 3, 7, ... in event order. No image residual or solver result is used to select the split."
+    },
+    "pose_groups": [
+      [
+        95
+      ],
+      [
+        131
+      ],
+      [
+        149
+      ],
+      [
+        189
+      ],
+      [
+        259
+      ],
+      [
+        381
+      ],
+      [
+        390
+      ],
+      [
+        392
+      ]
+    ],
+    "train": [
+      95,
+      131,
+      149,
+      259,
+      381,
+      390
+    ],
+    "heldout": [
+      189,
+      392
+    ]
+  },
+  "train_pose_diversity": {
+    "count": 6,
+    "max_pair_translation_mm": 2.23786281974564,
+    "mean_pair_rotation_deg": 2.6346789893159226,
+    "max_pair_rotation_deg": 4.219045078294673,
+    "centered_rotation_singular_values_deg": [
+      3.366720016498308,
+      2.5660117341968602,
+      1.1544154579243797
+    ]
+  }
+}

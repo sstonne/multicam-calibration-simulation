@@ -1,0 +1,34 @@
+{
+  "schema_version": "real_analysis_manifest_v1",
+  "excluded_sessions": {
+    "session_20260904_173735": "User confirmed: cameras were accidentally moved before the September 5 recapture. Backup only; exclude from fitting, evaluation, and comparison."
+  },
+  "session_policy": "Fit and evaluate each session independently. No cross-session rig identity is assumed.",
+  "selection_policy": "Use common events for both session cameras. Require stored capture gate and PnP success, at least max(4, capture-time minimum corners), stored reprojection within capture-time maximum, finite proper transforms, positive board depth, valid RGB and matching intrinsic serial/resolution. Conservatively exclude events with any foreign marker IDs. Never filter using a calibration method's output or held-out residual.",
+  "split": {
+    "algorithm": "connected_pose_groups_every_fourth_v1",
+    "near_translation_mm": 1.5,
+    "near_rotation_deg": 1.0,
+    "note": "Group near-duplicate robot poses before splitting. Hold out group indices 3, 7, ... in event order. No image residual or solver result is used to select the split."
+  },
+  "sessions": [
+    {
+      "name": "session_20260905_134509",
+      "meta": "datasets/shah/session_20260905_134509/meta.json",
+      "role": "recapture",
+      "cameras": [0, 1]
+    },
+    {
+      "name": "session_20260905_141521",
+      "meta": "datasets/shah/session_20260905_141521/meta.json",
+      "role": "recapture",
+      "cameras": [0, 3]
+    },
+    {
+      "name": "session_20260906_170504_ddec38",
+      "meta": "datasets/assisted/session_20260906_170504_ddec38/auto_valid_meta_9885617b.json",
+      "role": "supplementary_small_motion",
+      "cameras": [1, 3]
+    }
+  ]
+}

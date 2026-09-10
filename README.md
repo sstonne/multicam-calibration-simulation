@@ -2,6 +2,8 @@
 
 실제 로봇 데이터에 calibration 알고리즘을 적용하기 전에 구현과 평가 절차를 검증하기 위한 reference benchmark 임.
 
+> 최신 실제 데이터 분석: [2026-09-05~06 재촬영 정식 평가](docs/real_recapture_evaluation_20260910.md). 2026-09-04 데이터는 카메라 이동 전 백업이므로 분석에서 제외됨.
+
 ## 배경
 - Eye-in-hand wrist camera 1대
 - Eye-to-hand fixed camera 3대

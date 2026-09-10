@@ -1,0 +1,277 @@
+{
+  "manifest": {
+    "schema_version": "real_analysis_manifest_v1",
+    "excluded_sessions": {
+      "session_20260904_173735": "User confirmed: cameras were accidentally moved before the September 5 recapture. Backup only; exclude from fitting, evaluation, and comparison."
+    },
+    "session_policy": "Fit and evaluate each session independently. No cross-session rig identity is assumed.",
+    "selection_policy": "Use common events for both session cameras. Require stored capture gate and PnP success, at least max(4, capture-time minimum corners), stored reprojection within capture-time maximum, finite proper transforms, positive board depth, valid RGB and matching intrinsic serial/resolution. Conservatively exclude events with any foreign marker IDs. Never filter using a calibration method's output or held-out residual.",
+    "split": {
+      "algorithm": "connected_pose_groups_every_fourth_v1",
+      "near_translation_mm": 1.5,
+      "near_rotation_deg": 1.0,
+      "note": "Group near-duplicate robot poses before splitting. Hold out group indices 3, 7, ... in event order. No image residual or solver result is used to select the split."
+    },
+    "sessions": [
+      {
+        "name": "session_20260905_134509",
+        "meta": "datasets/shah/session_20260905_134509/meta.json",
+        "role": "recapture",
+        "cameras": [
+          0,
+          1
+        ]
+      },
+      {
+        "name": "session_20260905_141521",
+        "meta": "datasets/shah/session_20260905_141521/meta.json",
+        "role": "recapture",
+        "cameras": [
+          0,
+          3
+        ]
+      },
+      {
+        "name": "session_20260906_170504_ddec38",
+        "meta": "datasets/assisted/session_20260906_170504_ddec38/auto_valid_meta_9885617b.json",
+        "role": "supplementary_small_motion",
+        "cameras": [
+          1,
+          3
+        ]
+      }
+    ]
+  },
+  "manifest_sha256": "97e0fa6c99dbd3cb18adf8f1dddb56e2c09713082546721bf528276fca902810",
+  "versions": {
+    "python": "3.13.7",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "opencv": "4.14.0",
+    "matplotlib": "3.11.1"
+  },
+  "runner_sha256": "7b14d8444b2acc13398b6cd3adb51fe0cbc7e54a9c1db41bdfc38d45d964ae0a",
+  "solver_sha256": "65d5e035309ed5bd7686fb15f0246955d5576f941535b4243fec1f738e3dde69",
+  "handeye_wrapper_sha256": "75ad1ddb0ffb590826915c0bf9c39b9982cdfef91aeb5dd5ebc9820d1c1884c5",
+  "git_commit": "47ed1dd0589224605684fb37a98968617f5c706d",
+  "metrics_note": "No GT. Chain residual compares FK*estimated_mount with estimated_camera*stored_PnP. Pixel errors use held-out measured corners. No 5.4x heuristic. success means a numerical solver output, not validated physical accuracy.",
+  "sessions": [
+    {
+      "name": "session_20260905_134509",
+      "status": "evaluated",
+      "split": {
+        "settings": {
+          "algorithm": "connected_pose_groups_every_fourth_v1",
+          "near_translation_mm": 1.5,
+          "near_rotation_deg": 1.0,
+          "note": "Group near-duplicate robot poses before splitting. Hold out group indices 3, 7, ... in event order. No image residual or solver result is used to select the split."
+        },
+        "pose_groups": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            4
+          ],
+          [
+            5
+          ],
+          [
+            8
+          ],
+          [
+            9
+          ],
+          [
+            10
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            13
+          ],
+          [
+            14
+          ],
+          [
+            15
+          ],
+          [
+            16
+          ]
+        ],
+        "train": [
+          0,
+          1,
+          2,
+          5,
+          8,
+          9,
+          11,
+          12,
+          13,
+          15,
+          16
+        ],
+        "heldout": [
+          4,
+          10,
+          14
+        ]
+      },
+      "warnings": [
+        "No independent camera-pose ground truth; consistency is not absolute accuracy.",
+        "Do not merge extrinsics across sessions without confirming unchanged camera mounting.",
+        "Intrinsics match serial/resolution; captures did not store an intrinsic hash.",
+        "Conservative shared-event filtering applied to both cameras; see audit.json. Foreign IDs indicate possible contamination, not proven bad poses.",
+        "Missing original pixels were re-detected from compressed RGB for evaluation only. Detector/version and JPEG differences can change corner counts.",
+        "Tool is null: flange/tool1 convention follows session documentation, not per-frame verification.",
+        "Board marker ID note was unconfirmed at capture time; verify physical board identity."
+      ]
+    },
+    {
+      "name": "session_20260905_141521",
+      "status": "evaluated",
+      "split": {
+        "settings": {
+          "algorithm": "connected_pose_groups_every_fourth_v1",
+          "near_translation_mm": 1.5,
+          "near_rotation_deg": 1.0,
+          "note": "Group near-duplicate robot poses before splitting. Hold out group indices 3, 7, ... in event order. No image residual or solver result is used to select the split."
+        },
+        "pose_groups": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ],
+          [
+            6
+          ],
+          [
+            7
+          ],
+          [
+            8
+          ],
+          [
+            10
+          ],
+          [
+            12
+          ],
+          [
+            13,
+            14
+          ],
+          [
+            15
+          ]
+        ],
+        "train": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          7,
+          10,
+          12,
+          13,
+          14
+        ],
+        "heldout": [
+          3,
+          8,
+          15
+        ]
+      },
+      "warnings": [
+        "No independent camera-pose ground truth; consistency is not absolute accuracy.",
+        "Do not merge extrinsics across sessions without confirming unchanged camera mounting.",
+        "Intrinsics match serial/resolution; captures did not store an intrinsic hash.",
+        "Conservative shared-event filtering applied to both cameras; see audit.json. Foreign IDs indicate possible contamination, not proven bad poses.",
+        "Missing original pixels were re-detected from compressed RGB for evaluation only. Detector/version and JPEG differences can change corner counts.",
+        "Tool is null: flange/tool1 convention follows session documentation, not per-frame verification.",
+        "Board marker ID note was unconfirmed at capture time; verify physical board identity."
+      ]
+    },
+    {
+      "name": "session_20260906_170504_ddec38",
+      "status": "evaluated",
+      "split": {
+        "settings": {
+          "algorithm": "connected_pose_groups_every_fourth_v1",
+          "near_translation_mm": 1.5,
+          "near_rotation_deg": 1.0,
+          "note": "Group near-duplicate robot poses before splitting. Hold out group indices 3, 7, ... in event order. No image residual or solver result is used to select the split."
+        },
+        "pose_groups": [
+          [
+            95
+          ],
+          [
+            131
+          ],
+          [
+            149
+          ],
+          [
+            189
+          ],
+          [
+            259
+          ],
+          [
+            381
+          ],
+          [
+            390
+          ],
+          [
+            392
+          ]
+        ],
+        "train": [
+          95,
+          131,
+          149,
+          259,
+          381,
+          390
+        ],
+        "heldout": [
+          189,
+          392
+        ]
+      },
+      "warnings": [
+        "No independent camera-pose ground truth; consistency is not absolute accuracy.",
+        "Do not merge extrinsics across sessions without confirming unchanged camera mounting.",
+        "Intrinsics match serial/resolution; captures did not store an intrinsic hash.",
+        "Fewer than 10 selected poses; limited evaluation support.",
+        "Small training rotations: inspect subset sensitivity and solver failures."
+      ]
+    }
+  ]
+}

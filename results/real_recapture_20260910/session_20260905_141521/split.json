@@ -1,0 +1,64 @@
+{
+  "settings": {
+    "algorithm": "connected_pose_groups_every_fourth_v1",
+    "near_translation_mm": 1.5,
+    "near_rotation_deg": 1.0,
+    "note": "Group near-duplicate robot poses before splitting. Hold out group indices 3, 7, ... in event order. No image residual or solver result is used to select the split."
+  },
+  "pose_groups": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ],
+    [
+      4
+    ],
+    [
+      6
+    ],
+    [
+      7
+    ],
+    [
+      8
+    ],
+    [
+      10
+    ],
+    [
+      12
+    ],
+    [
+      13,
+      14
+    ],
+    [
+      15
+    ]
+  ],
+  "train": [
+    0,
+    1,
+    2,
+    4,
+    6,
+    7,
+    10,
+    12,
+    13,
+    14
+  ],
+  "heldout": [
+    3,
+    8,
+    15
+  ]
+}
