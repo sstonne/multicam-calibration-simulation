@@ -6,9 +6,12 @@
   로봇 보드   : 로봇 팔 끝(플랜지)에 볼트로 고정. Shah 의 관측 대상.
   테이블 보드 : 광학 테이블 위에 정지. 고정 카메라들의 월드 기준.
 
-현재 로봇 보드는 ID 90~116, 테이블 보드는 ID 5~42로 서로 겹치지 않는다.
-  2026-09-10 cam1 실물 촬영: 9x6칸, legacy 패턴에서 내부 코너 40개 검출.
-  체커 25mm / 마커 18mm는 사용자가 확인한 인쇄 규격이다.
+주의 — 마커 ID 충돌:
+  두 보드가 같은 DICT_4X4 를 쓴다. 테이블 보드가 ID 5~42 를 점유하므로,
+  로봇 보드가 기본값 ID 0 부터로 인쇄됐다면 5~16 번 17개 중 12개가 겹친다.
+  두 보드가 한 화면에 들어오면 검출기가 마커를 섞어 ChArUco 보간을 하고,
+  예외도 경고도 없이 틀린 pose 를 낸다.
+  대응은 docs/real_shah_capture.md 의 "마커 ID 충돌" 절 참조.
 """
 
 from __future__ import annotations
@@ -21,7 +24,7 @@ class BoardConfig:
     """ChArUco 보드 하나의 물리 규격.
 
     squares_x / squares_y 는 OpenCV 순서(가로, 세로)다. 실험실에서 쓰는
-    '6*9', '7*11' 표기는 세로*가로이므로 뒤집어서 넣는다.
+    '5*7', '7*11' 표기는 세로*가로이므로 뒤집어서 넣는다.
     """
 
     name: str
@@ -32,7 +35,6 @@ class BoardConfig:
     dictionary_name: str
     marker_id_start: int | None      # None = 아직 확인되지 않음
     note: str = ""
-    legacy_pattern: bool = False    # 짝수 행 보드의 인쇄 패턴(OpenCV 구버전 호환)
 
     @property
     def marker_count(self) -> int:
@@ -72,20 +74,22 @@ class BoardConfig:
         return payload
 
 
-# 로봇 팔 끝에 고정된 새 보드. 실험실 표기 '6*9' = 세로 6 x 가로 9.
-# cam1에서 ID 90~116 전부 확인. 짝수 행이므로 legacy 패턴을 명시해야 한다.
-# 같은 실물 프레임에서 legacy=True: 40/40 코너, False: 0/40 코너.
+# 로봇 팔 끝에 고정된 보드. 실험실 표기 '5*7' = 세로 5 x 가로 7.
+#
+# marker_id_start 가 None 인 이유: 인쇄에 쓴 PDF 에 ID 가 적혀 있지 않고,
+# PC 어디에도 이 보드의 생성 기록이 없다. 실물에서 읽어야 한다 —
+#   python capture/check_board_ids.py --live
+# 확인한 값을 여기 적어 넣으면 그 뒤로는 이 파일이 진실의 출처가 된다.
 ROBOT_BOARD = BoardConfig(
     name="robot_board",
-    squares_x=9,
-    squares_y=6,
-    square_length_m=0.025,
-    marker_length_m=0.018,
+    squares_x=7,
+    squares_y=5,
+    square_length_m=0.017,
+    marker_length_m=0.012,
     dictionary_name="DICT_4X4_250",
-    marker_id_start=90,
+    marker_id_start=0,
     note="로봇 팔 끝(플랜지)에 볼트 고정. Shah 의 X = T_gripper_board 대상. "
-         "2026-09-10 실물 ID/9x6 legacy 배치 확인, 사용자 확인 규격 25mm/18mm.",
-    legacy_pattern=True,
+         "ID 미확인 — check_board_ids.py 로 확인 후 여기에 기입할 것.",
 )
 
 # 광학 테이블 위 정지 보드. 규격 출처는 두 곳에서 교차 확인됨:
@@ -103,7 +107,6 @@ TABLE_BOARD = BoardConfig(
     note="테이블 고정. 고정 카메라 상호등록(camera-to-camera)의 독립 기준. "
          "Shah 입력이 아니라 검증용.",
 )
-
 BOARDS = {board.name: board for board in (ROBOT_BOARD, TABLE_BOARD)}
 
 
