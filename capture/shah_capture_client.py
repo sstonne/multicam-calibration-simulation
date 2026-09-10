@@ -105,6 +105,7 @@ class BoardDetector:
         self.grid = cv2.aruco.CharucoBoard(
             (board.squares_x, board.squares_y),
             board.square_length_m, board.marker_length_m, dictionary, self.ids)
+        self.grid.setLegacyPattern(board.legacy_pattern)
         self.detector = cv2.aruco.CharucoDetector(self.grid)
         self.id_set = {int(v) for v in self.ids.ravel()}
 

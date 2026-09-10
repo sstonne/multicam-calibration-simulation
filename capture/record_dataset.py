@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """엔터 한 번으로 로봇 자세와 촬영을 한 레코드로 적는 PC측 데이터셋 레코더.
 
-로봇측 상대 스크립트: capture/robot/pose_query_server.py (Python 2, ZEUS 컨트롤러)
+로봇측 상대 스크립트: capture/robot/pose_server.py (Python 2, ZEUS 컨트롤러)
 
 무엇을 하는가
   로봇을 원하는 자세로 옮긴 뒤 PC 터미널에서 엔터를 치면
@@ -28,7 +28,7 @@ capture/shah_capture_client.py 와 다른 점
 조작 (자세한 목록은 실행 후 help)
   로봇 조작은 SSH 로봇 콘솔의 zeus_jog_onboard.py 에서 계속 한다. 이 레코더는
   자세를 관찰만 하고 로봇을 움직이지 않는다 (그렇게 해서 zeus_jog_onboard.py
-  와 컨트롤러를 두고 싸우지 않는다 — capture/robot/pose_query_server.py 참조).
+  와 컨트롤러를 두고 싸우지 않는다 — capture/robot/pose_server.py 참조).
 
   PC 터미널에서 하는 것은 다음 뿐이다:
     Enter        지금 자세를 기록 (자세 + 관절 + 카메라 3대 촬영)
@@ -111,14 +111,13 @@ from shah_capture_client import (
 )
 
 DATASET_SCHEMA_VERSION = "pose_dataset_v1"
-# pose_query_server.py 와 같아야 한다. 12346/12348 은 기존 서버들이,
-# 12349 는 i611usr/model.py 가 이미 쓴다.
-DEFAULT_ROBOT_PORT = 12350
+# SSH의 pose_server.py와 동일. GELLO 제어(12350)와 자세 조회 포트를 분리한다.
+DEFAULT_ROBOT_PORT = 12352
 ROTATION_DIVERSITY_TARGET_DEG = 40.0
 RECORDER_ID = "capture/record_dataset.py"
 
 # 로봇 서버마다 자세 필드 이름이 다르다. 먼저 나오는 것을 쓴다.
-#   flange_pose_6dof / joints_6dof : capture/robot/pose_query_server.py
+#   flange_pose_6dof / joints_6dof : capture/robot/pose_server.py
 #   tcp_6dof / joint_6dof          : i611usr/sam3d_calb/robot_pose_server.py
 POSE_FIELDS = ("flange_pose_6dof", "tcp_6dof", "pose_6dof")
 JOINT_FIELDS = ("joints_6dof", "joint_6dof")
@@ -133,7 +132,7 @@ def now_iso() -> str:
 # ────────────────────────────────────────────────────────────────
 
 class RobotLink:
-    """pose_query_server.py 에 상태를 묻고 jog 를 시키는 클라이언트."""
+    """pose_server.py 에 상태를 묻고 jog 를 시키는 클라이언트."""
 
     def __init__(self, host: str, port: int, timeout_s: float = 10.0):
         self.address = (host, port)
@@ -161,7 +160,7 @@ class RobotLink:
     def request(self, payload: dict) -> dict:
         response = self.send(payload)
         if response.get("status") != "ok":
-            # detail 은 pose_query_server.py, reason 은 기존 서버가 쓰는 이름이다.
+            # detail 은 pose_server.py, reason 은 기존 서버가 쓰는 이름이다.
             raise RuntimeError("로봇 오류: {}".format(
                 response.get("detail") or response.get("reason") or response))
         return response
@@ -200,7 +199,7 @@ class RobotLink:
         if tool is None and source == "shm" and not self.tool_warned:
             # shm-only 서버는 컨트롤러의 현재 tool 을 확정할 수 없다. 이건 오류가
             # 아니라 이 방식의 한계다. 한 번만 안내한다.
-            print("[안내] pose_query_server.py (shm) 는 컨트롤러의 현재 tool 을 알 수 없다.")
+            print("[안내] pose_server.py (shm) 는 컨트롤러의 현재 tool 을 알 수 없다.")
             print("       zeus_jog_onboard.py 가 tool 1(플랜지)을 쓰고 있는지 확인하라 —")
             print("       그리퍼 오프셋이 섞인 tool 이라면 결과가 어긋난다 (docs §8.2).")
             self.tool_warned = True
@@ -220,7 +219,7 @@ class RobotLink:
         }
 
     # 로봇 이동은 이 클라이언트가 하지 않는다. 조작은 SSH 로봇 콘솔의
-    # zeus_jog_onboard.py 에서 한다. pose_query_server.py 는 자세만 관찰한다.
+    # zeus_jog_onboard.py 에서 한다. pose_server.py 는 자세만 관찰한다.
 
     def close(self) -> None:
         try:
@@ -340,8 +339,8 @@ def ensure_dataset_block(meta: dict, args, cameras, session_dir,
 def check_resume_compatible(meta: dict, args, cameras, detector) -> None:
     """이어 붙이기 전에 이 세션과 지금 설정이 같은 실험인지 확인한다.
 
-    해상도나 카메라 구성이 달라지면 K 가 맞지 않고, 보드 ID 가 달라지면
-    검출 대상이 달라진다. 어느 쪽이든 한 meta.json 에 섞이면 안 된다.
+    해상도나 카메라 구성이 달라지면 K 가 맞지 않고, 보드 ID/크기/패턴이
+    달라지면 검출 대상과 좌표계가 달라진다. 한 meta.json 에 섞이면 안 된다.
     """
     config = meta.get("capture_config", {})
     problems = []
@@ -360,11 +359,19 @@ def check_resume_compatible(meta: dict, args, cameras, detector) -> None:
         current = sorted(c.index for c in cameras)
         if stored and stored != current:
             problems.append(f"카메라 구성 {stored} != {current}")
-        stored_id = (meta.get("board_config") or {}).get("marker_id_start")
+        stored_board = meta.get("board_config") or {}
+        stored_id = stored_board.get("marker_id_start")
         if detector is not None and stored_id is not None \
                 and int(stored_id) != detector.marker_id_start:
             problems.append(
                 f"로봇 보드 marker_id_start {stored_id} != {detector.marker_id_start}")
+        if detector is not None:
+            for key in ("squares_x", "squares_y", "square_length_m",
+                        "marker_length_m", "dictionary_name", "legacy_pattern"):
+                stored_value = stored_board.get(key, False if key == "legacy_pattern" else None)
+                current_value = getattr(detector.board_config, key)
+                if stored_value != current_value:
+                    problems.append(f"로봇 보드 {key} {stored_value} != {current_value}")
 
     mode = stored_capture_mode(meta)
     current_mode = "pose_and_image" if cameras else "pose_only"
@@ -511,7 +518,7 @@ def update_dataset_index(algorithm_dir: Path, session_dir: Path, meta: dict) -> 
 # 대화 루프
 # ────────────────────────────────────────────────────────────────
 
-# 로봇은 SSH 콘솔의 zeus_jog_onboard.py 에서 조작한다. pose_query_server.py 는
+# 로봇은 SSH 콘솔의 zeus_jog_onboard.py 에서 조작한다. pose_server.py 는
 # shm 만 읽는 관찰자이므로 이 레코더는 로봇에 이동 명령을 내리지 않는다.
 # 손이 조작키를 두드렸을 때 아무 일도 안 일어나면 프로그램이 멈춘 줄 알기 쉽다.
 # 그래서 조작키들도 무시하지 않고 "그건 로봇 콘솔에서 하라"고 알려 준다.
@@ -530,10 +537,10 @@ MENU = """
    div              평균 상대회전 (목표 {target:.0f}deg)
    q                종료
 
- [ 로봇 조작 — 이 터미널이 아니라 SSH 로봇 콘솔에서 ]
-   zeus_jog_onboard.py 를 그대로 쓰라 (w/s a/d r/f, i/k j/l u/o, [ ], 1~5).
-   이 레코더는 shm 을 읽어 자세를 가져올 뿐이라 로봇을 움직이지 못한다.
-   조작을 위한 SSH 터미널 하나, 이 레코더용 로컬 터미널 하나 - 총 2개면 된다.
+ [ 로봇 조작 — GELLO 또는 SSH 조작 콘솔에서 ]
+   GELLO: zeus_gello.py:12350 + gello_zeus_real_teleop.py
+   자세 조회: pose_server.py:12352 (공유 메모리 읽기 전용)
+   이 레코더는 로봇을 움직이지 않는다.
 
  ※ 자세를 잡은 뒤 엔터. 로봇이 완전히 멎었을 때 치라 (진동이 남으면 흐릿함).
  ※ 평행이동만 하지 말 것. 자세마다 rz/ry/rx 를 20~30deg 씩 바꿔라.
@@ -699,7 +706,7 @@ def parse_args(argv=None):
     robot = parser.add_argument_group("로봇")
     robot.add_argument("--robot-host", default="192.168.0.23")
     robot.add_argument("--robot-port", type=int, default=DEFAULT_ROBOT_PORT,
-                       help=f"pose_query_server.py 포트 (기본 {DEFAULT_ROBOT_PORT})")
+                       help=f"pose_server.py 포트 (기본 {DEFAULT_ROBOT_PORT}, GELLO는 12350)")
     robot.add_argument("--robot-timeout-s", type=float, default=10.0)
 
     camera = parser.add_argument_group("카메라")
@@ -815,7 +822,7 @@ def main(argv=None) -> int:
         robot = RobotLink(args.robot_host, args.robot_port, args.robot_timeout_s)
     except OSError as error:
         print(f"[중단] 로봇에 접속하지 못했다: {error}", file=sys.stderr)
-        print("  로봇에서 pose_query_server.py 가 실행 중인지 확인하라.",
+        print("  로봇에서 pose_server.py 가 실행 중인지 확인하라.",
               file=sys.stderr)
         for camera in cameras:
             camera.stop()
