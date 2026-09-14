@@ -127,7 +127,7 @@ class CaptureSession:
         from board_config import ROBOT_BOARD
         from shah_capture_client import BoardDetector, build_session_header
         self.args,self.robot,self.rig,self.cancel=args,robot,rig,cancel
-        self.detector=BoardDetector(ROBOT_BOARD,0,args.detection_scale)
+        self.detector=BoardDetector(ROBOT_BOARD,ROBOT_BOARD.marker_id_start,args.detection_scale)
         self.path=Path(args.dataset_root)/('session_'+time.strftime('%Y%m%d_%H%M%S')+'_'+uuid.uuid4().hex[:6])
         self.path.mkdir(parents=True,exist_ok=False)
         cameras=[] if rig is None else rig.cameras

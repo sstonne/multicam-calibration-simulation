@@ -94,9 +94,12 @@ class SyntheticCamera:
         self.photometry={'locked':True,'source':'simulation'}
         self.width,self.height,self.order=width,height,order
         self.counter=0
-        board=BoardDetector(ROBOT_BOARD,0).grid.generateImage((700,500))
+        board=BoardDetector(ROBOT_BOARD,ROBOT_BOARD.marker_id_start).grid.generateImage((700,500))
         board=cv2.cvtColor(board,cv2.COLOR_GRAY2BGR)
         source=np.float32([[0,0],[699,0],[699,499],[0,499]])
+        # 119x85mm 는 구 보드(7x5 @ 17mm) 의 실치다. 실물은 225x150mm 로 커졌지만
+        # 이 합성 리그의 rvec/tvec 은 작은 보드 기준으로 맞춰져 있다. 크기만 바꾸면
+        # 보드가 화면을 벗어난다. 시뮬레이션 내부에서만 일관되면 된다.
         points=np.float32([[0,0,0],[.119,0,0],[.119,.085,0],[0,.085,0]])
         dest,_=cv2.projectPoints(points,np.array([.1+order*.05,-.15+order*.25,.03]),
                                  np.array([-.06+order*.01,-.04,.3]),self.K,self.D)
@@ -117,7 +120,7 @@ class SyntheticCamera:
 class Worker:
     def __init__(self,camera,args):
         self.camera,self.args=camera,args
-        self.detector=BoardDetector(ROBOT_BOARD,0,args.detection_scale)
+        self.detector=BoardDetector(ROBOT_BOARD,ROBOT_BOARD.marker_id_start,args.detection_scale)
         self.lock=threading.Lock()
         self.done=threading.Event()
         self.latest=None

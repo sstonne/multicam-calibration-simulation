@@ -173,7 +173,7 @@ class CaptureTests(unittest.TestCase):
         self.camera=SyntheticCamera('cam0',1280,720,0)
         frame=self.camera.grab()
         self.sample=dict(frame=frame,sequence=1,quality=analyze(frame,self.camera,
-                                BoardDetector(ROBOT_BOARD,0),self.args))
+                                BoardDetector(ROBOT_BOARD,ROBOT_BOARD.marker_id_start),self.args))
         self.state=dict(flange_pose_6dof=[400.,0.,300.,0.,20.,180.],joints_6dof=[0.]*6,
                    tool=1,tool_verified=True,flags={k:0 for k in ('emergency','hw_error','sw_error','abs_lost','paused','error')})
         state=self.state
@@ -196,8 +196,8 @@ class CaptureTests(unittest.TestCase):
     def tearDown(self):
         self.tmp.cleanup()
 
-    def test_generated_board_detects_all_24_corners(self):
-        self.assertEqual(self.sample['quality']['charuco']['n_corners'],24)
+    def test_generated_board_detects_all_40_corners(self):
+        self.assertEqual(self.sample['quality']['charuco']['n_corners'],40)
         self.assertIsNone(self.sample['quality']['gate_reason'])
 
     def test_failed_detection_keeps_image_but_not_valid_selection(self):
@@ -247,7 +247,7 @@ class CaptureTests(unittest.TestCase):
         self.assertTrue(self.session.capture('recovered')['capture_gate']['pass'])
 
     def test_pnp_refinement_nan_becomes_failed_pose(self):
-        detector=BoardDetector(ROBOT_BOARD,0)
+        detector=BoardDetector(ROBOT_BOARD,ROBOT_BOARD.marker_id_start)
         with patch('cv2.solvePnPRefineLM',return_value=(np.full((3,1),np.nan),np.ones((3,1)))):
             q=analyze(self.sample['frame'],self.camera,detector,self.args)
         self.assertFalse(q['charuco']['ok'])
@@ -256,7 +256,7 @@ class CaptureTests(unittest.TestCase):
         json.dumps(q,allow_nan=False)
 
     def test_collinear_corners_do_not_enter_pnp(self):
-        detector=BoardDetector(ROBOT_BOARD,0)
+        detector=BoardDetector(ROBOT_BOARD,ROBOT_BOARD.marker_id_start)
         corners=np.array([[[20.,20.]],[[40.,20.]],[[60.,20.]],[[80.,20.]]],dtype=np.float32)
         ids=np.array([[0],[1],[2],[3]],dtype=np.int32)
         with patch.object(detector,'detector') as stub, patch('cv2.solvePnP') as solve:
@@ -267,10 +267,10 @@ class CaptureTests(unittest.TestCase):
         self.assertIn('collinear_corners',q['gate_reason'])
 
     def test_scaled_detection_maps_back_before_pose_estimation(self):
-        detector=BoardDetector(ROBOT_BOARD,0,3)
+        detector=BoardDetector(ROBOT_BOARD,ROBOT_BOARD.marker_id_start,3)
         original=np.array([[[10.,20.]],[[30.,20.]],[[10.,40.]],[[30.,40.]]],dtype=np.float32)
         enlarged=(original+.5)*3-.5
-        ids=np.array([[0],[1],[6],[7]],dtype=np.int32)
+        ids=np.array([[0],[1],[8],[9]],dtype=np.int32)
         frame=self.sample['frame']['color']
         before=frame.copy()
         K=self.camera.K.copy()
@@ -286,9 +286,9 @@ class CaptureTests(unittest.TestCase):
     def test_scaled_synthetic_pose_and_error_use_original_pixels(self):
         import cv2
         frame=self.sample['frame']['color']
-        detector=BoardDetector(ROBOT_BOARD,0,3)
+        detector=BoardDetector(ROBOT_BOARD,ROBOT_BOARD.marker_id_start,3)
         r=detector.detect(frame,self.camera.K,self.camera.D)
-        self.assertEqual(r['n_corners'],24)
+        self.assertEqual(r['n_corners'],40)
         self.assertTrue(r['ok'])
         obj,img=detector.grid.matchImagePoints(*r['_draw'])
         projected,_=cv2.projectPoints(obj,np.array(r['rvec']),np.array(r['tvec']),self.camera.K,self.camera.D)
@@ -301,7 +301,7 @@ class CaptureTests(unittest.TestCase):
     def test_scaled_detection_saves_original_image_and_metadata(self):
         import cv2
         self.sample['quality']=analyze(self.sample['frame'],self.camera,
-                                      BoardDetector(ROBOT_BOARD,0,3),self.args)
+                                      BoardDetector(ROBOT_BOARD,ROBOT_BOARD.marker_id_start,3),self.args)
         r=self.session.capture('scaled')
         saved=cv2.imread(str(self.session.path/r['cams']['0']['rgb_path']))
         np.testing.assert_array_equal(saved,self.sample['frame']['color'])
