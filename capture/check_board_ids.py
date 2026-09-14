@@ -1,24 +1,15 @@
 #!/usr/bin/env python3
-"""로봇 보드의 마커 ID 시작번호를 실물에서 읽어낸다.
+"""실물 ChArUco 보드 ID와 설정된 칸 배치/인쇄 패턴을 검사한다.
 
-왜 필요한가:
-  로봇 보드를 인쇄한 PDF 에 ID 가 적혀 있지 않고, PC 어디에도 그 보드의 생성
-  기록이 없다(2026-09-03 전수 확인). 테이블 보드는 규격이 두 곳에 기록돼
-  있지만 로봇 보드는 새 보드라 아직 파이프라인에 등록된 적이 없다.
-  따라서 실물 보드가 유일한 진실의 출처다.
+현재 로봇 보드: ID 90~116, 9x6칸, checker 25mm / marker 18mm,
+legacy 패턴. 테이블 보드: ID 5~42, 11x7칸.
 
-  ID 를 알아야 하는 이유는 두 가지다.
-    1. 검출기에 marker_id_start 를 넣어야 ChArUco 보간이 성립한다.
-    2. 테이블 보드(ID 5~42)와 겹치면 두 보드가 한 화면에 들어올 때
-       검출이 섞여 조용히 틀린 pose 가 나온다.
+  python capture/check_board_ids.py --live --serial 319522062138
+  python capture/check_board_ids.py --image 사진.jpg
 
-사용법:
-  python capture/check_board_ids.py --live                    # 첫 RealSense
-  python capture/check_board_ids.py --live --serial 314522062542
-  python capture/check_board_ids.py --image 사진.jpg           # 휴대폰 사진도 가능
-
-로봇을 켤 필요가 없다. 보드를 카메라 앞에 들거나 사진 한 장이면 된다.
-확인한 값은 capture/board_config.py 의 ROBOT_BOARD.marker_id_start 에 적어라.
+카메라를 향한 로봇 보드가 보이는 프레임을 사용한다. 기본 카메라의 시야에
+테이블 보드만 들어올 수도 있다. 일부 ID가 가려지거나 오검출될 수 있으므로
+검출된 최솟값을 시작 ID로 자동 저장하지 않는다. 물리 길이는 별도 확인한다.
 """
 
 from __future__ import annotations
@@ -45,7 +36,7 @@ def detect_marker_ids(gray, dictionary_name: str) -> list[int]:
 
 
 def charuco_corner_count(gray, board: BoardConfig, id_start: int,
-                         squares=None) -> int:
+                         squares=None, legacy_pattern=None) -> int:
     """주어진 보드 정의로 몇 개의 체커 코너가 잡히는지.
 
     코너가 많이 잡히면 그 정의가 실물과 맞다는 증거다. 규격을 잘못 알고 있으면
@@ -58,6 +49,8 @@ def charuco_corner_count(gray, board: BoardConfig, id_start: int,
     ids = np.arange(id_start, id_start + count, dtype=np.int32).reshape(-1, 1)
     grid = cv2.aruco.CharucoBoard(
         squares, board.square_length_m, board.marker_length_m, dictionary, ids)
+    grid.setLegacyPattern(board.legacy_pattern if legacy_pattern is None
+                          else legacy_pattern)
     corners, _, _, _ = cv2.aruco.CharucoDetector(grid).detectBoard(gray)
     return 0 if corners is None else len(corners)
 
@@ -86,33 +79,38 @@ def report(image_bgr) -> None:
     print(f"  테이블 대역 밖 ID : {outside if outside else '없음'}")
     print(f"  테이블 대역 안 ID : {inside if inside else '없음'}")
 
-    print("\n[3] 로봇 보드 ID 시작번호 추정")
-    if outside:
-        start = min(outside)
-        last = start + ROBOT_BOARD.marker_count - 1
-        print(f"  테이블 대역 밖 ID 가 있다 -> 로봇 보드는 Id:{start} 부터로 보인다"
-              f" ({start}~{last}, 마커 {ROBOT_BOARD.marker_count}개)")
-        print("  => 테이블 보드와 충돌 없음. 그대로 촬영 가능.")
-        print(f"  => board_config.py 의 ROBOT_BOARD.marker_id_start = {start} 로 기입하라.")
-    else:
-        start = 0
-        print("  검출된 ID 가 전부 테이블 대역 안에 있다.")
-        print("  * 화면에 테이블 보드도 함께 있었다면: 로봇 보드만 다시 찍어라.")
-        print("  * 로봇 보드만 찍은 결과라면: 두 보드가 ID 대역을 공유한다.")
-        print("    [경고] 이대로 촬영하면 두 보드가 한 화면에 들어올 때 pose 가 조용히 틀어진다.")
-        print("    대응은 docs/real_shah_capture.md 의 '마커 ID 충돌' 절 참조.")
+    print("\n[3] 설정된 로봇 보드 ID 확인")
+    start = ROBOT_BOARD.marker_id_start
+    if start is None:
+        print("  로봇 보드 시작 ID가 아직 설정되지 않았다.")
+        print("  일부 마커가 가려질 수 있으므로 검출된 최솟값만으로 시작 ID를 정하지 않는다.")
+        return
+    expected = set(range(start, start + ROBOT_BOARD.marker_count))
+    found = sorted(set(ids) & expected)
+    missing = sorted(expected - set(ids))
+    unrelated = sorted(set(ids) - expected - table_ids)
+    print(f"  설정: ID {start}~{max(expected)}, 마커 {len(expected)}개")
+    print(f"  검출: {len(found)}/{len(expected)}개 {found}")
+    print(f"  미검출: {missing or '(없음)'}")
+    if unrelated:
+        print(f"  어느 보드에도 속하지 않는 ID (오검출/다른 마커 가능): {unrelated}")
+    clash = sorted(expected & table_ids)
+    print(f"  테이블과 ID 충돌: {clash or '(없음)'}")
 
-    print("\n[4] 보드 정의 검증 (코너가 많이 잡히면 그 정의가 실물과 맞다)")
+    print("\n[4] 칸 배치와 인쇄 패턴 확인")
+    sx, sy = ROBOT_BOARD.squares_x, ROBOT_BOARD.squares_y
     trials = [
-        ("로봇 보드 (7x5)", ROBOT_BOARD, start, (7, 5), ROBOT_BOARD.corner_count),
-        ("로봇 보드 전치 (5x7)", ROBOT_BOARD, start, (5, 7), ROBOT_BOARD.corner_count),
-        ("테이블 보드 (11x7)", TABLE_BOARD, TABLE_BOARD.marker_id_start, (11, 7),
-         TABLE_BOARD.corner_count),
+        (f"로봇 {sx}x{sy} 설정 패턴", ROBOT_BOARD, start, (sx, sy), ROBOT_BOARD.legacy_pattern),
+        (f"로봇 {sx}x{sy} 반대 패턴", ROBOT_BOARD, start, (sx, sy), not ROBOT_BOARD.legacy_pattern),
+        (f"로봇 {sy}x{sx} 전치", ROBOT_BOARD, start, (sy, sx), ROBOT_BOARD.legacy_pattern),
+        ("테이블", TABLE_BOARD, TABLE_BOARD.marker_id_start,
+         (TABLE_BOARD.squares_x, TABLE_BOARD.squares_y), TABLE_BOARD.legacy_pattern),
     ]
-    for label, board, id_start, squares, total in trials:
-        found = charuco_corner_count(gray, board, id_start, squares)
-        verdict = "  <== 일치" if found >= total * 0.5 else ""
-        print(f"  {label:22s} (Id{id_start:3d}): 코너 {found:2d}/{total}{verdict}")
+    for label, board, id_start, squares, legacy in trials:
+        total = (squares[0] - 1) * (squares[1] - 1)
+        found = charuco_corner_count(gray, board, id_start, squares, legacy)
+        print(f"  {label}: legacy={legacy} 코너 {found}/{total}")
+    print("  코너 검출은 배치를 확인한다. 실제 칸/마커 길이(mm)는 실측 또는 인쇄 규격으로 확인한다.")
 
 
 def grab_live(serial: str | None, save_path: str):

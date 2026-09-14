@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def test_default_dataset_root_is_repository_archive_path():
     args = record_dataset.parse_args([])
 
-    assert Path(args.dataset_root) == ROOT / "datasets"
+    assert Path(args.dataset_root) == ROOT / "datasets" / "260910"
 
 
 def test_dataset_index_is_updated_for_a_new_session(tmp_path):

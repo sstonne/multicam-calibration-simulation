@@ -6,7 +6,7 @@
 무엇을 하는가
   로봇을 원하는 자세로 옮긴 뒤 PC 터미널에서 엔터를 치면
     1. 로봇에 현재 상태를 물어 flange 자세(TCP)와 관절값을 받고
-    2. (카메라를 쓰면) 테이블 고정 3대를 한꺼번에 잡아 ChArUco 를 검출하고
+    2. (카메라를 쓰면) 선택한 고정 카메라들을 잡아 ChArUco 를 검출하고
     3. 자세·관절·이미지·검출 결과를 하나의 레코드로 묶어 meta.json 에 즉시 적는다.
 
 capture/shah_capture_client.py 와 다른 점
@@ -31,19 +31,20 @@ capture/shah_capture_client.py 와 다른 점
   관찰하고 로봇 제어 연결을 열거나 이동 명령을 보내지 않는다.
 
   PC 터미널에서 하는 것은 다음 뿐이다:
-    Enter        지금 자세를 기록 (자세 + 관절 + 카메라 3대 촬영)
+    Enter        지금 자세를 기록 (자세 + 관절 + 선택한 카메라 촬영)
     z / undo     마지막 기록 취소 (이미지도 함께 지운다)
     s            기록하지 않고 현재 자세만 확인
     list / div   기록 목록 / 평균 상대회전
     q            종료
 
-저장 위치 — 이 스크립트를 실행한 PC의 저장소 안에 쌓인다
-  이미지와 meta.json 은 기본적으로 <repo>/datasets 에 기록되어 Git 아카이브 후보가 된다.
-  다른 위치가 필요하면 --dataset-root 로 명시적으로 바꿀 수 있다.
+저장 위치 — 이 스크립트를 실행한 PC 안에만 쌓인다
+  이미지, meta.json 도 전부 로컬 디스크에 쓴다.
+  기본 경로는 <repo>/datasets/260910 이며 실행 폴더와 무관하다.
+  --dataset-root 로 다른 위치를 지정할 수 있다.
 
 저장 구조 — 어떤 알고리즘의 데이터인지가 폴더 이름이 됨.
 
-  <dataset-root>/
+  <repo>/datasets/260910/          기본 dataset-root (실행 폴더와 무관)
     shah/
       dataset_index.json              이 알고리즘 아래 세션 목록
       session_20260904_1530/
@@ -67,9 +68,10 @@ capture/shah_capture_client.py 와 다른 점
   python capture/record_dataset.py --algorithm shah --no-camera \
       --robot-host 192.168.0.23
 
-  # 촬영까지 함께 기록
-  python capture/record_dataset.py --algorithm shah \
-      --robot-board-id-start 50 --show
+  # 카메라 쌍별로 독립 세션에 촬영 (기본 보드 ID 90)
+  python capture/record_dataset.py --cameras cam0 cam1 --session cam0-1_01
+  python capture/record_dataset.py --cameras cam1 cam3 --session cam1-3_01
+  python capture/record_dataset.py --cameras cam0 cam3 --session cam0-3_01
 
   # 이전 세션 갱신
   python capture/record_dataset.py --algorithm shah --resume
@@ -109,13 +111,13 @@ from shah_capture_client import (
 )
 
 DATASET_SCHEMA_VERSION = "pose_dataset_v1"
+DEFAULT_DATASET_ROOT = ROOT / "datasets" / "260910"
 # pose_server.py 와 같아야 한다. GELLO 제어는 12350, 보조 촬영 서버는 12351.
 # 자세 조회를 독립 포트로 분리해 제어 서버와 bind/프로토콜 충돌을 피한다.
 DEFAULT_ROBOT_PORT = 12352
 GELLO_ROBOT_PORT = 12350
 ROTATION_DIVERSITY_TARGET_DEG = 30.0
 RECORDER_ID = "capture/record_dataset.py"
-REPOSITORY_DATASET_ROOT = ROOT / "datasets"
 
 # 로봇 서버마다 자세 필드 이름이 다르다. 먼저 나오는 것을 쓴다.
 #   flange_pose_6dof / joints_6dof : capture/robot/pose_server.py
@@ -349,8 +351,8 @@ def ensure_dataset_block(meta: dict, args, cameras, session_dir,
 def check_resume_compatible(meta: dict, args, cameras, detector) -> None:
     """이어 붙이기 전에 이 세션과 지금 설정이 같은 실험인지 확인한다.
 
-    해상도나 카메라 구성이 달라지면 K 가 맞지 않고, 보드 ID 가 달라지면
-    검출 대상이 달라진다. 어느 쪽이든 한 meta.json 에 섞이면 안 된다.
+    해상도나 카메라 구성이 달라지면 K 가 맞지 않고, 보드 ID/크기/패턴이
+    달라지면 검출 대상과 좌표계가 달라진다. 한 meta.json 에 섞이면 안 된다.
     """
     config = meta.get("capture_config", {})
     problems = []
@@ -369,11 +371,19 @@ def check_resume_compatible(meta: dict, args, cameras, detector) -> None:
         current = sorted(c.index for c in cameras)
         if stored and stored != current:
             problems.append(f"카메라 구성 {stored} != {current}")
-        stored_id = (meta.get("board_config") or {}).get("marker_id_start")
+        stored_board = meta.get("board_config") or {}
+        stored_id = stored_board.get("marker_id_start")
         if detector is not None and stored_id is not None \
                 and int(stored_id) != detector.marker_id_start:
             problems.append(
                 f"로봇 보드 marker_id_start {stored_id} != {detector.marker_id_start}")
+        if detector is not None:
+            for key in ("squares_x", "squares_y", "square_length_m",
+                        "marker_length_m", "dictionary_name", "legacy_pattern"):
+                stored_value = stored_board.get(key, False if key == "legacy_pattern" else None)
+                current_value = getattr(detector.board_config, key)
+                if stored_value != current_value:
+                    problems.append(f"로봇 보드 {key} {stored_value} != {current_value}")
 
     mode = stored_capture_mode(meta)
     current_mode = "pose_and_image" if cameras else "pose_only"
@@ -532,7 +542,7 @@ MENU = """
   촬영 기록 레코더 — 엔터 한 번에 자세와 촬영을 함께 적는다
 ------------------------------------------------------------------
  [ PC 터미널에서 하는 것 ]
-   Enter            지금 자세를 기록 (TCP + 관절 + 카메라 3대 촬영)
+   Enter            지금 자세를 기록 (TCP + 관절 + 선택한 카메라 촬영)
    s                기록하지 않고 현재 자세만 확인
    z 또는 undo      마지막 기록 취소 (이미지도 함께 지운다)
    list             기록 목록
@@ -694,8 +704,8 @@ def parse_args(argv=None):
         description="엔터로 로봇 자세와 촬영을 함께 기록하는 데이터셋 레코더")
 
     dataset = parser.add_argument_group("데이터셋")
-    dataset.add_argument("--dataset-root", default=str(REPOSITORY_DATASET_ROOT),
-                         help="데이터셋 최상위. 기본 <repo>/datasets (Git 아카이브 대상)")
+    dataset.add_argument("--dataset-root", default=str(DEFAULT_DATASET_ROOT),
+                         help="데이터셋 최상위. 기본 <repo>/datasets/260910")
     dataset.add_argument("--algorithm", default="shah",
                          help="이 데이터로 돌릴 알고리즘. 폴더 이름이 된다 "
                               "(shah / tsai / park / horaud / andreff / daniilidis)")

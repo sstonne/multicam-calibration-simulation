@@ -6,6 +6,7 @@ __pycache__/
 SOTA_Simulation/outputs/
 SOTA_Simulation/outputs_*/
 
-# 과거 로컬 촬영 경로. 새 기본 경로는 추적 대상인 /datasets/ 이다.
+# 촬영 세션 데이터 (record_dataset.py --dataset-root). 이미지가 수백 장이라
+# 아래는 예전 저장 위치다. 현재 기본값은 <repo>/datasets/260910이다.
 /data/
 /shah_data/

@@ -1,0 +1,10 @@
+{
+  "reason": "Configured cam0 serial 314522062542 is disconnected; live cam0 is 039422061216.",
+  "source": "/home/sprout/Desktop/**jiwoo/rb-calibration-marker-experiment/intrinsics/cam0.npz",
+  "destination": "intrinsics/cam0.npz",
+  "backup": "intrinsics/backup_before_board_update_20260910/cam0_serial_314522062542.npz",
+  "serial": "039422061216",
+  "sha256": "7c2276a2db54c34d6d6f6e6f32c73cc6168fbe9d2cce7b6aaa5fb3236364df6e",
+  "calibrated_at": "2026-09-07 18:16:23",
+  "reprojection_error_px": 0.2162270111056352
+}

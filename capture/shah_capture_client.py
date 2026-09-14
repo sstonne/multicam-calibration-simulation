@@ -108,6 +108,7 @@ class BoardDetector:
         self.grid = cv2.aruco.CharucoBoard(
             (board.squares_x, board.squares_y),
             board.square_length_m, board.marker_length_m, dictionary, self.ids)
+        self.grid.setLegacyPattern(board.legacy_pattern)
         self.detector = cv2.aruco.CharucoDetector(self.grid)
         self.id_set = {int(v) for v in self.ids.ravel()}
 
@@ -339,7 +340,7 @@ def solve_and_report(records, camera_names):
                    for i in indices)]
 
     print("\n" + "=" * 66)
-    print(f"세션 검증: 세 카메라 모두 검출된 자세 {len(good)} / 기록 {len(records)}")
+    print(f"세션 검증: 선택한 {len(camera_names)}대 모두 검출된 자세 {len(good)} / 기록 {len(records)}")
     if len(good) < 3:
         print("자세가 3개 미만이라 Shah 를 풀 수 없다.")
         return None
@@ -368,7 +369,7 @@ def solve_and_report(records, camera_names):
     spread_mm = float(np.mean([s[0] for s in spread]))
     spread_deg = float(np.mean([s[1] for s in spread]))
 
-    print(f"\nX = T_gripper_board (보드가 플랜지에 붙은 위치, 세 카메라 공통이어야 함)")
+    print(f"\nX = T_gripper_board (보드가 플랜지에 붙은 위치, 선택한 카메라 공통이어야 함)")
     print(f"  평균 translation : {np.round(1000 * mean_board[:3, 3], 2)} mm")
     print(f"  카메라 간 흩어짐 : {spread_mm:.2f} mm / {spread_deg:.3f} deg")
     print(f"  => 예상 extrinsic 오차 대략 {spread_mm * 5.4:.1f} mm")
