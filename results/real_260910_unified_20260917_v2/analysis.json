@@ -1,0 +1,764 @@
+{
+  "status": "review_pending_not_deployed",
+  "summary": [
+    {
+      "method": "shah",
+      "success": true,
+      "heldout_translation_mm": 7.47068230701425,
+      "heldout_rotation_deg": 1.5469635714564387,
+      "camera_pose_translation_error_mm": null,
+      "camera_pose_rotation_error_deg": null,
+      "registration_translation_error_mm": null,
+      "registration_rotation_error_deg": null,
+      "heldout_reprojection_rmse_px": 9.268871951587439,
+      "registration_consistency_mm": 19.60325884645737,
+      "registration_consistency_deg": 3.2667351278243597,
+      "heldout_camera_observations": 53,
+      "registration_pair_observations": 25
+    },
+    {
+      "method": "tsai",
+      "success": true,
+      "heldout_translation_mm": 13.235764235364119,
+      "heldout_rotation_deg": 1.7380278543377583,
+      "camera_pose_translation_error_mm": null,
+      "camera_pose_rotation_error_deg": null,
+      "registration_translation_error_mm": null,
+      "registration_rotation_error_deg": null,
+      "heldout_reprojection_rmse_px": 19.10486531191088,
+      "registration_consistency_mm": 31.295975577604132,
+      "registration_consistency_deg": 3.8258787505651344,
+      "heldout_camera_observations": 53,
+      "registration_pair_observations": 25
+    },
+    {
+      "method": "park",
+      "success": true,
+      "heldout_translation_mm": 11.046971893753966,
+      "heldout_rotation_deg": 1.54596578938757,
+      "camera_pose_translation_error_mm": null,
+      "camera_pose_rotation_error_deg": null,
+      "registration_translation_error_mm": null,
+      "registration_rotation_error_deg": null,
+      "heldout_reprojection_rmse_px": 15.895973378000825,
+      "registration_consistency_mm": 30.632478904150254,
+      "registration_consistency_deg": 3.2482403172321357,
+      "heldout_camera_observations": 53,
+      "registration_pair_observations": 25
+    },
+    {
+      "method": "horaud",
+      "success": true,
+      "heldout_translation_mm": 11.103294714658043,
+      "heldout_rotation_deg": 1.547132966680072,
+      "camera_pose_translation_error_mm": null,
+      "camera_pose_rotation_error_deg": null,
+      "registration_translation_error_mm": null,
+      "registration_rotation_error_deg": null,
+      "heldout_reprojection_rmse_px": 15.96772167787931,
+      "registration_consistency_mm": 30.23717872169914,
+      "registration_consistency_deg": 3.266009806771243,
+      "heldout_camera_observations": 53,
+      "registration_pair_observations": 25
+    },
+    {
+      "method": "andreff",
+      "success": true,
+      "heldout_translation_mm": 105.64092315489104,
+      "heldout_rotation_deg": 1.563565109031104,
+      "camera_pose_translation_error_mm": null,
+      "camera_pose_rotation_error_deg": null,
+      "registration_translation_error_mm": null,
+      "registration_rotation_error_deg": null,
+      "heldout_reprojection_rmse_px": 9105.530341134541,
+      "registration_consistency_mm": 237.86474686025852,
+      "registration_consistency_deg": 3.31123586841605,
+      "heldout_camera_observations": 53,
+      "registration_pair_observations": 25
+    },
+    {
+      "method": "daniilidis",
+      "success": true,
+      "heldout_translation_mm": 8.342905766719824,
+      "heldout_rotation_deg": 1.599227985417171,
+      "camera_pose_translation_error_mm": null,
+      "camera_pose_rotation_error_deg": null,
+      "registration_translation_error_mm": null,
+      "registration_rotation_error_deg": null,
+      "heldout_reprojection_rmse_px": 11.005816662960086,
+      "registration_consistency_mm": 24.4776465194923,
+      "registration_consistency_deg": 3.1279948672586335,
+      "heldout_camera_observations": 53,
+      "registration_pair_observations": 25
+    }
+  ],
+  "sources": [
+    {
+      "session": "cam0-1_02",
+      "file": "datasets\\260910\\cam0-1_02\\meta.json",
+      "sha256": "70ae7e390ff785b672e866d3e17ab9f99ceef2ed8804f81572653500b0797267",
+      "raw_events": 30,
+      "board": {
+        "squares_x": 9,
+        "squares_y": 6,
+        "square_length_m": 0.025,
+        "marker_length_m": 0.018,
+        "dictionary_name": "DICT_4X4_250",
+        "marker_id_start": 90,
+        "legacy_pattern": true
+      },
+      "capture_config": {
+        "schema_version": "capture_config_v1",
+        "intrinsics_dir": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/intrinsics",
+        "width": 1280,
+        "height": 720,
+        "fps": 15,
+        "save_depth": true,
+        "settle_time_s": 0.5,
+        "cross_camera_timestamp_basis": "host_monotonic_receipt_v1",
+        "min_charuco_corners": 12,
+        "max_charuco_reproj_px": 1.5,
+        "robot_pose_convention": "tool 1 (flange), [x,y,z mm, rz,ry,rx deg], R = Rz@Ry@Rx",
+        "transform_convention": "T_destination_source, translation in metre",
+        "color_photometry": {
+          "0": {
+            "locked": true,
+            "values": {
+              "exposure_us": 166.0,
+              "gain": 64.0,
+              "white_balance": 4600.0
+            },
+            "source": "auto_converged"
+          },
+          "1": {
+            "locked": true,
+            "values": {
+              "exposure_us": 166.0,
+              "gain": 64.0,
+              "white_balance": 4600.0
+            },
+            "source": "auto_converged"
+          }
+        }
+      }
+    },
+    {
+      "session": "cam1-3_02",
+      "file": "datasets\\260910\\cam1-3_02\\meta.json",
+      "sha256": "bccc3eef640c0ba9f15fca8b079a5bd45e4bc070cb16ca3a137959374608360f",
+      "raw_events": 47,
+      "board": {
+        "squares_x": 9,
+        "squares_y": 6,
+        "square_length_m": 0.025,
+        "marker_length_m": 0.018,
+        "dictionary_name": "DICT_4X4_250",
+        "marker_id_start": 90,
+        "legacy_pattern": true
+      },
+      "capture_config": {
+        "schema_version": "capture_config_v1",
+        "intrinsics_dir": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/intrinsics",
+        "width": 1280,
+        "height": 720,
+        "fps": 15,
+        "save_depth": true,
+        "settle_time_s": 0.5,
+        "cross_camera_timestamp_basis": "host_monotonic_receipt_v1",
+        "min_charuco_corners": 12,
+        "max_charuco_reproj_px": 1.5,
+        "robot_pose_convention": "tool 1 (flange), [x,y,z mm, rz,ry,rx deg], R = Rz@Ry@Rx",
+        "transform_convention": "T_destination_source, translation in metre",
+        "color_photometry": {
+          "1": {
+            "locked": true,
+            "values": {
+              "exposure_us": 166.0,
+              "gain": 64.0,
+              "white_balance": 4600.0
+            },
+            "source": "auto_converged"
+          },
+          "3": {
+            "locked": true,
+            "values": {
+              "exposure_us": 166.0,
+              "gain": 64.0,
+              "white_balance": 4600.0
+            },
+            "source": "auto_converged"
+          }
+        }
+      }
+    },
+    {
+      "session": "cam0-3_01",
+      "file": "datasets\\260910\\cam0-3_01\\meta.json",
+      "sha256": "3705b23741a980673f16301029707e8081cea9cb16c49fe1a61e96eee87e15a4",
+      "raw_events": 40,
+      "board": {
+        "squares_x": 9,
+        "squares_y": 6,
+        "square_length_m": 0.025,
+        "marker_length_m": 0.018,
+        "dictionary_name": "DICT_4X4_250",
+        "marker_id_start": 90,
+        "legacy_pattern": true
+      },
+      "capture_config": {
+        "schema_version": "capture_config_v1",
+        "intrinsics_dir": "/home/sprout/Desktop/**jieun-bomin/multicam-calibration-simulation/intrinsics",
+        "width": 1280,
+        "height": 720,
+        "fps": 15,
+        "save_depth": true,
+        "settle_time_s": 0.5,
+        "cross_camera_timestamp_basis": "host_monotonic_receipt_v1",
+        "min_charuco_corners": 12,
+        "max_charuco_reproj_px": 1.5,
+        "robot_pose_convention": "tool 1 (flange), [x,y,z mm, rz,ry,rx deg], R = Rz@Ry@Rx",
+        "transform_convention": "T_destination_source, translation in metre",
+        "color_photometry": {
+          "0": {
+            "locked": true,
+            "values": {
+              "exposure_us": 166.0,
+              "gain": 64.0,
+              "white_balance": 4600.0
+            },
+            "source": "auto_converged"
+          },
+          "3": {
+            "locked": true,
+            "values": {
+              "exposure_us": 166.0,
+              "gain": 64.0,
+              "white_balance": 4600.0
+            },
+            "source": "auto_converged"
+          }
+        }
+      }
+    }
+  ],
+  "split": {
+    "policy": "Chronological connected-pose groups, every fourth group held out; grouping removes no observations",
+    "near_translation_mm": 1.5,
+    "near_rotation_deg": 1.0,
+    "train_keys": [
+      "cam0-1_02:0",
+      "cam0-1_02:1",
+      "cam0-1_02:2",
+      "cam0-1_02:4",
+      "cam0-1_02:5",
+      "cam0-1_02:6",
+      "cam0-1_02:8",
+      "cam0-1_02:9",
+      "cam0-1_02:10",
+      "cam0-1_02:12",
+      "cam0-1_02:13",
+      "cam0-1_02:14",
+      "cam0-1_02:16",
+      "cam0-1_02:17",
+      "cam0-1_02:18",
+      "cam0-1_02:19",
+      "cam0-1_02:21",
+      "cam0-1_02:22",
+      "cam0-1_02:23",
+      "cam0-1_02:25",
+      "cam0-1_02:26",
+      "cam0-1_02:27",
+      "cam0-1_02:29",
+      "cam0-3_01:0",
+      "cam0-3_01:1",
+      "cam0-3_01:3",
+      "cam0-3_01:4",
+      "cam0-3_01:5",
+      "cam0-3_01:7",
+      "cam0-3_01:8",
+      "cam0-3_01:9",
+      "cam0-3_01:11",
+      "cam0-3_01:12",
+      "cam0-3_01:13",
+      "cam0-3_01:15",
+      "cam0-3_01:16",
+      "cam0-3_01:17",
+      "cam0-3_01:19",
+      "cam0-3_01:20",
+      "cam0-3_01:21",
+      "cam0-3_01:23",
+      "cam0-3_01:24",
+      "cam0-3_01:25",
+      "cam0-3_01:27",
+      "cam0-3_01:28",
+      "cam0-3_01:29",
+      "cam0-3_01:31",
+      "cam0-3_01:32",
+      "cam0-3_01:33",
+      "cam0-3_01:35",
+      "cam0-3_01:36",
+      "cam0-3_01:37",
+      "cam0-3_01:39",
+      "cam1-3_02:0",
+      "cam1-3_02:1",
+      "cam1-3_02:3",
+      "cam1-3_02:4",
+      "cam1-3_02:5",
+      "cam1-3_02:7",
+      "cam1-3_02:8",
+      "cam1-3_02:9",
+      "cam1-3_02:11",
+      "cam1-3_02:12",
+      "cam1-3_02:13",
+      "cam1-3_02:15",
+      "cam1-3_02:16",
+      "cam1-3_02:17",
+      "cam1-3_02:19",
+      "cam1-3_02:20",
+      "cam1-3_02:21",
+      "cam1-3_02:23",
+      "cam1-3_02:24",
+      "cam1-3_02:25",
+      "cam1-3_02:27",
+      "cam1-3_02:28",
+      "cam1-3_02:29",
+      "cam1-3_02:31",
+      "cam1-3_02:32",
+      "cam1-3_02:33",
+      "cam1-3_02:35",
+      "cam1-3_02:36",
+      "cam1-3_02:37",
+      "cam1-3_02:39",
+      "cam1-3_02:40",
+      "cam1-3_02:41",
+      "cam1-3_02:43",
+      "cam1-3_02:44",
+      "cam1-3_02:45",
+      "cam1-3_02:46"
+    ],
+    "heldout_keys": [
+      "cam0-1_02:3",
+      "cam0-1_02:7",
+      "cam0-1_02:11",
+      "cam0-1_02:15",
+      "cam0-1_02:20",
+      "cam0-1_02:24",
+      "cam0-1_02:28",
+      "cam0-3_01:2",
+      "cam0-3_01:6",
+      "cam0-3_01:10",
+      "cam0-3_01:14",
+      "cam0-3_01:18",
+      "cam0-3_01:22",
+      "cam0-3_01:26",
+      "cam0-3_01:30",
+      "cam0-3_01:34",
+      "cam0-3_01:38",
+      "cam1-3_02:2",
+      "cam1-3_02:6",
+      "cam1-3_02:10",
+      "cam1-3_02:14",
+      "cam1-3_02:18",
+      "cam1-3_02:22",
+      "cam1-3_02:26",
+      "cam1-3_02:30",
+      "cam1-3_02:34",
+      "cam1-3_02:38",
+      "cam1-3_02:42"
+    ],
+    "groups": [
+      [
+        "cam0-1_02:0"
+      ],
+      [
+        "cam0-1_02:1"
+      ],
+      [
+        "cam0-1_02:2"
+      ],
+      [
+        "cam0-1_02:3"
+      ],
+      [
+        "cam0-1_02:4"
+      ],
+      [
+        "cam0-1_02:5"
+      ],
+      [
+        "cam0-1_02:6"
+      ],
+      [
+        "cam0-1_02:7"
+      ],
+      [
+        "cam0-1_02:8"
+      ],
+      [
+        "cam0-1_02:9"
+      ],
+      [
+        "cam0-1_02:10"
+      ],
+      [
+        "cam0-1_02:11"
+      ],
+      [
+        "cam0-1_02:12"
+      ],
+      [
+        "cam0-1_02:13"
+      ],
+      [
+        "cam0-1_02:14"
+      ],
+      [
+        "cam0-1_02:15"
+      ],
+      [
+        "cam0-1_02:16"
+      ],
+      [
+        "cam0-1_02:17",
+        "cam0-1_02:18"
+      ],
+      [
+        "cam0-1_02:19"
+      ],
+      [
+        "cam0-1_02:20"
+      ],
+      [
+        "cam0-1_02:21"
+      ],
+      [
+        "cam0-1_02:22"
+      ],
+      [
+        "cam0-1_02:23"
+      ],
+      [
+        "cam0-1_02:24"
+      ],
+      [
+        "cam0-1_02:25"
+      ],
+      [
+        "cam0-1_02:26"
+      ],
+      [
+        "cam0-1_02:27"
+      ],
+      [
+        "cam0-1_02:28"
+      ],
+      [
+        "cam0-1_02:29"
+      ],
+      [
+        "cam0-3_01:0"
+      ],
+      [
+        "cam0-3_01:1"
+      ],
+      [
+        "cam0-3_01:2"
+      ],
+      [
+        "cam0-3_01:3"
+      ],
+      [
+        "cam0-3_01:4"
+      ],
+      [
+        "cam0-3_01:5"
+      ],
+      [
+        "cam0-3_01:6"
+      ],
+      [
+        "cam0-3_01:7"
+      ],
+      [
+        "cam0-3_01:8"
+      ],
+      [
+        "cam0-3_01:9"
+      ],
+      [
+        "cam0-3_01:10"
+      ],
+      [
+        "cam0-3_01:11"
+      ],
+      [
+        "cam0-3_01:12"
+      ],
+      [
+        "cam0-3_01:13"
+      ],
+      [
+        "cam0-3_01:14"
+      ],
+      [
+        "cam0-3_01:15"
+      ],
+      [
+        "cam0-3_01:16"
+      ],
+      [
+        "cam0-3_01:17"
+      ],
+      [
+        "cam0-3_01:18"
+      ],
+      [
+        "cam0-3_01:19"
+      ],
+      [
+        "cam0-3_01:20"
+      ],
+      [
+        "cam0-3_01:21"
+      ],
+      [
+        "cam0-3_01:22"
+      ],
+      [
+        "cam0-3_01:23"
+      ],
+      [
+        "cam0-3_01:24"
+      ],
+      [
+        "cam0-3_01:25"
+      ],
+      [
+        "cam0-3_01:26"
+      ],
+      [
+        "cam0-3_01:27"
+      ],
+      [
+        "cam0-3_01:28"
+      ],
+      [
+        "cam0-3_01:29"
+      ],
+      [
+        "cam0-3_01:30"
+      ],
+      [
+        "cam0-3_01:31"
+      ],
+      [
+        "cam0-3_01:32"
+      ],
+      [
+        "cam0-3_01:33"
+      ],
+      [
+        "cam0-3_01:34"
+      ],
+      [
+        "cam0-3_01:35"
+      ],
+      [
+        "cam0-3_01:36"
+      ],
+      [
+        "cam0-3_01:37"
+      ],
+      [
+        "cam0-3_01:38"
+      ],
+      [
+        "cam0-3_01:39"
+      ],
+      [
+        "cam1-3_02:0"
+      ],
+      [
+        "cam1-3_02:1"
+      ],
+      [
+        "cam1-3_02:2"
+      ],
+      [
+        "cam1-3_02:3"
+      ],
+      [
+        "cam1-3_02:4"
+      ],
+      [
+        "cam1-3_02:5"
+      ],
+      [
+        "cam1-3_02:6"
+      ],
+      [
+        "cam1-3_02:7"
+      ],
+      [
+        "cam1-3_02:8"
+      ],
+      [
+        "cam1-3_02:9"
+      ],
+      [
+        "cam1-3_02:10"
+      ],
+      [
+        "cam1-3_02:11"
+      ],
+      [
+        "cam1-3_02:12"
+      ],
+      [
+        "cam1-3_02:13"
+      ],
+      [
+        "cam1-3_02:14"
+      ],
+      [
+        "cam1-3_02:15"
+      ],
+      [
+        "cam1-3_02:16"
+      ],
+      [
+        "cam1-3_02:17"
+      ],
+      [
+        "cam1-3_02:18"
+      ],
+      [
+        "cam1-3_02:19"
+      ],
+      [
+        "cam1-3_02:20"
+      ],
+      [
+        "cam1-3_02:21"
+      ],
+      [
+        "cam1-3_02:22"
+      ],
+      [
+        "cam1-3_02:23"
+      ],
+      [
+        "cam1-3_02:24"
+      ],
+      [
+        "cam1-3_02:25"
+      ],
+      [
+        "cam1-3_02:26"
+      ],
+      [
+        "cam1-3_02:27"
+      ],
+      [
+        "cam1-3_02:28"
+      ],
+      [
+        "cam1-3_02:29"
+      ],
+      [
+        "cam1-3_02:30"
+      ],
+      [
+        "cam1-3_02:31"
+      ],
+      [
+        "cam1-3_02:32"
+      ],
+      [
+        "cam1-3_02:33"
+      ],
+      [
+        "cam1-3_02:34"
+      ],
+      [
+        "cam1-3_02:35"
+      ],
+      [
+        "cam1-3_02:36"
+      ],
+      [
+        "cam1-3_02:37"
+      ],
+      [
+        "cam1-3_02:38"
+      ],
+      [
+        "cam1-3_02:39"
+      ],
+      [
+        "cam1-3_02:40"
+      ],
+      [
+        "cam1-3_02:41"
+      ],
+      [
+        "cam1-3_02:42"
+      ],
+      [
+        "cam1-3_02:43"
+      ],
+      [
+        "cam1-3_02:44"
+      ],
+      [
+        "cam1-3_02:45",
+        "cam1-3_02:46"
+      ]
+    ]
+  },
+  "versions": {
+    "python": "3.13.7",
+    "opencv": "4.14.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "git_commit": "830a404e71a23ef2bce1e8b11c5bcdc978d9bc4a",
+  "implementation_hashes": {
+    "SOTA_Simulation\\unified_real_evaluation.py": "32398d4645e91e68e4af0c869ede516f81a3c023243514d45d47b2b60f6b5b02",
+    "SOTA_Simulation\\real_evaluation.py": "332d3300cb04b0105e299d8909235c1e037e242bd1daaec162a060f466d99984",
+    "SOTA_Simulation\\shah_solver.py": "65d5e035309ed5bd7686fb15f0246955d5576f941535b4243fec1f738e3dde69",
+    "SOTA_Simulation\\tsai_combined_demo.py": "75ad1ddb0ffb590826915c0bf9c39b9982cdfef91aeb5dd5ebc9820d1c1884c5"
+  },
+  "raw_events": 117,
+  "included_events": 117,
+  "counts": {
+    "0": {
+      "raw": 70,
+      "included": 59
+    },
+    "1": {
+      "raw": 77,
+      "included": 75
+    },
+    "3": {
+      "raw": 87,
+      "included": 82
+    }
+  },
+  "excluded_reasons": {
+    "nonfinite_or_wrong_shape_transform": 18
+  },
+  "definitions": {
+    "heldout": "Mean held-out board chain residual FK*train mount vs train camera*stored PnP; internal consistency, not GT",
+    "camera_pose": "Independent extrinsic GT error unavailable: null",
+    "registration": "Independent relative-camera GT error unavailable: null",
+    "reprojection": "sqrt(sum(du^2+dv^2)/N corners), all held-out cameras pooled; null if any observation unscorable",
+    "registration_consistency": "Same-event board pose transfer i->j with train extrinsics vs j PnP; auxiliary internal closure, not GT accuracy"
+  },
+  "assumptions": [
+    "Requested merge assumes unchanged camera mounts and flange-board attachment; not independently proven by metadata.",
+    "Documented flange robot frame used; per-event tool null.",
+    "Intrinsics match serial/resolution; capture-time intrinsic hashes unavailable.",
+    "Stored PnP unchanged. Pixels re-detected for evaluation only. No quality gates, synthetic noise, robust loss or outlier removal."
+  ]
+}
