@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-09-09T15:57:26",
+  "pose_convention": "pose=[x,y,z,rz,ry,rx] mm/deg (i611); joints deg",
+  "pose": [
+    -314.448,
+    288.80400000000003,
+    458.283,
+    -136.90625979422725,
+    10.880697712652385,
+    172.5892118382822
+  ],
+  "joints": [
+    62.71619740099009,
+    -5.911819306930693,
+    -103.5459467821782,
+    -13.733678836633663,
+    -67.68657178217822,
+    -66.16615099009901
+  ],
+  "gripper": [
+    "0",
+    "1",
+    "0",
+    "0"
+  ],
+  "capture_index": 1,
+  "replayed_from": "/home/sstone/rb-calibration-marker-experiment/zeus_gello_calibration/data/session3_wrist_motion_gripper_cam/capture/001"
+}
