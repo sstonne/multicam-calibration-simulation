@@ -1,0 +1,424 @@
+{
+  "status": "review_pending_not_deployed",
+  "summary": [
+    {
+      "method": "shah",
+      "success": true,
+      "heldout_translation_mm": 0.9425407116857605,
+      "heldout_rotation_deg": 0.1631758210930575,
+      "camera_pose_translation_mm": 1.5547787338661385,
+      "camera_pose_rotation_deg": 0.16317582109305778,
+      "camera_pose_aggregation": "equal-camera macro after per-camera event mean",
+      "reprojection_rmse_px": 1.9911931999622878,
+      "reprojection_complete": true,
+      "observations": 16,
+      "corners": 641,
+      "registration_translation_mm": 2.3969799611104783,
+      "registration_rotation_deg": 0.28932373432044994,
+      "registration_aggregation": "equal-pair macro after per-event pair mean",
+      "cross_view_reprojection_rmse_px": 2.854695979020341,
+      "cross_view_complete": true,
+      "pair_observations": 24,
+      "directed_corners": 1923,
+      "reference_kind": "cross-target PnP consistency; not independent physical GT"
+    },
+    {
+      "method": "tsai",
+      "success": true,
+      "heldout_translation_mm": 1.3100818893874173,
+      "heldout_rotation_deg": 0.22946863930884664,
+      "camera_pose_translation_mm": 1.6700007199162155,
+      "camera_pose_rotation_deg": 0.22946863930884703,
+      "camera_pose_aggregation": "equal-camera macro after per-camera event mean",
+      "reprojection_rmse_px": 5.3117013135273545,
+      "reprojection_complete": true,
+      "observations": 16,
+      "corners": 641,
+      "registration_translation_mm": 3.2440038318658715,
+      "registration_rotation_deg": 0.4142981874385528,
+      "registration_aggregation": "equal-pair macro after per-event pair mean",
+      "cross_view_reprojection_rmse_px": 6.685243219651482,
+      "cross_view_complete": true,
+      "pair_observations": 24,
+      "directed_corners": 1923,
+      "reference_kind": "cross-target PnP consistency; not independent physical GT"
+    },
+    {
+      "method": "park",
+      "success": true,
+      "heldout_translation_mm": 0.8822164638088752,
+      "heldout_rotation_deg": 0.16325104932750073,
+      "camera_pose_translation_mm": 1.4922558451462882,
+      "camera_pose_rotation_deg": 0.16325104932750126,
+      "camera_pose_aggregation": "equal-camera macro after per-camera event mean",
+      "reprojection_rmse_px": 1.8934565833399004,
+      "reprojection_complete": true,
+      "observations": 16,
+      "corners": 641,
+      "registration_translation_mm": 2.2924733394809977,
+      "registration_rotation_deg": 0.2894456510746473,
+      "registration_aggregation": "equal-pair macro after per-event pair mean",
+      "cross_view_reprojection_rmse_px": 2.7160438724879863,
+      "cross_view_complete": true,
+      "pair_observations": 24,
+      "directed_corners": 1923,
+      "reference_kind": "cross-target PnP consistency; not independent physical GT"
+    },
+    {
+      "method": "horaud",
+      "success": true,
+      "heldout_translation_mm": 0.8819681053031927,
+      "heldout_rotation_deg": 0.16317590086600098,
+      "camera_pose_translation_mm": 1.4926407906862216,
+      "camera_pose_rotation_deg": 0.1631759008660008,
+      "camera_pose_aggregation": "equal-camera macro after per-camera event mean",
+      "reprojection_rmse_px": 1.8838268884211622,
+      "reprojection_complete": true,
+      "observations": 16,
+      "corners": 641,
+      "registration_translation_mm": 2.2921439142034403,
+      "registration_rotation_deg": 0.2893239363484054,
+      "registration_aggregation": "equal-pair macro after per-event pair mean",
+      "cross_view_reprojection_rmse_px": 2.7047550541940155,
+      "cross_view_complete": true,
+      "pair_observations": 24,
+      "directed_corners": 1923,
+      "reference_kind": "cross-target PnP consistency; not independent physical GT"
+    },
+    {
+      "method": "andreff",
+      "success": true,
+      "heldout_translation_mm": 0.7890087608451215,
+      "heldout_rotation_deg": 0.1630620288954589,
+      "camera_pose_translation_mm": 1.4918487901739803,
+      "camera_pose_rotation_deg": 0.16306202889545904,
+      "camera_pose_aggregation": "equal-camera macro after per-camera event mean",
+      "reprojection_rmse_px": 1.4057792554078334,
+      "reprojection_complete": true,
+      "observations": 16,
+      "corners": 641,
+      "registration_translation_mm": 2.2597930422029613,
+      "registration_rotation_deg": 0.28918282726893835,
+      "registration_aggregation": "equal-pair macro after per-event pair mean",
+      "cross_view_reprojection_rmse_px": 2.1750678476346708,
+      "cross_view_complete": true,
+      "pair_observations": 24,
+      "directed_corners": 1923,
+      "reference_kind": "cross-target PnP consistency; not independent physical GT"
+    },
+    {
+      "method": "daniilidis",
+      "success": true,
+      "heldout_translation_mm": 0.932177098784304,
+      "heldout_rotation_deg": 0.1662290889054624,
+      "camera_pose_translation_mm": 1.6093415664337944,
+      "camera_pose_rotation_deg": 0.1662290889054622,
+      "camera_pose_aggregation": "equal-camera macro after per-camera event mean",
+      "reprojection_rmse_px": 1.5601517556011728,
+      "reprojection_complete": true,
+      "observations": 16,
+      "corners": 641,
+      "registration_translation_mm": 2.450771317772507,
+      "registration_rotation_deg": 0.29656435257057606,
+      "registration_aggregation": "equal-pair macro after per-event pair mean",
+      "cross_view_reprojection_rmse_px": 2.267475814209026,
+      "cross_view_complete": true,
+      "pair_observations": 24,
+      "directed_corners": 1923,
+      "reference_kind": "cross-target PnP consistency; not independent physical GT"
+    }
+  ],
+  "prior_calibration_comparison": [
+    {
+      "method": "shah",
+      "heldout_translation_mm": 59.942911999162675,
+      "heldout_rotation_deg": 8.09142225752103,
+      "camera_pose_translation_mm": 105.00710594246931,
+      "camera_pose_rotation_deg": 8.09142225752103,
+      "camera_pose_aggregation": "equal-camera macro after per-camera event mean",
+      "reprojection_rmse_px": 92.67886749436964,
+      "reprojection_complete": true,
+      "observations": 16,
+      "corners": 641,
+      "registration_translation_mm": 164.82254258711805,
+      "registration_rotation_deg": 12.91388123939931,
+      "registration_aggregation": "equal-pair macro after per-event pair mean",
+      "cross_view_reprojection_rmse_px": 126.34721019730853,
+      "cross_view_complete": true,
+      "pair_observations": 24,
+      "directed_corners": 1923,
+      "meaning": "September 9 fixedBoard compared with September 10 moving-board fixed-camera calibration"
+    },
+    {
+      "method": "tsai",
+      "heldout_translation_mm": 60.591838588828814,
+      "heldout_rotation_deg": 9.269337834606109,
+      "camera_pose_translation_mm": 109.36352553346083,
+      "camera_pose_rotation_deg": 9.26933783460611,
+      "camera_pose_aggregation": "equal-camera macro after per-camera event mean",
+      "reprojection_rmse_px": 97.07748974505533,
+      "reprojection_complete": true,
+      "observations": 16,
+      "corners": 641,
+      "registration_translation_mm": 163.16967661502827,
+      "registration_rotation_deg": 14.272878972062855,
+      "registration_aggregation": "equal-pair macro after per-event pair mean",
+      "cross_view_reprojection_rmse_px": 125.89480588174506,
+      "cross_view_complete": true,
+      "pair_observations": 24,
+      "directed_corners": 1923,
+      "meaning": "September 9 fixedBoard compared with September 10 moving-board fixed-camera calibration"
+    },
+    {
+      "method": "park",
+      "heldout_translation_mm": 60.29635786411909,
+      "heldout_rotation_deg": 8.089645169969158,
+      "camera_pose_translation_mm": 106.41957915935032,
+      "camera_pose_rotation_deg": 8.089645169969158,
+      "camera_pose_aggregation": "equal-camera macro after per-camera event mean",
+      "reprojection_rmse_px": 98.76343332573,
+      "reprojection_complete": true,
+      "observations": 16,
+      "corners": 641,
+      "registration_translation_mm": 166.0550148069377,
+      "registration_rotation_deg": 12.88613335122016,
+      "registration_aggregation": "equal-pair macro after per-event pair mean",
+      "cross_view_reprojection_rmse_px": 131.52320555599323,
+      "cross_view_complete": true,
+      "pair_observations": 24,
+      "directed_corners": 1923,
+      "meaning": "September 9 fixedBoard compared with September 10 moving-board fixed-camera calibration"
+    },
+    {
+      "method": "horaud",
+      "heldout_translation_mm": 60.15811369729503,
+      "heldout_rotation_deg": 8.093332798886617,
+      "camera_pose_translation_mm": 106.31906041003502,
+      "camera_pose_rotation_deg": 8.09333279888662,
+      "camera_pose_aggregation": "equal-camera macro after per-camera event mean",
+      "reprojection_rmse_px": 98.47384695238597,
+      "reprojection_complete": true,
+      "observations": 16,
+      "corners": 641,
+      "registration_translation_mm": 165.79125308676873,
+      "registration_rotation_deg": 12.912423220335628,
+      "registration_aggregation": "equal-pair macro after per-event pair mean",
+      "cross_view_reprojection_rmse_px": 130.97674547714593,
+      "cross_view_complete": true,
+      "pair_observations": 24,
+      "directed_corners": 1923,
+      "meaning": "September 9 fixedBoard compared with September 10 moving-board fixed-camera calibration"
+    },
+    {
+      "method": "andreff",
+      "heldout_translation_mm": 100.42924000616414,
+      "heldout_rotation_deg": 8.15758647656774,
+      "camera_pose_translation_mm": 150.55064861591035,
+      "camera_pose_rotation_deg": 8.15758647656774,
+      "camera_pose_aggregation": "equal-camera macro after per-camera event mean",
+      "reprojection_rmse_px": 218.49013371733906,
+      "reprojection_complete": true,
+      "observations": 16,
+      "corners": 641,
+      "registration_translation_mm": 187.94717131669427,
+      "registration_rotation_deg": 12.82478266505065,
+      "registration_aggregation": "equal-pair macro after per-event pair mean",
+      "cross_view_reprojection_rmse_px": 289.31993903956624,
+      "cross_view_complete": true,
+      "pair_observations": 24,
+      "directed_corners": 1923,
+      "meaning": "September 9 fixedBoard compared with September 10 moving-board fixed-camera calibration"
+    },
+    {
+      "method": "daniilidis",
+      "heldout_translation_mm": 60.341135220937375,
+      "heldout_rotation_deg": 7.951161271899561,
+      "camera_pose_translation_mm": 105.46859695643964,
+      "camera_pose_rotation_deg": 7.9511612718995615,
+      "camera_pose_aggregation": "equal-camera macro after per-camera event mean",
+      "reprojection_rmse_px": 96.9018299392704,
+      "reprojection_complete": true,
+      "observations": 16,
+      "corners": 641,
+      "registration_translation_mm": 162.9036010134517,
+      "registration_rotation_deg": 12.652368295856085,
+      "registration_aggregation": "equal-pair macro after per-event pair mean",
+      "cross_view_reprojection_rmse_px": 127.19001845888181,
+      "cross_view_complete": true,
+      "pair_observations": 24,
+      "directed_corners": 1923,
+      "meaning": "September 9 fixedBoard compared with September 10 moving-board fixed-camera calibration"
+    }
+  ],
+  "source": {
+    "directory": "datasets\\fixedBoard",
+    "raw_events": 15,
+    "robot_pose_frame": "i611 pose frame; exact active tool is not encoded in robot.json",
+    "depth_usage": "hashed and audited, not used in RGB corner/PnP calibration"
+  },
+  "board": {
+    "squares_x": 11,
+    "squares_y": 7,
+    "square_length_m": 0.025,
+    "marker_length_m": 0.018,
+    "dictionary_name": "DICT_4X4_250",
+    "marker_id_start": 5,
+    "legacy_pattern": false
+  },
+  "camera_mapping": {
+    "0": {
+      "source_stem": "cam_039422061216",
+      "camera_index": 0,
+      "serial": "039422061216",
+      "intrinsic": "intrinsics/cam0.npz",
+      "mapping_basis": "serial_in_filename"
+    },
+    "1": {
+      "source_stem": "cam_fixed2",
+      "camera_index": 1,
+      "serial": "319522062138",
+      "intrinsic": "intrinsics/cam1.npz",
+      "mapping_basis": "user_confirmed_fixed_camera_order_0_1_3"
+    },
+    "2": {
+      "source_stem": "cam_gripper",
+      "camera_index": 2,
+      "serial": "752112070297",
+      "intrinsic": "intrinsics/cam2.npz",
+      "mapping_basis": "user_confirmed_gripper_is_cam2"
+    },
+    "3": {
+      "source_stem": "cam_fixed3",
+      "camera_index": 3,
+      "serial": "912322060991",
+      "intrinsic": "intrinsics/cam3.npz",
+      "mapping_basis": "user_confirmed_fixed_camera_order_0_1_3"
+    }
+  },
+  "split": {
+    "policy": "Existing common simulation held-out IDs 2,5,9,12; near-pose groups checked before fitting",
+    "near_translation_mm": 1.5,
+    "near_rotation_deg": 1.0,
+    "train_keys": [
+      "000",
+      "001",
+      "003",
+      "004",
+      "006",
+      "007",
+      "008",
+      "010",
+      "011",
+      "013",
+      "014"
+    ],
+    "heldout_keys": [
+      "002",
+      "005",
+      "009",
+      "012"
+    ],
+    "groups": [
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3
+      ],
+      [
+        4
+      ],
+      [
+        5
+      ],
+      [
+        6
+      ],
+      [
+        7
+      ],
+      [
+        8
+      ],
+      [
+        9
+      ],
+      [
+        10
+      ],
+      [
+        11
+      ],
+      [
+        12
+      ],
+      [
+        13
+      ],
+      [
+        14
+      ]
+    ]
+  },
+  "versions": {
+    "python": "3.13.7",
+    "opencv": "4.14.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "git_commit": "c549738d1c05b4bfae1d80eea6b7f5cd048b110a",
+  "implementation_hashes": {
+    "SOTA_Simulation\\fixed_board_evaluation.py": "e73369cb643929a939f18b56b2e357ecc46b8a49f2fadca61c2dd4cb833a4c8b",
+    "SOTA_Simulation\\real_evaluation.py": "332d3300cb04b0105e299d8909235c1e037e242bd1daaec162a060f466d99984",
+    "SOTA_Simulation\\shah_solver.py": "65d5e035309ed5bd7686fb15f0246955d5576f941535b4243fec1f738e3dde69",
+    "SOTA_Simulation\\tsai_combined_demo.py": "75ad1ddb0ffb590826915c0bf9c39b9982cdfef91aeb5dd5ebc9820d1c1884c5",
+    "capture\\board_config.py": "ce6a29bd750ff9920c7ebe56184f0987deedb61fe9a3176e263f2d60e678d91b"
+  },
+  "prior_fixed_estimates": {
+    "file": "results\\real_260910_unified_20260917_v2\\full_data_estimates.json",
+    "sha256": "784493af733e739988ea88a1596b1127453764dcaf92cb6e59e6028737d85c81",
+    "meaning": "September 10 moving gripper-board full-data fixed-camera estimates"
+  },
+  "counts": {
+    "0": {
+      "raw": 15,
+      "included": 15
+    },
+    "1": {
+      "raw": 15,
+      "included": 13
+    },
+    "2": {
+      "raw": 15,
+      "included": 15
+    },
+    "3": {
+      "raw": 15,
+      "included": 15
+    }
+  },
+  "excluded_reasons": {
+    "fewer_than_four_charuco_corners": 2
+  },
+  "definitions": {
+    "heldout": "Mean fixed-board base-pose chain residual across held-out event-camera observations; cam0/1/3 and cam2 are all fitted on fixedBoard train only.",
+    "camera_pose": "Equal-camera macro discrepancy between calibrated camera poses and fixed-board PnP reference poses; not physical GT.",
+    "registration": "Equal-pair macro discrepancy between calibrated relative cameras and same-event fixed-board PnP relative cameras; not physical GT.",
+    "reprojection": "Corner-pooled held-out RMSE from frozen train calibration; sqrt(sum(||duv||^2)/N corners).",
+    "cross_view_reprojection": "Both directions pooled for each available camera pair using source PnP and calibrated relative camera transform."
+  },
+  "assumptions": [
+    "Fixed camera mounts remained unchanged between the September 9 fixedBoard capture and September 10 moving-board calibration; metadata cannot prove this.",
+    "robot.json identifies an i611 pose but does not encode the exact active tool; the recorded pose frame is assumed rigidly attached to cam2.",
+    "Camera mapping follows the user-confirmed RealSense fixed order 0,1,3 and gripper camera 2.",
+    "Current intrinsics are matched by confirmed camera identity and resolution; capture-time intrinsic hashes are unavailable.",
+    "No corner-count/reprojection quality threshold, synthetic noise, robust loss, or outlier removal was used.",
+    "Depth PNGs are preserved and hashed but excluded because depth scale and RGB-depth alignment metadata are absent."
+  ]
+}

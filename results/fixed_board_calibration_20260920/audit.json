@@ -1,0 +1,2226 @@
+[
+  {
+    "event_id": 0,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 44,
+    "pnp_reprojection_rmse_px": 0.4613982535743908,
+    "T_camera_board": [
+      [
+        0.9996971243492565,
+        0.006750348633007625,
+        -0.02366627053761705,
+        -0.010174076086542338
+      ],
+      [
+        0.017708513172091062,
+        0.4704856761213919,
+        0.8822299230505791,
+        0.0355594508641985
+      ],
+      [
+        0.017090000850225433,
+        -0.8823818115520795,
+        0.4702236388283874,
+        0.6324181811535979
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\000\\cam_039422061216.png",
+    "rgb_sha256": "368a4da94a3e3410d19a88e2dfae706dddb627eaa5e5febf72bdc1989b6efb43",
+    "depth_file": "datasets\\fixedBoard\\000\\cam_039422061216_depth.png",
+    "depth_sha256": "33caa390c344d18204fb8d062c89f307b15fd8517949bbc642c668e8c3ed92a6"
+  },
+  {
+    "event_id": 0,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 16,
+    "pnp_reprojection_rmse_px": 0.6767041635341002,
+    "T_camera_board": [
+      [
+        -0.8111352616438197,
+        -0.5847410864942058,
+        0.011723868115429081,
+        0.30442656494931436
+      ],
+      [
+        0.12412743798563919,
+        -0.15252768366426794,
+        0.9804731943582825,
+        0.10234332096277904
+      ],
+      [
+        -0.5715347465002749,
+        0.7967516347530068,
+        0.19630299554840636,
+        0.633271504868269
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\000\\cam_fixed2.png",
+    "rgb_sha256": "795693306d92babc5a4a7c478c0892ca199e0a118e213799b09624c348496358",
+    "depth_file": "datasets\\fixedBoard\\000\\cam_fixed2_depth.png",
+    "depth_sha256": "09bde8663d3bb83b7baf88cceb0316cc8f95639e2dad7c0afea52b21a2e342ba"
+  },
+  {
+    "event_id": 0,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 10,
+    "pnp_reprojection_rmse_px": 0.12185188589439334,
+    "T_camera_board": [
+      [
+        0.8489491276698389,
+        0.4701627487349735,
+        -0.2413138378348696,
+        -0.14677965262355458
+      ],
+      [
+        -0.3365830834471228,
+        0.8330658429858723,
+        0.43899103542950074,
+        0.1558933782288313
+      ],
+      [
+        0.4074275476276079,
+        -0.29145890096583466,
+        0.8654793483855875,
+        0.36981209992642805
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\000\\cam_gripper.png",
+    "rgb_sha256": "267db48493bac522b98b580b2a9d2ae2935f71197063bfddf3c8b619e151317c",
+    "depth_file": "datasets\\fixedBoard\\000\\cam_gripper_depth.png",
+    "depth_sha256": "a5e4bddae0391cd44cbbe0b7c02a99bcf1b75e98491df716e2bcb713749e563b"
+  },
+  {
+    "event_id": 0,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 33,
+    "pnp_reprojection_rmse_px": 0.4336354174615087,
+    "T_camera_board": [
+      [
+        -0.8692415649694338,
+        0.49415075082977694,
+        -0.015301541878428415,
+        -0.046690960148293666
+      ],
+      [
+        -0.17729421882440538,
+        -0.2826808280806822,
+        0.9426867504145074,
+        0.11340637446203368
+      ],
+      [
+        0.4615039129855059,
+        0.8221353811204014,
+        0.3333279967375665,
+        0.42806993032025886
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\000\\cam_fixed3.png",
+    "rgb_sha256": "4dc7aef9cff11ecff5feb21d0032c60074638ac4959eb1e7bb109ef18381de09",
+    "depth_file": "datasets\\fixedBoard\\000\\cam_fixed3_depth.png",
+    "depth_sha256": "904db4e1d8fb22989a4170b3483c9b5fe31c3d26158c455735dc4ae821a05d78"
+  },
+  {
+    "event_id": 1,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 47,
+    "pnp_reprojection_rmse_px": 0.45207951624163306,
+    "T_camera_board": [
+      [
+        0.9996941507267155,
+        0.0070417347844729215,
+        -0.023706939364159258,
+        -0.010206913886057543
+      ],
+      [
+        0.017601203855650872,
+        0.4707988485848475,
+        0.8820649872849582,
+        0.035527006152011875
+      ],
+      [
+        0.017372467459247132,
+        -0.8822124790221497,
+        0.47053091208970577,
+        0.6323306602758335
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\001\\cam_039422061216.png",
+    "rgb_sha256": "d172b41d43522a817aedfd029ff39e71a2620da5bdba24a894ee5a92f4f19172",
+    "depth_file": "datasets\\fixedBoard\\001\\cam_039422061216_depth.png",
+    "depth_sha256": "8a56188ba967310479485f8f8b218f23cfcff68e1eadad9a2be324f617d8fd31"
+  },
+  {
+    "event_id": 1,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 16,
+    "pnp_reprojection_rmse_px": 0.4615366615644615,
+    "T_camera_board": [
+      [
+        -0.813137576092142,
+        -0.5819376501123901,
+        0.012484139083869694,
+        0.30450517037082614
+      ],
+      [
+        0.12320140221524539,
+        -0.15110746495622374,
+        0.9808098432044311,
+        0.1022787922506046
+      ],
+      [
+        -0.568883728752364,
+        0.7990714019511479,
+        0.1945666922796231,
+        0.6316573980498689
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\001\\cam_fixed2.png",
+    "rgb_sha256": "1991c15ad7848a4aa840400929ab1a7d7689d5643c46d0f63911c4afcda47211",
+    "depth_file": "datasets\\fixedBoard\\001\\cam_fixed2_depth.png",
+    "depth_sha256": "eda13efee1e211b9fd930cdb68a21d3e23988d8f4120a169dbc99f2e47f7893a"
+  },
+  {
+    "event_id": 1,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.3202026127925662,
+    "T_camera_board": [
+      [
+        0.6927313898578923,
+        0.7004204096357399,
+        -0.17185596082549853,
+        -0.06815604130075581
+      ],
+      [
+        -0.6831871704140536,
+        0.7136575123490093,
+        0.15475220595992384,
+        0.029773869413307265
+      ],
+      [
+        0.23103790097555832,
+        0.010208076876967925,
+        0.9728911981713485,
+        0.42974902437380386
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\001\\cam_gripper.png",
+    "rgb_sha256": "72f3c8b4ab72a4a3bf54540274feef081ff7a806b2040cbd73e2cd7e2a5ecc1e",
+    "depth_file": "datasets\\fixedBoard\\001\\cam_gripper_depth.png",
+    "depth_sha256": "132cf11dc6961f58219c909a97618e97b1034063d90267e9d7f28134cf3d5bcb"
+  },
+  {
+    "event_id": 1,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 35,
+    "pnp_reprojection_rmse_px": 0.5047771789109572,
+    "T_camera_board": [
+      [
+        -0.8692131491112225,
+        0.49417484746622364,
+        -0.016115878625946933,
+        -0.04681550324100577
+      ],
+      [
+        -0.17854264643764095,
+        -0.28331318275183615,
+        0.9422611972707292,
+        0.11363007151176009
+      ],
+      [
+        0.46107594256824463,
+        0.8219031941845457,
+        0.33449082883398373,
+        0.42890552596192516
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\001\\cam_fixed3.png",
+    "rgb_sha256": "9a25f4ea2ec8ddcd5e4ffdc766763abbdc55fc6db7c774d42e39d25c9232d0dc",
+    "depth_file": "datasets\\fixedBoard\\001\\cam_fixed3_depth.png",
+    "depth_sha256": "9cdc45521b2b004466424774a952c2840593ca4704ad53b024788bd12099143d"
+  },
+  {
+    "event_id": 2,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 54,
+    "pnp_reprojection_rmse_px": 0.4334859103545706,
+    "T_camera_board": [
+      [
+        0.9996911021961559,
+        0.00715961004281499,
+        -0.02380000365273543,
+        -0.01025684317310789
+      ],
+      [
+        0.017644029189922222,
+        0.4699833980747456,
+        0.8824988916525961,
+        0.03563667931083605
+      ],
+      [
+        0.017503954518352974,
+        -0.8826462176422386,
+        0.46971189686665316,
+        0.6325296059021368
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\002\\cam_039422061216.png",
+    "rgb_sha256": "b6a8761639482c7703c5311cbb5a7550f76d8d8fb64be03ede9b64aad9caa466",
+    "depth_file": "datasets\\fixedBoard\\002\\cam_039422061216_depth.png",
+    "depth_sha256": "0c7c92549ee196f3142f7beddad931ed672f94f0cdaed22b94da334b061bc7fc"
+  },
+  {
+    "event_id": 2,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 14,
+    "pnp_reprojection_rmse_px": 0.6188290265109266,
+    "T_camera_board": [
+      [
+        -0.8125306300786601,
+        -0.5827504556247729,
+        0.013995772686606678,
+        0.3049666842071301
+      ],
+      [
+        0.12534937374801985,
+        -0.15122610168402795,
+        0.9805193525221371,
+        0.10252697110545919
+      ],
+      [
+        -0.5692815732877315,
+        0.7984563686505176,
+        0.19592324434960107,
+        0.6349019015708985
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\002\\cam_fixed2.png",
+    "rgb_sha256": "95a2dd1b2dd3df41efdebee2b69a31a85d9004a96f947354c1479dc703d30286",
+    "depth_file": "datasets\\fixedBoard\\002\\cam_fixed2_depth.png",
+    "depth_sha256": "e8b9f8572d34d4b01ee601a7e3be6904b36bbcc3dae7e09e4686dba52b96555c"
+  },
+  {
+    "event_id": 2,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.29850995807774006,
+    "T_camera_board": [
+      [
+        0.9369301923385216,
+        0.29642384286805734,
+        -0.18518833673812787,
+        -0.0663210190564956
+      ],
+      [
+        -0.3356681640822864,
+        0.9107902101040823,
+        -0.2403915073379025,
+        -0.07265892765475562
+      ],
+      [
+        0.0974099497285992,
+        0.2873918902089877,
+        0.9528468938585972,
+        0.4225144293836906
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\002\\cam_gripper.png",
+    "rgb_sha256": "34400014a9fa3cc500555fdf5b036c2133db5883dc450b108c0ae8077a847cdf",
+    "depth_file": "datasets\\fixedBoard\\002\\cam_gripper_depth.png",
+    "depth_sha256": "3c06f6b9fbe2e624dfd31e36d5612e78808a468e6bdd425d48640f17fb16457c"
+  },
+  {
+    "event_id": 2,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 40,
+    "pnp_reprojection_rmse_px": 0.478483472992285,
+    "T_camera_board": [
+      [
+        -0.8686410071028355,
+        0.4952177689978151,
+        -0.01490510141522619,
+        -0.046896660525889214
+      ],
+      [
+        -0.1777561228924803,
+        -0.28343100647421193,
+        0.942374461317394,
+        0.11352882987932586
+      ],
+      [
+        0.4624560103984,
+        0.8212345741856232,
+        0.3342277855124455,
+        0.42844853632913443
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\002\\cam_fixed3.png",
+    "rgb_sha256": "5409daf16809e3e95d12e0f93b09e494e593e26a675500d2d9e3b5e0048a1841",
+    "depth_file": "datasets\\fixedBoard\\002\\cam_fixed3_depth.png",
+    "depth_sha256": "eb9db5bff52ff349ce1f5f6b9e4c2c85d6d3e323a9a1f8611bf012b95d37e01b"
+  },
+  {
+    "event_id": 3,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 50,
+    "pnp_reprojection_rmse_px": 0.40790659063485996,
+    "T_camera_board": [
+      [
+        0.999693213819832,
+        0.00727426787780025,
+        -0.023676217379847972,
+        -0.010266634978558582
+      ],
+      [
+        0.01747178075731861,
+        0.47044143902324687,
+        0.8822582327906637,
+        0.0356310915822184
+      ],
+      [
+        0.017556056497516827,
+        -0.8824012338367274,
+        0.4701700196776452,
+        0.6325149386720229
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\003\\cam_039422061216.png",
+    "rgb_sha256": "91c859b771c32b7f60a213297c71c6d0b71373bd1bc16fbc9cf788a02b336073",
+    "depth_file": "datasets\\fixedBoard\\003\\cam_039422061216_depth.png",
+    "depth_sha256": "0f78be7dc2f6b0c6f0745efd7ac43c9ddbd603d725091820b4bd5084357f5314"
+  },
+  {
+    "event_id": 3,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 13,
+    "pnp_reprojection_rmse_px": 0.4933615510318911,
+    "T_camera_board": [
+      [
+        -0.8139671190537315,
+        -0.5807552293061363,
+        0.013449636907567841,
+        0.3050864790126174
+      ],
+      [
+        0.12419932835440908,
+        -0.15136300404094827,
+        0.9806445675391332,
+        0.10254482289474304
+      ],
+      [
+        -0.5674786832434167,
+        0.7998828693260515,
+        0.19533391774866216,
+        0.6334510232939013
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\003\\cam_fixed2.png",
+    "rgb_sha256": "d4d6c27c67c846703aec5899c9c94513989887cccd1e892fb657521b445ea178",
+    "depth_file": "datasets\\fixedBoard\\003\\cam_fixed2_depth.png",
+    "depth_sha256": "193232322bab7b3168320367b4df9a1f5bbf3583cfa2032781a9a7d80fb8ec82"
+  },
+  {
+    "event_id": 3,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.27675086477552346,
+    "T_camera_board": [
+      [
+        0.7281330194403798,
+        0.6400926744277338,
+        -0.2451605069022875,
+        -0.1629251843692512
+      ],
+      [
+        -0.6665062852530452,
+        0.7446637277845032,
+        -0.03528886850372892,
+        0.03402042431616352
+      ],
+      [
+        0.15997399075731536,
+        0.18909600912245186,
+        0.9688400392299752,
+        0.46825490299675454
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\003\\cam_gripper.png",
+    "rgb_sha256": "4af92dbc9af7c108179b289a6747aa30a469ec9758b783ce7e5b9cf697154621",
+    "depth_file": "datasets\\fixedBoard\\003\\cam_gripper_depth.png",
+    "depth_sha256": "5460dbd1eef4070128ba10f2fa068bb2fd144b536d03b8debdc809e5c175e925"
+  },
+  {
+    "event_id": 3,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 40,
+    "pnp_reprojection_rmse_px": 0.4986532253416314,
+    "T_camera_board": [
+      [
+        -0.8686271834476541,
+        0.49523337589044814,
+        -0.01518945620967288,
+        -0.04685469624409155
+      ],
+      [
+        -0.17799322353262229,
+        -0.2832919759209519,
+        0.9423715131280597,
+        0.11347164116949586
+      ],
+      [
+        0.46239077472659573,
+        0.8212731334841978,
+        0.33422329611322066,
+        0.42810937093576834
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\003\\cam_fixed3.png",
+    "rgb_sha256": "b95dac109b995c5a68655b14a8ed241e194d3c044c73b0fece84a17df0f7cd94",
+    "depth_file": "datasets\\fixedBoard\\003\\cam_fixed3_depth.png",
+    "depth_sha256": "eb56a24062ed468b39086571c7db7406534e2f67b32e574a19fef6cdfca10ece"
+  },
+  {
+    "event_id": 4,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 53,
+    "pnp_reprojection_rmse_px": 0.4415249652034156,
+    "T_camera_board": [
+      [
+        0.9996921777095038,
+        0.006912378709631459,
+        -0.02382790060002299,
+        -0.010196968032024606
+      ],
+      [
+        0.017784029272847127,
+        0.4700227148755899,
+        0.8824751417483682,
+        0.03563127661742858
+      ],
+      [
+        0.017299656911408924,
+        -0.8826272523107105,
+        0.46975510146159455,
+        0.6324653724886041
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\004\\cam_039422061216.png",
+    "rgb_sha256": "3c2d32ebc470a3347276e58694836ecd5d7df66c07455dd65a510e65fcf2f669",
+    "depth_file": "datasets\\fixedBoard\\004\\cam_039422061216_depth.png",
+    "depth_sha256": "d0387909a5d2385c1bf565b3fb6aecd97b16763c1dfa26b2261dd3cf03365607"
+  },
+  {
+    "event_id": 4,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 14,
+    "pnp_reprojection_rmse_px": 0.44079059336894433,
+    "T_camera_board": [
+      [
+        -0.8141413063836157,
+        -0.5804947006609829,
+        0.014136327121832104,
+        0.3052919232218858
+      ],
+      [
+        0.12447510287390601,
+        -0.15069327352315842,
+        0.9807127439160792,
+        0.10265737392213092
+      ],
+      [
+        -0.5671683013043924,
+        0.8001983752916464,
+        0.19494275615190115,
+        0.6345095545837205
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\004\\cam_fixed2.png",
+    "rgb_sha256": "80f4c25566dbb53d7467754822eb4e0df76313c0db8e92a76c5e7a0a10fc0217",
+    "depth_file": "datasets\\fixedBoard\\004\\cam_fixed2_depth.png",
+    "depth_sha256": "b98368216965a8dc306dcf2e1c88e82fb6d7b2c9a6b0778bf85578cfcca8d8f1"
+  },
+  {
+    "event_id": 4,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.304859167825487,
+    "T_camera_board": [
+      [
+        0.4733817231535,
+        0.877809355638622,
+        0.07321529442357197,
+        -0.03962256594833598
+      ],
+      [
+        -0.8182608666623574,
+        0.4074465285627514,
+        0.40550768235772144,
+        0.05377166337481369
+      ],
+      [
+        0.32612711980635833,
+        -0.25186913569445196,
+        0.9111547838931313,
+        0.5304524616215167
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\004\\cam_gripper.png",
+    "rgb_sha256": "52d8564f5f4c8cb83d75144a605bd3f435a6bfeb04319345a7e9bbe84c41064f",
+    "depth_file": "datasets\\fixedBoard\\004\\cam_gripper_depth.png",
+    "depth_sha256": "412e15f5fe1a07502e37737ed62ee0d5c321cdc7bf0a9637a51209de91ee64ab"
+  },
+  {
+    "event_id": 4,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 37,
+    "pnp_reprojection_rmse_px": 0.513348627318115,
+    "T_camera_board": [
+      [
+        -0.8687785565571565,
+        0.4949747508054315,
+        -0.01496047230419878,
+        -0.046782469190791716
+      ],
+      [
+        -0.17766867341281423,
+        -0.28335950059694714,
+        0.9424124553024432,
+        0.11346110931283875
+      ],
+      [
+        0.4622311782584495,
+        0.8214057398670586,
+        0.3341181652638119,
+        0.42801836550626
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\004\\cam_fixed3.png",
+    "rgb_sha256": "6b18baa979073ced20efa99cfc3afc2bb0331e9d4ebf66feb4f72b80a85bd2e2",
+    "depth_file": "datasets\\fixedBoard\\004\\cam_fixed3_depth.png",
+    "depth_sha256": "5bc3b7caaedf236ae734b344c2847227bca60c99b2a980be1cb2c4e4f5590ed1"
+  },
+  {
+    "event_id": 5,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 45,
+    "pnp_reprojection_rmse_px": 0.45470893857458605,
+    "T_camera_board": [
+      [
+        0.9996963745765267,
+        0.006951337975096483,
+        -0.023639745322341164,
+        -0.010245422609950693
+      ],
+      [
+        0.017603872667387666,
+        0.4698056342225517,
+        0.8825943404077871,
+        0.03567431114442504
+      ],
+      [
+        0.01724129709910397,
+        -0.8827425133939694,
+        0.4695406188193291,
+        0.6324811061940089
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\005\\cam_039422061216.png",
+    "rgb_sha256": "6cab5f7b9095ffa323670c65a920fa82740232aa28ca666d6d044f0a85419e99",
+    "depth_file": "datasets\\fixedBoard\\005\\cam_039422061216_depth.png",
+    "depth_sha256": "5ee36cfc00f23e43d5a668acbf18af4750eeacc6752931b11b1163fb5d450dac"
+  },
+  {
+    "event_id": 5,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 12,
+    "pnp_reprojection_rmse_px": 0.40084505610176224,
+    "T_camera_board": [
+      [
+        -0.813103789322275,
+        -0.5820027828381586,
+        0.011618457659972659,
+        0.30461674657042304
+      ],
+      [
+        0.12298129154668816,
+        -0.15223770230356293,
+        0.9806626759119775,
+        0.10245728443626054
+      ],
+      [
+        -0.5689796391078208,
+        0.798809390759755,
+        0.1953605065379469,
+        0.6322133543532703
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\005\\cam_fixed2.png",
+    "rgb_sha256": "559d8b60055845b725dded4ad4b8f5ed98e9e655d735d7146988f2bdc09ea8e6",
+    "depth_file": "datasets\\fixedBoard\\005\\cam_fixed2_depth.png",
+    "depth_sha256": "fa60f2a154deae9b07356b8d83240add4aad5cfd54a610dbf683b586e34b7000"
+  },
+  {
+    "event_id": 5,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 58,
+    "pnp_reprojection_rmse_px": 0.2881931621227534,
+    "T_camera_board": [
+      [
+        0.014804915742154987,
+        0.9796748445129909,
+        -0.20004502867683271,
+        -0.24926397380508852
+      ],
+      [
+        -0.8876663094588831,
+        0.10496828970856227,
+        0.4483638937373367,
+        0.11249400198953077
+      ],
+      [
+        0.4602492124072719,
+        0.17093524266255472,
+        0.8711784003832851,
+        0.5241460774793041
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\005\\cam_gripper.png",
+    "rgb_sha256": "274aae6c15764dd109994d9a21737834b411780a998cb19da835cfa50b5e5002",
+    "depth_file": "datasets\\fixedBoard\\005\\cam_gripper_depth.png",
+    "depth_sha256": "2adfaf3b654a7f6462c5540d6ea7bfdf26e2a5808d8c4145052d5040ab126370"
+  },
+  {
+    "event_id": 5,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 37,
+    "pnp_reprojection_rmse_px": 0.4549554509160337,
+    "T_camera_board": [
+      [
+        -0.8689660562440187,
+        0.494631004170646,
+        -0.015432524383767132,
+        -0.046819293155110776
+      ],
+      [
+        -0.17760635344983414,
+        -0.2826074841093772,
+        0.9426499844266805,
+        0.11346592730755334
+      ],
+      [
+        0.4619025614888596,
+        0.8218717537660647,
+        0.33342591988554815,
+        0.42846186955861104
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\005\\cam_fixed3.png",
+    "rgb_sha256": "28ce2ff3777934abb19ddb668bebe278b6a9f6d6ea03acf19dbdb09e88786b82",
+    "depth_file": "datasets\\fixedBoard\\005\\cam_fixed3_depth.png",
+    "depth_sha256": "d01b4c6a69d6f72be5f7ed0f1bc74ff6abb461efd4cd1554d219208c7baa56df"
+  },
+  {
+    "event_id": 6,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 54,
+    "pnp_reprojection_rmse_px": 0.43308848982167986,
+    "T_camera_board": [
+      [
+        0.999695647739076,
+        0.007059989071376404,
+        -0.023638283479587928,
+        -0.010253177652839254
+      ],
+      [
+        0.017548343364469938,
+        0.46996934763836296,
+        0.8825082820719216,
+        0.03565448055502533
+      ],
+      [
+        0.01733976749301956,
+        -0.8826545013960353,
+        0.4697024202924703,
+        0.6325385240935069
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\006\\cam_039422061216.png",
+    "rgb_sha256": "ae06c780d82d4e398b4a8ecafa768d9372b94c8e753937192fd2086c9d9af709",
+    "depth_file": "datasets\\fixedBoard\\006\\cam_039422061216_depth.png",
+    "depth_sha256": "22623bcc20b99c9931f905ab84e2b5347c3f53dbdf3ea21c9da99242865649b1"
+  },
+  {
+    "event_id": 6,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 17,
+    "pnp_reprojection_rmse_px": 0.4171903621536412,
+    "T_camera_board": [
+      [
+        -0.8136141623906017,
+        -0.581251090880351,
+        0.013385219753205335,
+        0.3047786104171105
+      ],
+      [
+        0.12340296549379143,
+        -0.15014579575040532,
+        0.9809321832450069,
+        0.10238126759315024
+      ],
+      [
+        -0.5681581671196654,
+        0.7997520924442021,
+        0.19388885415707313,
+        0.6324023639449412
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\006\\cam_fixed2.png",
+    "rgb_sha256": "3e15038ddff4de94b659cd3269f33f6f0d23599db1301f831c5e7fbeb2d9616d",
+    "depth_file": "datasets\\fixedBoard\\006\\cam_fixed2_depth.png",
+    "depth_sha256": "967c6b6cd6da2ec0e2b2dde4c8936d4b726c71b8d94ddc28b435f247292ac82d"
+  },
+  {
+    "event_id": 6,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.2534831398558573,
+    "T_camera_board": [
+      [
+        0.9120509087843396,
+        0.4056010584780356,
+        0.06042285285516881,
+        -0.12706611232418108
+      ],
+      [
+        -0.4021552159053555,
+        0.9134913551775886,
+        -0.061682463763452364,
+        -0.07480987786532804
+      ],
+      [
+        -0.08021422633035354,
+        0.03195818169592589,
+        0.9962652019000328,
+        0.5156892584769428
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\006\\cam_gripper.png",
+    "rgb_sha256": "e68dbbd451c39eb6d405ad1e38c69e86ba6f1eaf55a1c27f2b16d66a27a2187a",
+    "depth_file": "datasets\\fixedBoard\\006\\cam_gripper_depth.png",
+    "depth_sha256": "f4d468ece23c9c7e272c11c0996f7b63807b576c9e51e195a5d0c347748d6dfa"
+  },
+  {
+    "event_id": 6,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 36,
+    "pnp_reprojection_rmse_px": 0.4779794799204029,
+    "T_camera_board": [
+      [
+        -0.8687187537098486,
+        0.4950687333390258,
+        -0.015319145632177372,
+        -0.04689851869989327
+      ],
+      [
+        -0.1781011469246381,
+        -0.2833629142761611,
+        0.9423297937967625,
+        0.11355516833143514
+      ],
+      [
+        0.462177139652034,
+        0.8213479214577786,
+        0.33433498695178543,
+        0.42850915553844565
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\006\\cam_fixed3.png",
+    "rgb_sha256": "80ae73953ae2be28e9d22f4d9cbf565db7a2df55a7f815b7e46f26dc79cbec6d",
+    "depth_file": "datasets\\fixedBoard\\006\\cam_fixed3_depth.png",
+    "depth_sha256": "39a5835456e6f48308cbdc996bb6bf0b60985da3026835de65e927367d6c21a0"
+  },
+  {
+    "event_id": 7,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 49,
+    "pnp_reprojection_rmse_px": 0.43785919666189166,
+    "T_camera_board": [
+      [
+        0.999688333646539,
+        0.007088913969984238,
+        -0.02393706059090037,
+        -0.010229569838374081
+      ],
+      [
+        0.017793814284624957,
+        0.47020602196521827,
+        0.882377287264835,
+        0.03558081217413306
+      ],
+      [
+        0.017510446716476145,
+        -0.8825282115640105,
+        0.4699333357503154,
+        0.6323255764398771
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\007\\cam_039422061216.png",
+    "rgb_sha256": "132b622731545c64755f068275104380afdc554ad42cbed351022f1988f486f6",
+    "depth_file": "datasets\\fixedBoard\\007\\cam_039422061216_depth.png",
+    "depth_sha256": "82c61827b49ae2e7d476c9f5a912b3bf6f50696695bd957a73a08c3f97ab1058"
+  },
+  {
+    "event_id": 7,
+    "camera": "1",
+    "included": false,
+    "reason": "fewer_than_four_charuco_corners",
+    "rgb_file": "datasets\\fixedBoard\\007\\cam_fixed2.png",
+    "rgb_sha256": "e32fe6429eed734c39aaa1469f2d0aec2ed02f5829c55dc48d3cabddb6eb87af",
+    "depth_file": "datasets\\fixedBoard\\007\\cam_fixed2_depth.png",
+    "depth_sha256": "68840d89c51580d35fcdcde33765ead660ed2939cbd2ca904c81d9db36a03b3d"
+  },
+  {
+    "event_id": 7,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.46936911994114505,
+    "T_camera_board": [
+      [
+        0.9929505276593394,
+        -0.08919488004338648,
+        -0.07806102097132281,
+        -0.0662271004090986
+      ],
+      [
+        0.017454664056183858,
+        0.7614324706453585,
+        -0.6480092031364918,
+        -0.06104501962872603
+      ],
+      [
+        0.11723729920006332,
+        0.6420785512855504,
+        0.7576216401709521,
+        0.35767248574419613
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\007\\cam_gripper.png",
+    "rgb_sha256": "203964c77eab17b65cdf0186228ca6e9af8f2d3d9d7fe44f4cf982f37fc1071f",
+    "depth_file": "datasets\\fixedBoard\\007\\cam_gripper_depth.png",
+    "depth_sha256": "0bb178f9d749ddec7b9c8d61e9713f6d3459c1bd3207bd75ce2461cb878088cd"
+  },
+  {
+    "event_id": 7,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 39,
+    "pnp_reprojection_rmse_px": 0.47481946002988973,
+    "T_camera_board": [
+      [
+        -0.8688172393517544,
+        0.4948904015005211,
+        -0.015495002673419161,
+        -0.04692184876760722
+      ],
+      [
+        -0.17825645240181723,
+        -0.2834399083373682,
+        0.9422772710507362,
+        0.11362791146300986
+      ],
+      [
+        0.46193207485767307,
+        0.8214288215447257,
+        0.33447488598298014,
+        0.42884868624621963
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\007\\cam_fixed3.png",
+    "rgb_sha256": "5a07d0b08e0a199814fdaf2139c2b8cee401157f3fb04bf252ceafb5f57686d7",
+    "depth_file": "datasets\\fixedBoard\\007\\cam_fixed3_depth.png",
+    "depth_sha256": "757bad52916d226e44106d545a014f59dce2c9f0206e0deefec9894e289d9900"
+  },
+  {
+    "event_id": 8,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 47,
+    "pnp_reprojection_rmse_px": 0.44186221192648933,
+    "T_camera_board": [
+      [
+        0.9996984763561392,
+        0.007093397095733481,
+        -0.02350829829775329,
+        -0.010265009822623218
+      ],
+      [
+        0.017422327044392196,
+        0.46974361132589465,
+        0.8826309546684079,
+        0.03568776437371667
+      ],
+      [
+        0.017303724788962367,
+        -0.8827743898279725,
+        0.4694783890364697,
+        0.6325414912737319
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\008\\cam_039422061216.png",
+    "rgb_sha256": "9f94000e33ac20b2efc2f36142c8d5668586d6ca6e7644791f44849b8f0f864e",
+    "depth_file": "datasets\\fixedBoard\\008\\cam_039422061216_depth.png",
+    "depth_sha256": "8e628daf81308384fecd19114dcb22b04979c56d7adc13d66e6b63e9fa149dee"
+  },
+  {
+    "event_id": 8,
+    "camera": "1",
+    "included": false,
+    "reason": "fewer_than_four_charuco_corners",
+    "rgb_file": "datasets\\fixedBoard\\008\\cam_fixed2.png",
+    "rgb_sha256": "720b14e39443b6deec9020f1df0d2ef2b86ffbfa71412b7ee3f804daf408facd",
+    "depth_file": "datasets\\fixedBoard\\008\\cam_fixed2_depth.png",
+    "depth_sha256": "94d669c2f7cc15c2c34052b1b156394c3861f0324816b3276132fa01f1efb186"
+  },
+  {
+    "event_id": 8,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.4848728619274114,
+    "T_camera_board": [
+      [
+        0.8187417292825673,
+        0.37951058091588796,
+        -0.4308522945329136,
+        -0.1291492047620695
+      ],
+      [
+        -0.5706499525185604,
+        0.6207346685617073,
+        -0.5376310100209549,
+        0.06129656592176913
+      ],
+      [
+        0.06340829931449105,
+        0.6860467842782099,
+        0.7247890709437963,
+        0.31697737570287843
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\008\\cam_gripper.png",
+    "rgb_sha256": "3401ebaa0a3cc50df648be3ce54fa15a281ab83f4021cd13c821e7c9e6a25e05",
+    "depth_file": "datasets\\fixedBoard\\008\\cam_gripper_depth.png",
+    "depth_sha256": "174dab0844b6edc9b61386ff518721466aceeb14fd53d311f247a71c04d31af7"
+  },
+  {
+    "event_id": 8,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 43,
+    "pnp_reprojection_rmse_px": 0.5271830770289492,
+    "T_camera_board": [
+      [
+        -0.8684536674559522,
+        0.4955377760482452,
+        -0.01518354344234682,
+        -0.046988193844844414
+      ],
+      [
+        -0.17841304590752483,
+        -0.28380984010868704,
+        0.9421362744887181,
+        0.11364254664268228
+      ],
+      [
+        0.46255487515786264,
+        0.8209106450562331,
+        0.3348861004894851,
+        0.4286101806269756
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\008\\cam_fixed3.png",
+    "rgb_sha256": "d587f1af606ba71fe1e3881852109fdced671ede07444cde5ac6a20c1810b8be",
+    "depth_file": "datasets\\fixedBoard\\008\\cam_fixed3_depth.png",
+    "depth_sha256": "18ec7b0e2e306bb3b30a59bd8e3b45d66cae46d3d662a62ee865aabddd65d309"
+  },
+  {
+    "event_id": 9,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 46,
+    "pnp_reprojection_rmse_px": 0.45271993698811747,
+    "T_camera_board": [
+      [
+        0.9997010607262204,
+        0.006985220700169235,
+        -0.023430660994507677,
+        -0.010257521796499426
+      ],
+      [
+        0.0174055950168904,
+        0.46969117146911354,
+        0.882659191707694,
+        0.03569105359715156
+      ],
+      [
+        0.017170743867917206,
+        -0.8828031548061785,
+        0.46942918040880316,
+        0.6324969947309163
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\009\\cam_039422061216.png",
+    "rgb_sha256": "8b909c9e525d044be7b365963c9cef7bef3899a263d63f27f1347af6b643580d",
+    "depth_file": "datasets\\fixedBoard\\009\\cam_039422061216_depth.png",
+    "depth_sha256": "575c028c5dd0583eaf8ff67bc89933a5c4e4bf3a1684ebb59d7485bd5c0011a5"
+  },
+  {
+    "event_id": 9,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 14,
+    "pnp_reprojection_rmse_px": 0.6745639488622139,
+    "T_camera_board": [
+      [
+        -0.8113852852158013,
+        -0.5843745519441685,
+        0.012661041636656878,
+        0.3045866318730318
+      ],
+      [
+        0.12399835454986552,
+        -0.15091908104112295,
+        0.9807384151987875,
+        0.10238771779052205
+      ],
+      [
+        -0.5712077791873975,
+        0.7973266670679939,
+        0.1949150044969502,
+        0.6334297039007013
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\009\\cam_fixed2.png",
+    "rgb_sha256": "5f46e040d2794aa3570f9dfd8d017561f4f3730c9018daa8b462e90be5ea7bd3",
+    "depth_file": "datasets\\fixedBoard\\009\\cam_fixed2_depth.png",
+    "depth_sha256": "4b1859a9314fb00ba90dbfef764218a7f40e899c674b93efe51815b2dbf3d134"
+  },
+  {
+    "event_id": 9,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.29744580202417364,
+    "T_camera_board": [
+      [
+        0.562788458541368,
+        0.7319338011267523,
+        -0.38411204316029246,
+        -0.21355553017316423
+      ],
+      [
+        -0.8248801445860595,
+        0.5272660793366328,
+        -0.203870617423544,
+        0.08921580256146501
+      ],
+      [
+        0.05330945507423837,
+        0.4315824282209821,
+        0.9004969237318741,
+        0.4317828001031774
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\009\\cam_gripper.png",
+    "rgb_sha256": "0f2638c5c85e2414ada7bfd8d86b679cd9525323a28dd3505a2b082490d6fc3d",
+    "depth_file": "datasets\\fixedBoard\\009\\cam_gripper_depth.png",
+    "depth_sha256": "969e7d34740341780bdd68b03531e6de68be817e3e77e88159251d023f497547"
+  },
+  {
+    "event_id": 9,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 39,
+    "pnp_reprojection_rmse_px": 0.4702983421515751,
+    "T_camera_board": [
+      [
+        -0.8680694854324105,
+        0.4962369161936394,
+        -0.014293056626808243,
+        -0.04701515470949327
+      ],
+      [
+        -0.17747719437438317,
+        -0.28331604362911333,
+        0.9424615986337819,
+        0.11349195637927643
+      ],
+      [
+        0.4636347850820812,
+        0.820658846554994,
+        0.33400874783891354,
+        0.4282040545825216
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\009\\cam_fixed3.png",
+    "rgb_sha256": "08075cef221e9b1e44229a6295200df201e5f15a73c53c7533e6af423aa0cdc3",
+    "depth_file": "datasets\\fixedBoard\\009\\cam_fixed3_depth.png",
+    "depth_sha256": "9b2c402d19c55208d5a3e87ef4ff3c03947a513f53957182b639817217fcb497"
+  },
+  {
+    "event_id": 10,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 46,
+    "pnp_reprojection_rmse_px": 0.44295265353517055,
+    "T_camera_board": [
+      [
+        0.9997016376037213,
+        0.006976219239016401,
+        -0.023408719263707974,
+        -0.010240073321614402
+      ],
+      [
+        0.017388535281927166,
+        0.46978962111868966,
+        0.8826071327209559,
+        0.03569346308697749
+      ],
+      [
+        0.017154434213552172,
+        -0.8827508392826864,
+        0.4695281473272137,
+        0.6325651643063026
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\010\\cam_039422061216.png",
+    "rgb_sha256": "4d5a13ead1f6de9b33c6c544577515c2637d0adb1b2e7aa8a8a296fe43f9c9d6",
+    "depth_file": "datasets\\fixedBoard\\010\\cam_039422061216_depth.png",
+    "depth_sha256": "db5ac557ef3a5c915110c0d8720cfc301c677b7c02a482e52509cb96c127427c"
+  },
+  {
+    "event_id": 10,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 17,
+    "pnp_reprojection_rmse_px": 0.6583735976949698,
+    "T_camera_board": [
+      [
+        -0.8117614865708381,
+        -0.5838587595938286,
+        0.012338466916885615,
+        0.3045032696703047
+      ],
+      [
+        0.12315707005789836,
+        -0.1505008799473777,
+        0.9809086711971812,
+        0.1023939322887567
+      ],
+      [
+        -0.5708551699118236,
+        0.7977834505557392,
+        0.19407715219551802,
+        0.6329170518185196
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\010\\cam_fixed2.png",
+    "rgb_sha256": "251d66388fa88c711905b2e45899fe5b0b3a3f03a071dc16fde71b329af897e9",
+    "depth_file": "datasets\\fixedBoard\\010\\cam_fixed2_depth.png",
+    "depth_sha256": "73faddf1dfc6d140f17b49dd65ec5a20f5808b6303e0af5db0bf078f3a14b819"
+  },
+  {
+    "event_id": 10,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.30480738590618073,
+    "T_camera_board": [
+      [
+        0.30053039432492873,
+        0.9381925166016757,
+        -0.17168658619565266,
+        -0.17012843112776388
+      ],
+      [
+        -0.9518788172840406,
+        0.2836975654803926,
+        -0.11594140134755249,
+        0.08498529371883054
+      ],
+      [
+        -0.06006828857923894,
+        0.19826873967701714,
+        0.9783053243103854,
+        0.5277496504922118
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\010\\cam_gripper.png",
+    "rgb_sha256": "32a430501c4fdfb7523f13dc7712c68120109cabb3988ca94a17b1dcf8c2e103",
+    "depth_file": "datasets\\fixedBoard\\010\\cam_gripper_depth.png",
+    "depth_sha256": "d484f5b1d1f3eeb5e44f725597e64288e271c232da74efe93de18e1cba531ca0"
+  },
+  {
+    "event_id": 10,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 40,
+    "pnp_reprojection_rmse_px": 0.44385004202415096,
+    "T_camera_board": [
+      [
+        -0.8689110311769335,
+        0.49473217638254885,
+        -0.015287038654512142,
+        -0.04679397379321
+      ],
+      [
+        -0.17750175730411652,
+        -0.28262297200544806,
+        0.9426650422333259,
+        0.11340093352125814
+      ],
+      [
+        0.4620462596461403,
+        0.8218055301265587,
+        0.3333900487423359,
+        0.42799281227850206
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\010\\cam_fixed3.png",
+    "rgb_sha256": "fe200b597d17fbfe0f56b07f23f6e0058bb5a93e26827552a4232f3edfeeb6f9",
+    "depth_file": "datasets\\fixedBoard\\010\\cam_fixed3_depth.png",
+    "depth_sha256": "73173ffa048258c83120c6169e89ec1b8d397f6fc7b9b32a24a0874c46008683"
+  },
+  {
+    "event_id": 11,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 54,
+    "pnp_reprojection_rmse_px": 0.4365704884086275,
+    "T_camera_board": [
+      [
+        0.9996896934436955,
+        0.007193188762573082,
+        -0.02384900119241568,
+        -0.010254749967256895
+      ],
+      [
+        0.017671815129662115,
+        0.46996797191705214,
+        0.8825065508664488,
+        0.035626706849820174
+      ],
+      [
+        0.017556302927236627,
+        -0.8826541584378328,
+        0.46969502107210825,
+        0.6324087489046074
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\011\\cam_039422061216.png",
+    "rgb_sha256": "b81e411d9c29a73a418fa3c28fa7321c585863b91579bf5a27ab577ef13d31f6",
+    "depth_file": "datasets\\fixedBoard\\011\\cam_039422061216_depth.png",
+    "depth_sha256": "f163f2317a7eaefd3937c744c089c5eac7a382f0919fce6d023aeb1ac94e8baa"
+  },
+  {
+    "event_id": 11,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 14,
+    "pnp_reprojection_rmse_px": 0.6343179715903963,
+    "T_camera_board": [
+      [
+        -0.8120730180676669,
+        -0.5834093728212387,
+        0.013073524039052875,
+        0.30487332738195255
+      ],
+      [
+        0.12446605513518239,
+        -0.15127509704772302,
+        0.9806243144712901,
+        0.10254030333225729
+      ],
+      [
+        -0.5701277176611892,
+        0.7979657566070932,
+        0.1954610877819739,
+        0.6343409044644387
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\011\\cam_fixed2.png",
+    "rgb_sha256": "0bcfb6bec3e737a3ae8e0bd5384762ff40dfd33c331dc98f6db1c16022e4f561",
+    "depth_file": "datasets\\fixedBoard\\011\\cam_fixed2_depth.png",
+    "depth_sha256": "80b69f6da2a3c9bdadc69858331932327d27475c05bc365b97c41362bcf4642b"
+  },
+  {
+    "event_id": 11,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.3305852323107627,
+    "T_camera_board": [
+      [
+        0.6054508665458405,
+        0.688338479895977,
+        0.3995239483352485,
+        -0.12693151397333413
+      ],
+      [
+        -0.7041180589124264,
+        0.697270347409406,
+        -0.13428261889374538,
+        0.06698079621810075
+      ],
+      [
+        -0.37100809601986784,
+        -0.20001049901958073,
+        0.9068344903948298,
+        0.5405136928801946
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\011\\cam_gripper.png",
+    "rgb_sha256": "10512d1972107efd6b387ac13953a0006cc72e5502c58ec986d5e2d74456e40e",
+    "depth_file": "datasets\\fixedBoard\\011\\cam_gripper_depth.png",
+    "depth_sha256": "683a1f4cab9121f5d42af120b1b725125b91858a673fbc0da67b9301bf435066"
+  },
+  {
+    "event_id": 11,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 43,
+    "pnp_reprojection_rmse_px": 0.5315994920825137,
+    "T_camera_board": [
+      [
+        -0.8686953738061884,
+        0.49512192181283976,
+        -0.014920793145367539,
+        -0.04683201420776896
+      ],
+      [
+        -0.1775749966302992,
+        -0.28315420204637465,
+        0.9424918134579369,
+        0.1134056749722718
+      ],
+      [
+        0.46242347269518647,
+        0.8213878379936249,
+        0.3338960189889709,
+        0.4278053611468179
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\011\\cam_fixed3.png",
+    "rgb_sha256": "afa4a044b9440f449a05ca57676762bfe73c7d72cfb5f87f575db272362dba3d",
+    "depth_file": "datasets\\fixedBoard\\011\\cam_fixed3_depth.png",
+    "depth_sha256": "d4951d3bb33eabf2256b281751c6065a237ee55f3bc08f94463bb9667d7fe6ac"
+  },
+  {
+    "event_id": 12,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 46,
+    "pnp_reprojection_rmse_px": 0.4522997487290595,
+    "T_camera_board": [
+      [
+        0.9997018998085613,
+        0.006667122042620817,
+        -0.02348746480193464,
+        -0.01014953530555237
+      ],
+      [
+        0.01760342480149474,
+        0.46977824620106395,
+        0.882608927459671,
+        0.03567036099692934
+      ],
+      [
+        0.016918361457642365,
+        -0.8827592813898483,
+        0.469520841034418,
+        0.6324734606159608
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\012\\cam_039422061216.png",
+    "rgb_sha256": "49119b160dba597907ad27f7016e520454fe045462548ff40f1b7313d607db27",
+    "depth_file": "datasets\\fixedBoard\\012\\cam_039422061216_depth.png",
+    "depth_sha256": "eca7b8afdda7124a3d05a9522db48e5c55c058e90bd1a8f8c682008ce667f015"
+  },
+  {
+    "event_id": 12,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 20,
+    "pnp_reprojection_rmse_px": 0.6885372069848903,
+    "T_camera_board": [
+      [
+        -0.810922618563809,
+        -0.5850200929915079,
+        0.012489895829127351,
+        0.3046094584245291
+      ],
+      [
+        0.12461366666298898,
+        -0.1517988724546615,
+        0.9805246230474267,
+        0.10239552995871412
+      ],
+      [
+        -0.5717306540517313,
+        0.7966860066034174,
+        0.1959986380051617,
+        0.6342689170179767
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\012\\cam_fixed2.png",
+    "rgb_sha256": "1cb7c7a1d30e82749b4f23230f8ed1f43446ca837a0da18f49d38ae055b5740d",
+    "depth_file": "datasets\\fixedBoard\\012\\cam_fixed2_depth.png",
+    "depth_sha256": "6b1596a112714b5830cf7a7ac05a8cc7c1775fe34a458dc23c9c96d779d81ef0"
+  },
+  {
+    "event_id": 12,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.39149734425590726,
+    "T_camera_board": [
+      [
+        0.5818406140412371,
+        0.812175583882533,
+        0.04280561642101302,
+        -0.1248043052076898
+      ],
+      [
+        -0.8133027305561008,
+        0.5810606502693347,
+        0.03011958131462541,
+        0.08179025434054936
+      ],
+      [
+        -0.00041027077227022077,
+        -0.05233872040511358,
+        0.9986293056105697,
+        0.5039444274829261
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\012\\cam_gripper.png",
+    "rgb_sha256": "b75beb4c2a97a40b9bb51a897e322e5aaea8a50181e8989d7466ac0be0d2249e",
+    "depth_file": "datasets\\fixedBoard\\012\\cam_gripper_depth.png",
+    "depth_sha256": "7869ceea9db3c1c29a7efdf55f48da26bc7d3b5f879ca4fcee46948dd51e43f6"
+  },
+  {
+    "event_id": 12,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 36,
+    "pnp_reprojection_rmse_px": 0.486975537099281,
+    "T_camera_board": [
+      [
+        -0.8689340806982091,
+        0.49471254258070485,
+        -0.014596698753234022,
+        -0.04682784226966229
+      ],
+      [
+        -0.17735097299231506,
+        -0.2837017691977588,
+        0.9423693217272836,
+        0.11351623867167056
+      ],
+      [
+        0.4620608139410195,
+        0.8214455589796538,
+        0.33425588678850016,
+        0.42832325058978915
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\012\\cam_fixed3.png",
+    "rgb_sha256": "8a8dade887c575ac3e1b3d5b317fe9a8ef87629f4b1a969bd431a470c9fcc3ba",
+    "depth_file": "datasets\\fixedBoard\\012\\cam_fixed3_depth.png",
+    "depth_sha256": "ad66d4720391e5cb2e58ff3b39a9fc324cd0f102560da555576ec543c0ecf305"
+  },
+  {
+    "event_id": 13,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 46,
+    "pnp_reprojection_rmse_px": 0.448336645808932,
+    "T_camera_board": [
+      [
+        0.999700174333634,
+        0.006732459286275751,
+        -0.02354220527606175,
+        -0.010173892647075815
+      ],
+      [
+        0.017622358515150448,
+        0.4697114749612436,
+        0.8826440861242408,
+        0.035669002888921324
+      ],
+      [
+        0.017000409338162856,
+        -0.8827943159545668,
+        0.4694520015940322,
+        0.632412282369847
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\013\\cam_039422061216.png",
+    "rgb_sha256": "1a50f90da19a41557d500c929ab380c967b27434987350404c36d2e48c09ac69",
+    "depth_file": "datasets\\fixedBoard\\013\\cam_039422061216_depth.png",
+    "depth_sha256": "e4f7e410a5b43325d77be87da64a35f1b4ff201302d666e403a8c6c6f47c9130"
+  },
+  {
+    "event_id": 13,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 15,
+    "pnp_reprojection_rmse_px": 0.6254615853993866,
+    "T_camera_board": [
+      [
+        -0.8121509129927479,
+        -0.583289189232377,
+        0.013587356243291882,
+        0.304980054464211
+      ],
+      [
+        0.1250819510187472,
+        -0.15131856790059883,
+        0.9805392376329747,
+        0.1025055010327163
+      ],
+      [
+        -0.5698819176411808,
+        0.798045370096931,
+        0.19585246287055513,
+        0.6348600704680311
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\013\\cam_fixed2.png",
+    "rgb_sha256": "71370dc2aac6a7ca6833f1df95185476af1d934d4a1f87e916e395232d965b40",
+    "depth_file": "datasets\\fixedBoard\\013\\cam_fixed2_depth.png",
+    "depth_sha256": "3806a9d16360775f6d8658e144538f29500bfff7653f521f529266cb34a169e9"
+  },
+  {
+    "event_id": 13,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.2418947176159225,
+    "T_camera_board": [
+      [
+        0.9861134053622636,
+        0.1655845907606285,
+        -0.012731656116755719,
+        -0.06946645823040823
+      ],
+      [
+        -0.1655677718405301,
+        0.9742409403937731,
+        -0.15310748834860702,
+        -0.07637833612372824
+      ],
+      [
+        -0.012948540172633598,
+        0.15308929865699902,
+        0.9881275231184009,
+        0.4937824662306532
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\013\\cam_gripper.png",
+    "rgb_sha256": "e778ba3dd0388eeee31fb8e2c0e4b68b112c731f807f8611cf36c2c23134585f",
+    "depth_file": "datasets\\fixedBoard\\013\\cam_gripper_depth.png",
+    "depth_sha256": "89392460d995b1924de71db49b8066e0e7fb566b2c3597c7ff080be3f3c2ce97"
+  },
+  {
+    "event_id": 13,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 39,
+    "pnp_reprojection_rmse_px": 0.5049577429068705,
+    "T_camera_board": [
+      [
+        -0.8689145539986277,
+        0.4947270941571245,
+        -0.01525123457998348,
+        -0.04678389132486059
+      ],
+      [
+        -0.17796015346621702,
+        -0.2835113560550795,
+        0.9423117821433047,
+        0.11347239043207218
+      ],
+      [
+        0.4618632715724932,
+        0.8215025339551048,
+        0.33438885310024336,
+        0.4279281579665487
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\013\\cam_fixed3.png",
+    "rgb_sha256": "9a62ac6db316e8d51227ba82d3676a814ec8584d59893cce3acc8920adb5f156",
+    "depth_file": "datasets\\fixedBoard\\013\\cam_fixed3_depth.png",
+    "depth_sha256": "12247e9edad586a21b6f663f0c5c47965bc6c7c8618cfc3e9d121a7bee7a2b38"
+  },
+  {
+    "event_id": 14,
+    "camera": "0",
+    "included": true,
+    "reason": null,
+    "detected_corners": 47,
+    "pnp_reprojection_rmse_px": 0.4448824984828609,
+    "T_camera_board": [
+      [
+        0.999697210157388,
+        0.0070971970377803175,
+        -0.023560937963966962,
+        -0.010259995812290975
+      ],
+      [
+        0.017466690386921464,
+        0.46976030915358175,
+        0.8826211909255628,
+        0.03568257900939392
+      ],
+      [
+        0.017332130003620525,
+        -0.8827654738027186,
+        0.46949410596023394,
+        0.6324200797539111
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\014\\cam_039422061216.png",
+    "rgb_sha256": "18e6a14542538a3bc6ceccfe918895a6d81febc87b7a3953f7289185ea5d9e64",
+    "depth_file": "datasets\\fixedBoard\\014\\cam_039422061216_depth.png",
+    "depth_sha256": "e550d3c923c9321207942419f079436b6bf0901743e777a37bfb33c675777c07"
+  },
+  {
+    "event_id": 14,
+    "camera": "1",
+    "included": true,
+    "reason": null,
+    "detected_corners": 14,
+    "pnp_reprojection_rmse_px": 0.5994220306549891,
+    "T_camera_board": [
+      [
+        -0.8116272739450944,
+        -0.584020731398659,
+        0.013451895220762289,
+        0.30484242910273096
+      ],
+      [
+        0.1245530034594903,
+        -0.15050478270165224,
+        0.980731798053448,
+        0.10247097524340013
+      ],
+      [
+        -0.5707431274379702,
+        0.7976641496773591,
+        0.19489532267815257,
+        0.6343976995569034
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\014\\cam_fixed2.png",
+    "rgb_sha256": "15b59cdb4c40fe5ef80fd64e71fbab5ab0c4d55e854d88fe113274ababedbdef",
+    "depth_file": "datasets\\fixedBoard\\014\\cam_fixed2_depth.png",
+    "depth_sha256": "ebab9ea9fafd6f30e8ec8785d1bda2d777fd3c244f361d61dade12395d0b4a18"
+  },
+  {
+    "event_id": 14,
+    "camera": "2",
+    "included": true,
+    "reason": null,
+    "detected_corners": 60,
+    "pnp_reprojection_rmse_px": 0.28420878758811385,
+    "T_camera_board": [
+      [
+        0.8567368930707026,
+        0.42263820890252185,
+        -0.2955991211543566,
+        -0.22327130973157092
+      ],
+      [
+        -0.3820434451692824,
+        0.9050748424073306,
+        0.18676813337540055,
+        -0.041697168540286336
+      ],
+      [
+        0.3464746773643713,
+        -0.04707944367783272,
+        0.9368771658698064,
+        0.4325763896612901
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\014\\cam_gripper.png",
+    "rgb_sha256": "d33cb768860878b89069057ba883e6013f54b57b9ec308a6c6b31939161975d7",
+    "depth_file": "datasets\\fixedBoard\\014\\cam_gripper_depth.png",
+    "depth_sha256": "bad3fcdc82bfd554334604499e8e66068b0f6cca0be5983361071ddc882e6648"
+  },
+  {
+    "event_id": 14,
+    "camera": "3",
+    "included": true,
+    "reason": null,
+    "detected_corners": 43,
+    "pnp_reprojection_rmse_px": 0.5589431259823119,
+    "T_camera_board": [
+      [
+        -0.8684383444232284,
+        0.4955777253847578,
+        -0.014749916539138014,
+        -0.04683178755758453
+      ],
+      [
+        -0.17790523261358476,
+        -0.28371219484272403,
+        0.942261703936985,
+        0.11342991800582536
+      ],
+      [
+        0.46277918075919133,
+        0.8209202815133719,
+        0.33455241929458246,
+        0.4276598320937817
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "rgb_file": "datasets\\fixedBoard\\014\\cam_fixed3.png",
+    "rgb_sha256": "2e8b97ede8d602398e2b8c45ce7f73e8eea9a2da683e5d0ba3c96fa2900c3140",
+    "depth_file": "datasets\\fixedBoard\\014\\cam_fixed3_depth.png",
+    "depth_sha256": "6a022a2997313c523107e2956507d3fcf52da09ff5052d2ed83a6f96bfabc23e"
+  }
+]

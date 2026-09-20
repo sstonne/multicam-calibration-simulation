@@ -1,0 +1,71 @@
+{
+  "policy": "Existing common simulation held-out IDs 2,5,9,12; near-pose groups checked before fitting",
+  "near_translation_mm": 1.5,
+  "near_rotation_deg": 1.0,
+  "train_keys": [
+    "000",
+    "001",
+    "003",
+    "004",
+    "006",
+    "007",
+    "008",
+    "010",
+    "011",
+    "013",
+    "014"
+  ],
+  "heldout_keys": [
+    "002",
+    "005",
+    "009",
+    "012"
+  ],
+  "groups": [
+    [
+      0
+    ],
+    [
+      1
+    ],
+    [
+      2
+    ],
+    [
+      3
+    ],
+    [
+      4
+    ],
+    [
+      5
+    ],
+    [
+      6
+    ],
+    [
+      7
+    ],
+    [
+      8
+    ],
+    [
+      9
+    ],
+    [
+      10
+    ],
+    [
+      11
+    ],
+    [
+      12
+    ],
+    [
+      13
+    ],
+    [
+      14
+    ]
+  ]
+}

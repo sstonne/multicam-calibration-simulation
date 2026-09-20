@@ -274,3 +274,11 @@ if ($LASTEXITCODE -ne 0) { throw 'collect failed' }
 ```powershell
 .\.venv-unified\Scripts\python.exe -m pytest -q tests/test_unified_real_evaluation.py tests/test_real_evaluation.py
 ```
+
+## 10. FixedBoard 추가 캘리브레이션 결과 (2026-09-20)
+
+이 문서 작성 후 `datasets/fixedBoard`가 추가되어 cam2 그리퍼 카메라 eye-in-hand 캘리브레이션과 9월 9일 촬영 상태의 cam0·1·2·3 통합 pose를 별도로 계산했다. 고정 held-out에서 6개 방법 모두 성공했으며, 전체 4-camera 결과 범위는 Held-out 0.789–1.310 mm, Camera-pose consistency 1.492–1.670 mm, Registration consistency 2.260–3.244 mm, Reprojection 1.406–5.312 px다.
+
+Camera pose와 Registration은 이제 fixed-board held-out PnP reference에 대한 consistency로 계산됐으며 독립 물리 GT accuracy는 아니다. 또한 9월 9일 결과와 본문의 9월 10일 고정카메라 결과 사이에 약 60 mm 이상의 불일치가 있어 두 날짜의 행렬을 자동 통합하거나 교체하지 않았다.
+
+입력, 계산식, 6개 방법 결과, cam2 단독 결과 및 날짜 간 진단은 [FixedBoard 4-camera 캘리브레이션 및 평가 결과](fixed_board_calibration_evaluation_20260920.md)를 기준으로 한다.
