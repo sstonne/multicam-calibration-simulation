@@ -8,6 +8,8 @@
     3.0,
     5.0
   ],
+  "trials": 30,
+  "seed": 2026,
   "calibration_events": [
     0,
     1,
@@ -27,15 +29,29 @@
     12
   ],
   "wrist_intrinsics": "intrinsics/cam2.npz",
+  "provenance": {
+    "repository_commit": "33ca2aee9c0547234564e7109680a701cfd23f87",
+    "repository_dirty": true,
+    "python": "3.10.20",
+    "numpy": "2.2.6",
+    "scipy": "1.15.2",
+    "opencv": "4.13.0",
+    "tsai_park_horaud_andreff_daniilidis_shah": "OpenCV calib3d calibration_handeye.cpp (public implementation)",
+    "tabb": "SOTA_Simulation/tabb_solver.py: paper Eq. 5-17 reimplementation, not the authors' C++/Ceres code"
+  },
   "metric_scope": {
     "heldout": "mean board-pose chain error over four cameras and held-out poses",
     "camera_pose": "equal-camera mean extrinsic GT error; wrist evaluated in base at the reference pose",
     "registration": "mean GT error of all six pairwise relative camera transforms",
-    "reprojection": "pixel RMSE over all held-out corners and all four cameras"
+    "reprojection": "pixel RMSE over all held-out corners and all four cameras",
+    "per_camera": "records.csv also carries <camera>_* columns for the same metrics evaluated on one camera; registration is a camera-pair metric and has no per-camera value",
+    "status": "records.csv 'status' column: ok / nonfinite / solver_error:<type>"
   },
   "summary": {
     "shah": {
       "0.0": {
+        "trial_count": 30,
+        "failure_count": 0,
         "heldout_translation_error_mm_mean": 7.068492705457838e-07,
         "heldout_translation_error_mm_std": 1.076891489807835e-22,
         "heldout_rotation_error_deg_mean": 5.312439976453266e-08,
@@ -48,10 +64,12 @@
         "pairwise_registration_translation_error_mm_std": 0.0,
         "pairwise_registration_rotation_error_deg_mean": 1.833158266722832e-08,
         "pairwise_registration_rotation_error_deg_std": 0.0,
-        "heldout_reprojection_rmse_px_mean": 6.662416024029126e-07,
-        "heldout_reprojection_rmse_px_std": 1.076891489807835e-22
+        "heldout_reprojection_rmse_px_mean": 6.692624867921888e-07,
+        "heldout_reprojection_rmse_px_std": 2.15378297961567e-22
       },
       "1.0": {
+        "trial_count": 30,
+        "failure_count": 0,
         "heldout_translation_error_mm_mean": 0.7636562793357338,
         "heldout_translation_error_mm_std": 0.22604838995079854,
         "heldout_rotation_error_deg_mean": 0.2859587476275739,
@@ -64,10 +82,12 @@
         "pairwise_registration_translation_error_mm_std": 0.4835967438149438,
         "pairwise_registration_rotation_error_deg_mean": 0.2729004947801359,
         "pairwise_registration_rotation_error_deg_std": 0.07910795186699984,
-        "heldout_reprojection_rmse_px_mean": 2.424056452785889,
-        "heldout_reprojection_rmse_px_std": 0.06681152913540324
+        "heldout_reprojection_rmse_px_mean": 2.4273300638903925,
+        "heldout_reprojection_rmse_px_std": 0.06671954152192973
       },
       "3.0": {
+        "trial_count": 30,
+        "failure_count": 0,
         "heldout_translation_error_mm_mean": 2.2974244328600446,
         "heldout_translation_error_mm_std": 0.6465548073384699,
         "heldout_rotation_error_deg_mean": 0.857802666259339,
@@ -80,10 +100,12 @@
         "pairwise_registration_translation_error_mm_std": 1.4739012385811088,
         "pairwise_registration_rotation_error_deg_mean": 0.8189900083981884,
         "pairwise_registration_rotation_error_deg_std": 0.23775231844154215,
-        "heldout_reprojection_rmse_px_mean": 7.271753667371239,
-        "heldout_reprojection_rmse_px_std": 0.20632421254463493
+        "heldout_reprojection_rmse_px_mean": 7.281583838323653,
+        "heldout_reprojection_rmse_px_std": 0.20602595358822615
       },
       "5.0": {
+        "trial_count": 30,
+        "failure_count": 0,
         "heldout_translation_error_mm_mean": 3.8751940672135015,
         "heldout_translation_error_mm_std": 1.0637612762412827,
         "heldout_rotation_error_deg_mean": 1.4295775433620086,
@@ -96,8 +118,8 @@
         "pairwise_registration_translation_error_mm_std": 2.5774698979373043,
         "pairwise_registration_rotation_error_deg_mean": 1.3654811616427642,
         "pairwise_registration_rotation_error_deg_std": 0.39694157864136564,
-        "heldout_reprojection_rmse_px_mean": 12.116804235827088,
-        "heldout_reprojection_rmse_px_std": 0.35334111516371614
+        "heldout_reprojection_rmse_px_mean": 12.133212271699243,
+        "heldout_reprojection_rmse_px_std": 0.3528107514602919
       }
     }
   }

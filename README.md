@@ -93,14 +93,22 @@ T_base_wrist(k)
 │   ├── tsai_combined_demo.py
 │   ├── tsai_noise_sweep.py
 │   ├── opencv_multicam_evaluation.py
+│   ├── shah_solver.py
+│   ├── tabb_solver.py
+│   ├── tabb_shah_decomposition.py
 │   └── ...
 ├── docs/images/
 ├── docs/presentation/
 │   └── Cube-in-Hand_Calibration.pdf
 ├── examples/
-│   └── opencv_multicam_metrics_report.json
+│   ├── opencv_multicam_metrics_report.json
+│   ├── tsai_multicam_metrics/        # park, horaud, andreff, daniilidis, shah도 동일 구조
+│   ├── tabb_multicam_metrics/        # + shah_decomposition.json
+│   └── tabb_ablation_metrics/
 └── tests/
-    └── test_smoke.py
+    ├── test_smoke.py
+    ├── test_tabb_solver.py
+    └── ...
 ```
 
 ## 4. 설치
@@ -175,8 +183,9 @@ noise sample과 random seed를 공유한다.
 ### 6.1 다음에 적용할 robot-world/hand-eye baseline - 5가지 방법
 
 다음 두 방법만 우선 적용한다. **두 방법을 동시에 진행하지 않고, Shah를 끝낸 뒤
-Tabb & Ahmad Yousef로 넘어가는 것을 추천함!!** 아직 adapter가 구현되지 않았으므로 현재 README의 예시
-결과에는 두 방법이 포함되어 있지 않다.
+Tabb & Ahmad Yousef로 넘어가는 것을 추천함!!** 1·2단계(Shah, Tabb)는 구현·검증이
+끝났다. 다만 아래 9절의 예시 결과표는 기존 OpenCV 5개 방법 기준이라 두 방법이
+포함되어 있지 않다. 두 방법의 결과는 10절에 링크한 전용 문서에 있다.
 
 #### 1단계 — Shah (2013)
 
@@ -201,9 +210,15 @@ Tabb & Ahmad Yousef로 넘어가는 것을 추천함!!** 아직 adapter가 구�
 - 공개 논문: [arXiv](https://arxiv.org/abs/1907.12425)
 - 저자 구현: [`amy-tabb/RWHEC-Tabb-AhmadYousef`](https://github.com/amy-tabb/RWHEC-Tabb-AhmadYousef)
 - 작업 순서
-  1. 저자 저장소의 제공 예제를 먼저 빌드하고 재현
+  1. 논문 Eq. 5–17의 cost function을 직접 재구현하고, 22개 조합 전부에서 무잡음
+     ground truth 복원을 확인 — 저자 구현은 C++/Ceres라 이 저장소에 직접 붙이지
+     않았다. 재구현 근거와 원 구현과의 차이는
+     [`docs/tabb_calibration_evaluation.md`](docs/tabb_calibration_evaluation.md) 10절에 있다
   2. 사용할 cost function과 rotation parameterization을 논문 근거와 함께 하나로 고정
-  3. `SOTA_Simulation/adapter_template.py` 형식으로 입력 생성과 결과 변환 구현
+  3. 입력 생성과 결과 변환을 `SOTA_Simulation/tabb_solver.py`의 eye-in-hand /
+     eye-to-hand wrapper 안에서만 처리 — 외부 저장소를 그대로 호출하는 방법은
+     `SOTA_Simulation/adapter_template.py` 형식을 쓰고, 논문 식을 재구현하는
+     방법은 Shah와 같이 solver 모듈로 붙인다
   4. 무잡음(노이즈 0) 검증 후 Shah와 동일한 noise sweep 및 통합 평가 실행
 
 #### 3단계 — Allegro et al. (2024)
@@ -287,12 +302,40 @@ Tabb & Ahmad Yousef로 넘어가는 것을 추천함!!** 아직 adapter가 구�
 4. held-out evaluation
 
 ### 2단계 — Tabb 실행
-기존 Tabb adapter 실행 방법을 따른다.
+추가 파일:
+
+```text
+SOTA_Simulation/
+└── tabb_solver.py            # AX=ZB iterative solver (c1/c2/rp1/rp2)
+tests/
+└── test_tabb_solver.py       # zero-noise 검증
+```
+
 검증 순서:
-1. 공개 implementation example 재현
-2. cost function 및 parameterization 고정
+1. 논문 Eq. 5–17의 cost function 구현 및 transform 방향 확인
+2. cost function 및 parameterization 고정 — 대표 설정은 `c2 simultaneous`,
+   axis-angle (논문 Sec. 5.5의 권고)
 3. zero-noise 검증
+
+```bash
+python -m SOTA_Simulation.tabb_solver     # 22개 조합 zero-noise self test
+pytest tests/test_tabb_solver.py
+```
+
 4. Shah와 동일 noise sweep 수행
+
+```bash
+python SOTA_Simulation/opencv_multicam_evaluation.py \
+  --methods tabb_all shah \
+  --noise-mm 0 1 3 5 \
+  --trials 30 \
+  --seed 2026 \
+  --output examples/tabb_multicam_metrics
+```
+
+`tabb_all`은 논문 방법 사다리(`tabb_c1_sep`, `tabb_c1_sim`, `tabb_c2_sep`,
+`tabb_c2_sim`, `tabb_c2_sim_joint`, `tabb_rp1`, `tabb_rp1_joint`)로 펼쳐진다.
+대표 설정 하나만 쓰려면 `--methods tabb`.
 
 ### 3단계 — Allegro 실행
 추가 파일:
@@ -445,18 +488,24 @@ registration consistency를 함께 확인한다.
 - OpenCV 5개 방법
 - Camera 4대
 - Noise `0, 1, 3, 5 mm`
-- 조건별 30 trials
+- 조건별 30 trials, `--seed 2026`
 - 동일 trajectory와 paired noise
+- 원본: [`examples/opencv_multicam_metrics_report.json`](examples/opencv_multicam_metrics_report.json)
+  (`--methods all --noise-mm 0 1 3 5 --trials 30 --seed 2026`)
 
-무잡음에서는 모든 방법과 모든 지표가 numerical tolerance 안에서 0을 복원했다.
+무잡음에서는 모든 방법과 모든 지표가 numerical tolerance 안에서 0을 복원했다
+(translation `1.3e-06 … 8.3e-06 mm`, reprojection `1.0e-06 … 3.4e-06 px`).
+
+아래 표에서 **굵게** 표시한 값은 표시된 소수점 두 자리 기준의 최솟값이다. 두 방법이
+두 자리에서 같으면 둘 다 표시한다.
 
 ### 1 mm noise
 
 | 방법 | Held-out | Camera pose | Registration | Reprojection |
 | --- | ---: | ---: | ---: | ---: |
-| Tsai | 1.34 mm | 2.08 mm | 2.76 mm | 2.48 px |
-| Park | **1.24 mm** | **2.01 mm** | **2.63 mm** | **2.46 px** |
-| Horaud | **1.24 mm** | 2.01 mm | 2.64 mm | **2.46 px** |
+| Tsai | 1.33 mm | 2.08 mm | 2.76 mm | 2.48 px |
+| Park | **1.24 mm** | **2.01 mm** | **2.63 mm** | **2.47 px** |
+| Horaud | **1.24 mm** | **2.01 mm** | 2.64 mm | **2.47 px** |
 | Andreff | 3.35 mm | 3.86 mm | 5.56 mm | 5.14 px |
 | Daniilidis | 14.20 mm | 57.30 mm | 113.19 mm | 48.76 px |
 
@@ -465,20 +514,20 @@ registration consistency를 함께 확인한다.
 | 방법 | Held-out | Camera pose | Registration | Reprojection |
 | --- | ---: | ---: | ---: | ---: |
 | Tsai | 4.31 mm | 6.40 mm | 8.87 mm | 7.51 px |
-| Park | 3.71 mm | **6.03 mm** | **7.91 mm** | 7.39 px |
-| Horaud | **3.71 mm** | 6.03 mm | 7.92 mm | **7.39 px** |
-| Andreff | 20.00 mm | 21.27 mm | 32.56 mm | 36.89 px |
+| Park | **3.71 mm** | **6.03 mm** | **7.91 mm** | **7.40 px** |
+| Horaud | **3.71 mm** | **6.03 mm** | 7.92 mm | **7.40 px** |
+| Andreff | 20.00 mm | 21.27 mm | 32.56 mm | 36.90 px |
 | Daniilidis | 15.56 mm | 60.53 mm | 116.83 mm | 51.10 px |
 
 ### 5 mm noise
 
 | 방법 | Held-out | Camera pose | Registration | Reprojection |
 | --- | ---: | ---: | ---: | ---: |
-| Tsai | 8.04 mm | 11.46 mm | 16.98 mm | 12.78 px |
-| Park | 6.18 mm | **10.05 mm** | **13.19 mm** | 12.31 px |
-| Horaud | **6.18 mm** | 10.05 mm | 13.20 mm | **12.30 px** |
+| Tsai | 8.04 mm | 11.46 mm | 16.98 mm | 12.79 px |
+| Park | **6.18 mm** | **10.05 mm** | **13.19 mm** | **12.32 px** |
+| Horaud | **6.18 mm** | **10.05 mm** | 13.20 mm | **12.32 px** |
 | Andreff | 46.77 mm | 48.12 mm | 71.23 mm | 75.71 px |
-| Daniilidis | 17.10 mm | 63.80 mm | 120.51 mm | 53.38 px |
+| Daniilidis | 17.10 mm | 63.80 mm | 120.51 mm | 53.39 px |
 
 ![Integrated primary metrics](docs/images/integrated_primary_metrics.png)
 
@@ -505,10 +554,19 @@ SOTA_Simulation/outputs/opencv_multicam_metrics/
 └── figure2_rotation_metrics.png
 ```
 
-- `report.json`: split, metric 정의, method/noise별 mean과 standard deviation
-- `records.csv`: method/noise/trial별 모든 통합 지표
+- `report.json`: split, seed, trial 수, 사용한 구현과 dependency version(`provenance`),
+  metric 정의, method/noise별 mean과 sample standard deviation, 실패 trial 수(`failure_count`)
+- `records.csv`: method/noise/trial별 통합 지표와 **camera별 지표**
+  - `<camera>_camera_pose_*`, `<camera>_heldout_*`: wrist/cam0/cam1/cam3 각각의 값.
+    registration은 camera pair 지표라 camera 하나로 분해되지 않으므로 통합 값만 있다
+  - `status`: `ok` / `nonfinite` / `solver_error:<type>`. 실패한 trial도 삭제하지 않고
+    NaN으로 남기며, 통계는 `ok` 행에서만 계산한다
 - Figure 1: held-out, camera pose, registration, reprojection
 - Figure 2: held-out, camera pose, registration의 rotation error
+
+> Reprojection 지표만 `intrinsics/*.npz`를 사용한다. Intrinsic NPZ를 다시 계산하면
+> pose 지표는 그대로여도 reprojection 값은 달라지므로, 기존 결과를 함께 비교하려면
+> 모든 방법을 같은 intrinsic으로 다시 생성해야 한다.
 
 재현된 예시 report는 [`examples/opencv_multicam_metrics_report.json`](examples/opencv_multicam_metrics_report.json)에
 포함되어 있다.
@@ -532,6 +590,15 @@ JSON과 그래프는 [`examples/andreff_multicam_metrics/`](examples/andreff_mul
 Daniilidis 단독 30-trial 재현 결과와 실제 데이터 적용 요건은
 [`docs/daniilidis_calibration_evaluation.md`](docs/daniilidis_calibration_evaluation.md)에 정리했다. 원시 CSV,
 JSON과 그래프는 [`examples/daniilidis_multicam_metrics/`](examples/daniilidis_multicam_metrics/)에 있다.
+
+Shah(2013) 30-trial 재현 결과는
+[`docs/shah_calibration_evaluation.md`](docs/shah_calibration_evaluation.md)에,
+원시 CSV/JSON/그래프는 [`examples/shah_multicam_metrics/`](examples/shah_multicam_metrics/)에 있다.
+
+Tabb & Ahmad Yousef(2017)의 cost function 사다리(c1/c2 × separable/simultaneous,
+multi-eye joint, reprojection rp1) 30-trial 결과와 Shah 대비 비교는
+[`docs/tabb_calibration_evaluation.md`](docs/tabb_calibration_evaluation.md)에 정리했다. 원시 CSV,
+JSON과 그래프는 [`examples/tabb_multicam_metrics/`](examples/tabb_multicam_metrics/)에 있다.
 
 ## 11. 새로운 SOTA 방법을 붙일 때
 

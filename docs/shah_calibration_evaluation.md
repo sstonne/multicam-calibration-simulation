@@ -101,9 +101,9 @@ python SOTA_Simulation/opencv_multicam_evaluation.py `
 | Noise | Held-out chain | Camera pose | Registration | Held-out reprojection |
 | ---: | ---: | ---: | ---: | ---: |
 | 0 mm | 0.0000007 ± 0.0000000 mm / 0.00000005° | 0.0000008 ± 0.0000000 mm / 0.00000003° | 0.0000004 ± 0.0000000 mm / 0.00000002° | 0.0000007 ± 0.0000000 px |
-| 1 mm | 0.764 ± 0.226 mm / 0.286 ± 0.047° | 1.734 ± 0.379 mm / 0.191 ± 0.060° | 2.234 ± 0.484 mm / 0.273 ± 0.079° | 2.424 ± 0.067 px |
-| 3 mm | 2.297 ± 0.647 mm / 0.858 ± 0.141° | 5.183 ± 1.163 mm / 0.573 ± 0.181° | 6.665 ± 1.474 mm / 0.819 ± 0.238° | 7.272 ± 0.206 px |
-| 5 mm | 3.875 ± 1.064 mm / 1.430 ± 0.235° | 8.641 ± 2.012 mm / 0.956 ± 0.302° | 11.100 ± 2.577 mm / 1.365 ± 0.397° | 12.117 ± 0.353 px |
+| 1 mm | 0.764 ± 0.226 mm / 0.286 ± 0.047° | 1.734 ± 0.379 mm / 0.191 ± 0.060° | 2.234 ± 0.484 mm / 0.273 ± 0.079° | 2.427 ± 0.067 px |
+| 3 mm | 2.297 ± 0.647 mm / 0.858 ± 0.141° | 5.183 ± 1.163 mm / 0.573 ± 0.181° | 6.665 ± 1.474 mm / 0.819 ± 0.238° | 7.282 ± 0.206 px |
+| 5 mm | 3.875 ± 1.064 mm / 1.430 ± 0.235° | 8.641 ± 2.012 mm / 0.956 ± 0.302° | 11.100 ± 2.577 mm / 1.365 ± 0.397° | 12.133 ± 0.353 px |
 
 ![Integrated primary metrics](../examples/shah_multicam_metrics/figure1_integrated_metrics.png)
 
@@ -119,10 +119,10 @@ README 9절의 기존 예시 결과(동일 trajectory·seed·split)와 나란히
 
 | 방법 | Held-out | Camera pose | Registration | Reprojection |
 | --- | ---: | ---: | ---: | ---: |
-| **Shah** | **0.76 mm** | **1.73 mm** | **2.23 mm** | **2.42 px** |
-| Tsai | 1.34 mm | 2.08 mm | 2.76 mm | 2.48 px |
-| Park | 1.24 mm | 2.01 mm | 2.63 mm | 2.46 px |
-| Horaud | 1.24 mm | 2.01 mm | 2.64 mm | 2.46 px |
+| **Shah** | **0.76 mm** | **1.73 mm** | **2.23 mm** | **2.43 px** |
+| Tsai | 1.33 mm | 2.08 mm | 2.76 mm | 2.48 px |
+| Park | 1.24 mm | 2.01 mm | 2.63 mm | 2.47 px |
+| Horaud | 1.24 mm | 2.01 mm | 2.64 mm | 2.47 px |
 | Andreff | 3.35 mm | 3.86 mm | 5.56 mm | 5.14 px |
 | Daniilidis | 14.20 mm | 57.30 mm | 113.19 mm | 48.76 px |
 
@@ -130,23 +130,23 @@ README 9절의 기존 예시 결과(동일 trajectory·seed·split)와 나란히
 
 | 방법 | Held-out | Camera pose | Registration | Reprojection |
 | --- | ---: | ---: | ---: | ---: |
-| **Shah** | **2.30 mm** | **5.18 mm** | **6.66 mm** | **7.27 px** |
+| **Shah** | **2.30 mm** | **5.18 mm** | **6.66 mm** | **7.28 px** |
 | Tsai | 4.31 mm | 6.40 mm | 8.87 mm | 7.51 px |
-| Park | 3.71 mm | 6.03 mm | 7.91 mm | 7.39 px |
-| Horaud | 3.71 mm | 6.03 mm | 7.92 mm | 7.39 px |
-| Andreff | 20.00 mm | 21.27 mm | 32.56 mm | 36.89 px |
+| Park | 3.71 mm | 6.03 mm | 7.91 mm | 7.40 px |
+| Horaud | 3.71 mm | 6.03 mm | 7.92 mm | 7.40 px |
+| Andreff | 20.00 mm | 21.27 mm | 32.56 mm | 36.90 px |
 | Daniilidis | 15.56 mm | 60.53 mm | 116.83 mm | 51.10 px |
 
 **5 mm noise**
 
 | 방법 | Held-out | Camera pose | Registration | Reprojection |
 | --- | ---: | ---: | ---: | ---: |
-| **Shah** | **3.88 mm** | **8.64 mm** | **11.10 mm** | **12.12 px** |
-| Tsai | 8.04 mm | 11.46 mm | 16.98 mm | 12.78 px |
-| Park | 6.18 mm | 10.05 mm | 13.19 mm | 12.31 px |
-| Horaud | 6.18 mm | 10.05 mm | 13.20 mm | 12.30 px |
+| **Shah** | **3.88 mm** | **8.64 mm** | **11.10 mm** | **12.13 px** |
+| Tsai | 8.04 mm | 11.46 mm | 16.98 mm | 12.79 px |
+| Park | 6.18 mm | 10.05 mm | 13.19 mm | 12.32 px |
+| Horaud | 6.18 mm | 10.05 mm | 13.20 mm | 12.32 px |
 | Andreff | 46.77 mm | 48.12 mm | 71.23 mm | 75.71 px |
-| Daniilidis | 17.10 mm | 63.80 mm | 120.51 mm | 53.38 px |
+| Daniilidis | 17.10 mm | 63.80 mm | 120.51 mm | 53.39 px |
 
 ### 해석
 
